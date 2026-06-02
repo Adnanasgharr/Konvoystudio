@@ -1,15 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import { ReactLenis } from "lenis/react"; // 👈 add this
+import localFont from "next/font/local";
+import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const neueHaas = localFont({
+  src: "./fonts/NeueHaasDisplayMedium.ttf",
+  weight: "500",
+  variable: "--font-neue-haas",
+  
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const abcArizona = localFont({
+  src: "./fonts/ABCArizonaSerif-Light.ttf",
+  weight: "400",
+  variable: "--font-abc-arizona",
+})
+
+const oldSchool = localFont({
+  src: "./fonts/OldschoolGrotesk-NormalRegular.otf",
+  weight: "400",
+  variable: "--font-old-school",
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -18,11 +32,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" >
+      <body className={`${neueHaas.className} ${abcArizona.variable} ${oldSchool.variable} antialiased `}>
+        <CustomCursor />
+        <ReactLenis root> 
+          <Navbar />
+          {children}
+          <Footer />
+        </ReactLenis>
+      </body>
     </html>
   );
 }
