@@ -88,8 +88,8 @@ const Page = () => {
           start: "top top",
           end: "bottom top",
           scrub: 0.8,
-         },
-       });
+        },
+      });
 
       gsap.to(videoInnerRef.current, {
         borderRadius: 0,
@@ -135,10 +135,7 @@ const Page = () => {
           <div className="w-full z-10 md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr]">
             <div className="w-full">
               
-              {/* 🎯 THE UNIFIED SEMANTIC H1 ELEMENT:
-                Keeps content clean and grouped under a single heading tag.
-                Uses adaptive mobile flex layouts to preserve the inline interactive media notch layout.
-              */}
+              {/* Unified Semantic H1 Element */}
               <h1 className="text-white font-old-school tracking-tight leading-[1] md:leading-tight">
                 
                 {/* Desktop Layout presentation view */}
@@ -170,9 +167,10 @@ const Page = () => {
                         ref={videoContainerMobileRef}
                         onClick={toggleMute}
                         style={mobileMaskStyles}
-                        className="w-full h-full bg-neutral-950 border border-neutral-900 shadow-xl overflow-hidden rounded-2xl rounded-bl-none pointer-events-auto block"
+                        data-cursor="video"
+                        data-video-muted={isMuted.toString()}
+                        className="w-full h-full bg-neutral-950 border border-neutral-900 shadow-xl overflow-hidden rounded-2xl rounded-bl-none pointer-events-auto block cursor-none"
                       >
-                        {/* Accessible Hidden Video Title Descriptor for bots */}
                         <span className="sr-only">Konvoy Studio Showreel - Digital Agency Creative Work Samples</span>
                         <video 
                           ref={videoElRef}
@@ -195,23 +193,22 @@ const Page = () => {
               </h1>
 
               {/* Keyword-Rich Semantic Summary Paragraph */}
-              <p className="text-base md:text-xl leading-tight font-old-school text-neutral-400 py-5 md:pb-4 max-w-xl md:max-w-none">
+              <p className="text-lg md:text-xl leading-tight font-old-school text-neutral-400 py-8 md:py-0 md:pb-4 max-w-xl md:max-w-none">
                 Konvoy Studio delivers custom websites, creative graphic design,
                 and high-quality video editing services for startups, businesses,
                 and personal brands.
               </p>
 
-              {/* Action Link Blocks (Includes ARIA labels if button content lacks descriptive text) */}
+              {/* Action Link Blocks */}
               <div className="flex gap-4">
                 <BookCallButton aria-label="Book a strategic discovery consultation call" />
-                <Button text="View Our Work" variant="secondary" aria-label="Browse portfolio and case studies" />
+                <Button text="Our Work" variant="secondary" aria-label="Browse portfolio and case studies" />
               </div>
             </div>
           </div>
 
           {/* BACKGROUND BRANDING LOGO VECTOR MARQUEE */}
-          <div className="absolute bottom-0 left-0 w-full pointer-events-none select-none">
-            {/* Added semantic aria labels so text in decorative SVGs doesn't clutter raw indexing buffers */}
+          <div className="hidden md:block absolute bottom-0 left-0 w-full pointer-events-none select-none">
             <svg viewBox="0 0 1000 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
               <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="130" fontWeight="600" letterSpacing="-5">
                 KONVOY STUDIO
@@ -228,6 +225,8 @@ const Page = () => {
             <div 
               ref={videoInnerRef} 
               onClick={toggleMute}
+              data-cursor="video"
+              data-video-muted={isMuted.toString()}
               className="h-full w-full overflow-hidden rounded-2xl cursor-none"
             >
               <span className="sr-only">Konvoy Studio Design Showreel Portfolio Video</span>

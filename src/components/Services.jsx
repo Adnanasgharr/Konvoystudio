@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import ElasticPillButton from "@/components/ElasticPillButton";
+import Button from "./Button";
 
 const services = [
   { title: "Brand Identity", image: "/images/brand.jpg" },
@@ -91,19 +91,23 @@ const Services = () => {
 
           {/* Value Prop Block */}
           <div className="md:col-span-4 md:pt-2">
-            <h2 className="text-[#242021] text-2xl sm:text-3xl md:text-2xl lg:text-4xl font-bold leading-tight tracking-tight">
+            <h2 className="text-[#242021] text-2xl sm:text-3xl md:text-2xl lg:text-4xl font-old-school font-bold leading-tight tracking-tight">
               How we take your business to the next level
             </h2>
           </div>
 
           {/* Description Paragraph & CTA Button Block */}
           <div className="md:col-span-3 flex flex-col items-start gap-6 md:pt-2">
-            <p className="text-[#242021] text-base lg:text-lg font-old-school leading-relaxed text-neutral-700">
+            <p className="text-[#242021] text-base lg:text-lg font-old-school leading-tight text-neutral-700">
               We are a digital marketing agency with expertise, and we're on a
               mission to help you take the next step in your business.
             </p>
             <div className="w-full sm:w-auto">
-              <ElasticPillButton />
+              <Button
+                text="See all Services"
+                variant="primary"
+                aria-label="View all services offered by Konvoy Studio"
+              />
             </div>
           </div>
 

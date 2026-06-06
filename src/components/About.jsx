@@ -21,10 +21,8 @@ const AboutSection = () => {
           {/* Right Column */}
           <div className="col-span-12 md:col-span-8 flex flex-col items-start gap-8 sm:gap-10 lg:gap-12">
             
-            <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-old-school leading-[1.15] md:leading-[1.1] tracking-tight">
-              An independent web design and branding agency in Manchester set up
-              in 2010 who care, build relationships, have industry experience,
-              and win awards.
+            <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl font-old-school leading-[1.15] md:leading-[1.1] tracking-tight">
+             An independent web development and creative agency in Karachi — built by developers and designers who care about craft, move fast, and deliver work that actually performs.
             </h1>
 
             {/* CTA */}
