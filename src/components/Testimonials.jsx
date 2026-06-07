@@ -11,7 +11,7 @@ const testimonialData = [
     avatar: "/images/avatar1.jpg", 
     mediaType: "image",
     mediaUrl: "/images/avatar1.jpg", 
-    quote: "Everyone at Shape works hard and produce excellent work and are super friendly and make you feel really welcome and valued.",
+    quote: "Everyone works hard and produce excellent work and are super friendly and make you feel really welcome and valued.",
   },
   {
     id: 2,
@@ -32,6 +32,26 @@ const testimonialData = [
     mediaType: "video",
     mediaUrl: "/videos/testimonial-clip.mp4", 
     quote: "Working with Konvoy Studio was smooth from start to finish. They listened, understood what I wanted, and delivered — maybe even better than I imagined.",
+  },
+  {
+    id: 4,
+    name: "Marcus Chen",
+    role: "Design Director",
+    company: "Vanguard UI",
+    avatar: "/images/avatar1.jpg",
+     mediaType: "video",
+    mediaUrl: "/videos/testimonial-clip.mp4",
+    quote: "The creative autonomy and technical execution matched seamlessly. It is rare to find partners who understand both aesthetic precision and clean performance optimization.",
+  },
+  {
+    id: 5,
+    name: "Elena Rostova",
+    role: "Technical Lead",
+    company: "Aether Engine",
+    avatar: "/images/avatar2.jpg",
+     mediaType: "video",
+    mediaUrl: "/videos/testimonial-clip.mp4",
+    quote: "Architectural integrity was maintained through every phase of implementation. Complex requirements were simplified into elegant modules without bloat.",
   }
 ];
 
@@ -40,27 +60,52 @@ const AUTOPLAY_INTERVAL = 7000;
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
+  const progressTimerRef = useRef(null);
+  
+  const current = testimonialData[activeIndex];
 
-  // Autoplay loop running safely alongside static/video logic
+  // Precision Progress Countdown Indicator
   useEffect(() => {
-    if (isPlaying) return;
+    if (isPlaying) {
+      if (progressTimerRef.current) clearInterval(progressTimerRef.current);
+      return;
+    }
 
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonialData.length);
-    }, AUTOPLAY_INTERVAL);
+    const startTime = Date.now() - (progress * AUTOPLAY_INTERVAL) / 100;
 
-    return () => clearInterval(interval);
-  }, [isPlaying]);
+    progressTimerRef.current = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const computedProgress = Math.min((elapsed / AUTOPLAY_INTERVAL) * 100, 100);
+      
+      if (computedProgress >= 100) {
+        setProgress(0);
+        setActiveIndex((prev) => (prev + 1) % testimonialData.length);
+      } else {
+        setProgress(computedProgress);
+      }
+    }, 50);
 
-  // Clean playstates instantly on switch
+    return () => {
+      if (progressTimerRef.current) clearInterval(progressTimerRef.current);
+    };
+  }, [activeIndex, isPlaying, progress]);
+
+  // Clean state resets when changing slides
   useEffect(() => {
     setIsPlaying(false);
+    setProgress(0);
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
   }, [activeIndex]);
+
+  const handleManualSelection = (index) => {
+    if (index === activeIndex) return;
+    setActiveIndex(index);
+  };
 
   const handlePlayToggle = (e) => {
     e.stopPropagation();
@@ -77,6 +122,9 @@ const Testimonials = () => {
     }
   };
 
+  // 100-based stroke length mapping for the rectangular loader track
+  const strokeDashoffset = 100 - progress;
+
   return (
     <section 
       className="w-full bg-[#111111] text-white py-16 sm:py-24 lg:py-32"
@@ -87,10 +135,10 @@ const Testimonials = () => {
         {/* ASYMMETRIC HEADING STRUCTURE */}
         <div className="w-full flex flex-col gap-6 md:gap-10 mb-16 md:mb-24">
           <div>
-            <h1 className="text-white text-4xl sm:text-6xl md:text-8xl font-abc-arizona leading-[0.9]">
+            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
               Don't take my
             </h1>
-            <h1 className="text-white text-4xl sm:text-6xl md:text-8xl font-bold leading-[0.9]">
+            <h1 className="text-white  text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
               Word for it
             </h1>
           </div>
@@ -112,28 +160,63 @@ const Testimonials = () => {
           {/* Left Layout Column */}
           <div className="flex flex-col justify-between self-stretch flex-1 md:max-w-[70%] lg:max-w-[74%]">
             
-            {/* Interactive Avatars Bar */}
-            <div className="flex flex-wrap gap-3 mb-8" role="tablist" aria-label="Client Testimonials">
+            {/* Interactive Avatars Bar - Now Rounded Squares with Rectangular Progress Borders */}
+            <div className="flex flex-wrap gap-1 mb-8 items-center" role="tablist" aria-label="Client Testimonials">
               {testimonialData.map((item, index) => {
                 const isActive = index === activeIndex;
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setActiveIndex(index)}
-                    role="tab                    aria-selected={isActive}"
-                    className={`relative w-11 h-11 sm:w-13 sm:h-13 rounded-xl overflow-hidden border-2 transition-all duration-300 transform active:scale-95 ${
-                      isActive 
-                        ? "border-[#242021] scale-105 shadow-sm" 
-                        : "border-transparent opacity-60 hover:opacity-100"
-                    }`}
+                    onClick={() => handleManualSelection(index)}
+                    role="tab"
+                    aria-selected={isActive}
+                    className="relative w-16 h-16 flex items-center justify-center group outline-none"
                   >
-                    <Image
-                      src={item.avatar}
-                      alt={`Read testimonial from ${item.name}`}
-                      fill
-                      sizes="52px"
-                      className="object-cover"
-                    />
+                    {/* SVG Rectangular Progress Border Ring matching squircle bounding */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 64 64">
+                      {/* Background Track Frame */}
+                      <rect
+                        x="5"
+                        y="5"
+                        width="54"
+                        height="54"
+                        rx="12"
+                        fill="transparent"
+                        stroke={isActive ? "rgba(36, 32, 33, 0.15)" : "transparent"}
+                        strokeWidth="2.5"
+                      />
+                      {/* Active Filling Progress Frame Indicator */}
+                      {isActive && (
+                        <rect
+                          x="5"
+                          y="5"
+                          width="54"
+                          height="54"
+                          rx="12"
+                          fill="transparent"
+                          stroke="#242021"
+                          strokeWidth="2.5"
+                          pathLength="100"
+                          strokeDasharray="100"
+                          strokeDashoffset={strokeDashoffset}
+                          strokeLinecap="round"
+                          className="transition-all duration-75 ease-linear"
+                        />
+                      )}
+                    </svg>
+
+                    {/* Inner Avatar Frame - Clean Squircle */}
+                    <div className={`relative w-[46px] h-[46px] rounded-xl overflow-hidden transition-all duration-300 ${
+                      isActive ? "scale-100" : "scale-95 opacity-50 group-hover:opacity-100"
+                    }`}>
+                      <Image
+                        src={item.avatar}
+                        alt={`Read testimonial from ${item.name}`}
+                        fill
+                        sizes="46px"
+                        className="object-cover"
+                      />
+                    </div>
                   </button>
                 );
               })}
@@ -174,12 +257,13 @@ const Testimonials = () => {
                         </p>
                       </blockquote>
 
+                      {/* Meta Stack - Aligned cleanly to the far left with company names displayed */}
                       <div itemProp="author" itemScope itemType="https://schema.org/Person" className="mt-4 flex flex-col">
                         <h3 itemProp="name" className="text-sm sm:text-base font-bold leading-none mb-1">
                           {item.name}
                         </h3>
                         <p className="text-xs sm:text-sm text-neutral-700 font-medium">
-                          {item.role}
+                          {item.role} <span className="text-neutral-500 mx-1">—</span> {item.company}
                         </p>
                       </div>
                     </div>
@@ -202,7 +286,6 @@ const Testimonials = () => {
                   }`}
                 >
                   {item.mediaType === "video" ? (
-                    /* Only load the heavy video DOM element if this specific slide is active */
                     isActive && (
                       <div className="w-full h-full relative">
                         <video

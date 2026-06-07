@@ -110,10 +110,10 @@ const ProjectCard = ({ project, isVideoMuted, sectionBgColor }) => {
       onMouseLeave={handleMouseLeave}
       data-cursor={project.video ? "video" : "website"}
       data-video-muted={isVideoMuted}
-      className="md:cursor-none group w-full flex flex-col relative"
+      className=" group w-full flex flex-col relative"
     >
       {/* CONTAINER WRAPPER */}
-      <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] mb-4 bg-transparent select-none rounded-[1.5rem]">
+      <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] mb-4 bg-transparent  rounded-[1.5rem]">
         
         {/* ISOLATED MEDIA CONTAINER */}
         <div className="absolute inset-0 w-full h-full overflow-hidden rounded-[1.5rem] z-10">
@@ -228,26 +228,30 @@ const Work = () => {
   return (
     <section 
       ref={sectionRef}
-      className="w-full min-h-screen relative overflow-hidden select-none md:cursor-none transition-colors duration-1000 ease-out"
+      className="w-full min-h-screen relative overflow-hidden   transition-colors duration-1000 ease-out"
       style={{ backgroundColor: currentBgColor }}
       onClick={handleGlobalClick}
     >
       <div className="mx-auto pt-12 md:pt-20 max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-16 transition-colors duration-1000">
         
-        <div className="grid grid-cols-12 gap-6 md:gap-8 mb-12 md:mb-16 mix-blend-difference">
-          <div className="col-span-12 md:col-span-5">
-            <h1 className="text-white text-4xl sm:text-6xl md:text-8xl font-abc-arizona leading-[0.9]">
-              Featured
+       {/* ASYMMETRIC HEADING STRUCTURE */}
+        <div className="w-full flex flex-col gap-6 md:gap-10 mb-16 md:mb-24">
+          <div>
+            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
+              Featured 
             </h1>
-            <h1 className="text-white text-4xl sm:text-6xl md:text-8xl font-bold leading-[0.9]">
+            <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
               Work
             </h1>
           </div>
 
-          <div className="col-span-12 md:col-start-7 md:col-span-4 flex items-end">
-            <h2 className="text-white/80 text-base sm:text-lg md:text-2xl font-medium leading-relaxed">
-              Featured projects meticulously crafted to drive results and impact.
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+            <div className="md:col-start-5 md:col-span-3 text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-mono pt-1">
+              (PROJECTS)
+            </div>
+            <p className="md:col-span-5 text-neutral-400 text-sm sm:text-base lg:text-lg font-old-school leading-relaxed max-w-[42ch]">
+            A curated selection of featured projects, each meticulously crafted with passion and intention, designed to drive measurable results and create meaningful impact for the people we build for.
+            </p>
           </div>
         </div>
 
