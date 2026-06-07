@@ -155,13 +155,13 @@ const Testimonials = () => {
         </div>
 
         {/* Main Card Container */}
-        <div className="w-full bg-[#c8f135] text-[#242021] rounded-[28px] p-6 sm:p-10 md:p-14 flex flex-col md:flex-row justify-between gap-10 items-center min-h-[460px] relative overflow-hidden">
+        <div className="w-full bg-[#c8f135] text-[#242021] rounded-[28px] p-6 sm:p-10 md:p-14 flex flex-col-reverse md:flex-row justify-between gap-10 items-center min-h-[460px] relative overflow-hidden">
           
           {/* Left Layout Column */}
-          <div className="flex flex-col justify-between self-stretch flex-1 md:max-w-[70%] lg:max-w-[74%]">
+          <div className="flex flex-col justify-between self-stretch flex-1 md:max-w-[70%] lg:max-w-[74%] w-full">
             
-            {/* Interactive Avatars Bar - Now Rounded Squares with Rectangular Progress Borders */}
-            <div className="flex flex-wrap gap-1 mb-8 items-center" role="tablist" aria-label="Client Testimonials">
+            {/* Interactive Avatars Bar - Responsive size & strict single line layout */}
+            <div className="flex flex-nowrap gap-0 sm:gap-3 mb-8 items-center w-full overflow-visible" role="tablist" aria-label="Client Testimonials">
               {testimonialData.map((item, index) => {
                 const isActive = index === activeIndex;
                 return (
@@ -170,7 +170,7 @@ const Testimonials = () => {
                     onClick={() => handleManualSelection(index)}
                     role="tab"
                     aria-selected={isActive}
-                    className="relative w-16 h-16 flex items-center justify-center group outline-none"
+                    className="relative w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center group outline-none shrink-0"
                   >
                     {/* SVG Rectangular Progress Border Ring matching squircle bounding */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 64 64">
@@ -205,15 +205,15 @@ const Testimonials = () => {
                       )}
                     </svg>
 
-                    {/* Inner Avatar Frame - Clean Squircle */}
-                    <div className={`relative w-[46px] h-[46px] rounded-xl overflow-hidden transition-all duration-300 ${
+                    {/* Inner Avatar Frame - Clean Scalable Squircle */}
+                    <div className={`relative w-[72%] h-[72%] rounded-[22%] overflow-hidden transition-all duration-300 ${
                       isActive ? "scale-100" : "scale-95 opacity-50 group-hover:opacity-100"
                     }`}>
                       <Image
                         src={item.avatar}
                         alt={`Read testimonial from ${item.name}`}
                         fill
-                        sizes="46px"
+                        sizes="(max-width: 480px) 32px, (max-width: 768px) 46px, 46px"
                         className="object-cover"
                       />
                     </div>
