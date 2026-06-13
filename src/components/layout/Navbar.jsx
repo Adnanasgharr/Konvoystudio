@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import BookCallButton from "../BookCallButton";
+import BookCallButton from "../ui/BookCallButton";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -288,8 +288,8 @@ const Navbar = () => {
 
           {/* ACTION BUTTON WRAPPER */}
           <div className="flex items-center gap-3 sm:gap-5 shrink-0 z-[110]">
-            <div className="hidden xs:block">
-              <BookCallButton />
+            <div className="hidden md:block">
+              <BookCallButton aria-label="Book a strategic discovery consultation call" />
             </div>
 
             {/* AWWWARDS BURGER BUTTON METER ENGINE:

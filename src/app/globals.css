@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-abc-arizona: var(--font-abc-arizona);
   --font-old-school: var(--font-old-school);
+  --font-rl-madena: var(--font-rl-madena);
 }
 
 @media (prefers-color-scheme: dark) {

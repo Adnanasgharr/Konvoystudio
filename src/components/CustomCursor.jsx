@@ -35,8 +35,8 @@ export default function CustomCursor() {
         gsap.to(cursor, {
           width: 100,
           height: 100,
-          backgroundColor: "#4ade80",
-          mixBlendMode: "normal",
+          backgroundColor: "#ffffff",
+        mixBlendMode: "difference",
           color: "#000000",
           fontSize: "24px",
           duration: 0.3,
@@ -50,8 +50,8 @@ export default function CustomCursor() {
         gsap.to(cursor, {
           width: 96,
           height: 96,
-          backgroundColor: "#ffffff",
-          mixBlendMode: "normal",
+        backgroundColor: "#ffffff",
+        mixBlendMode: "difference",
           color: "#000000",
           fontSize: "12px",
           letterSpacing: "0.1em",
@@ -63,8 +63,8 @@ export default function CustomCursor() {
         gsap.to(cursor, {
           width: 96,
           height: 96,
-          backgroundColor: "#c8f135",
-          mixBlendMode: "normal",
+         backgroundColor: "#ffffff",
+        mixBlendMode: "difference",
           color: "#000000",
           fontSize: "24px",
           duration: 0.3,
