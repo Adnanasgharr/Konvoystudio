@@ -6,25 +6,25 @@ const valuesData = [
     id: "01",
     title: "Creatively Curious",
     description:
-      "We thrive on the unconventional and champion bold, original ideas. Our love of learning fuels our drive to explore uncharted territories in our designs and thinking.",
+      "We push past the obvious and chase ideas worth getting excited about. Curiosity is built into everything we do and keeps our work fresh, our thinking sharp, and our designs from looking like everyone else's.",
   },
   {
     id: "02",
     title: "Freedom to Lead",
     description:
-      "Empowerment drives our studio forward. We give our thinkers and creators the autonomous space required to make radical architectural design decisions without structural friction.",
+      "We take ownership of our work and trust each other to get things done right. Every person on the team knows their role, owns their decisions, and holds themselves to a standard they are proud of.",
   },
   {
     id: "03",
     title: "Design Excellence",
     description:
-      "Good enough is the enemy of memorable. We meticulously refine interactions down to the micro-millisecond, pushing systems until they yield premium, high-performance results.",
+      "We are dedicated to our craft and committed to delivering exceptional results in every project we take on. Good enough has never been an option for us and it never will be.",
   },
   {
     id: "04",
     title: "Collective Success",
     description:
-      "Great digital ecosystems are born from intense collaborative synchronicity. We integrate tightly with partners, sharing clear visions to build structures outlasting fast tech cycles.",
+      "We win together and we learn together. Every project, every result, every lesson belongs to the whole team. No single person takes the credit and no single person takes the blame.",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function MissionValues() {
                       
                       {/* Number Counter */}
                       <span
-                        className={`font-serif italic text-sm md:text-base mr-6 md:mr-12 transition-all duration-500 transform pt-0.5 sm:pt-1 lg:pt-0 ${
+                        className={`font-abc-arizona italic text-sm md:text-lg mr-6 md:mr-12 transition-all duration-500 transform pt-0.5 sm:pt-1 lg:pt-0 ${
                           isHovered
                             ? "text-[#0F1011] opacity-100 translate-x-0"
                             : "text-neutral-300 opacity-60 -translate-x-2"
@@ -149,7 +149,7 @@ export default function MissionValues() {
                         
                         {/* Heading Title */}
                         <h3
-                          className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-light tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
+                          className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
                             isHovered
                               ? "text-[#0F1011]"
                               : "text-[#0F1011]/40 group-hover:text-[#0F1011]/70"
@@ -167,7 +167,7 @@ export default function MissionValues() {
                           }`}
                         >
                           <div className="overflow-hidden">
-                            <p className="text-sm sm:text-base text-neutral-600 font-sans pb-2 leading-relaxed max-w-xl">
+                            <p className="text-sm sm:text-base text-neutral-600 font-old-school pb-2 leading-relaxed max-w-xl">
                               {val.description}
                             </p>
                           </div>
