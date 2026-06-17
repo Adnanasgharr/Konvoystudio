@@ -2,7 +2,7 @@ import React from "react";
 
 export default function AboutStory() {
   return (
-    <section className="w-full bg-[#FDFCF7] text-[#0F1011] py-16 sm:py-24 lg:py-32 border-t border-[#E4E2D9] relative z-10 select-none">
+    <section className="w-full bg-[#F1F1F1] text-[#0F1011] py-16 sm:py-24 lg:py-32 border-t border-[#E4E2D9] relative z-10 select-none">
       <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
         
         {/* Section Header Line */}

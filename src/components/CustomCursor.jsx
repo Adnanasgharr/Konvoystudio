@@ -2,16 +2,22 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+// Raw SVG markup string formatted with responsive sizing utility classes
+const arrowSVG = `
+  <svg class="w-7 h-7 fill-current transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+    <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
+  </svg>
+`;
+
 export default function CustomCursor() {
   const cursorRef = useRef(null);
   const textRef = useRef(null);
-  // Keep track of the active element we are currently hovering over
   const currentTargetRef = useRef(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     const textSpan = textRef.current;
-    if (!cursor) return;
+    if (!cursor || !textSpan) return;
 
     // 1. Single Global Position Engine
     const moveCursor = (e) => {
@@ -31,27 +37,25 @@ export default function CustomCursor() {
       gsap.killTweensOf(cursor);
       
       if (type === "service") {
-        textSpan.innerText = "↗";
+        textSpan.innerHTML = arrowSVG;
         gsap.to(cursor, {
           width: 100,
           height: 100,
           backgroundColor: "#ffffff",
-        mixBlendMode: "difference",
+          mixBlendMode: "difference",
           color: "#000000",
-          fontSize: "24px",
           duration: 0.3,
         });
       } 
       else if (type === "video") {
-        // Reads live, fresh mute attributes off the target element instantly
         const isMuted = target.getAttribute("data-video-muted") === "true";
-        textSpan.innerText = isMuted ? "UNMUTE" : "MUTE";
+        textSpan.innerHTML = isMuted ? "UNMUTE" : "MUTE";
         
         gsap.to(cursor, {
           width: 96,
           height: 96,
-        backgroundColor: "#ffffff",
-        mixBlendMode: "difference",
+          backgroundColor: "#ffffff",
+          mixBlendMode: "difference",
           color: "#000000",
           fontSize: "12px",
           letterSpacing: "0.1em",
@@ -59,14 +63,13 @@ export default function CustomCursor() {
         });
       } 
       else if (type === "website") {
-        textSpan.innerText = "↗";
+        textSpan.innerHTML = arrowSVG;
         gsap.to(cursor, {
           width: 96,
           height: 96,
-         backgroundColor: "#ffffff",
-        mixBlendMode: "difference",
+          backgroundColor: "#ffffff",
+          mixBlendMode: "difference",
           color: "#000000",
-          fontSize: "24px",
           duration: 0.3,
         });
       }
@@ -77,7 +80,7 @@ export default function CustomCursor() {
       const target = e.target.closest("[data-cursor]");
       if (!target) return;
 
-      currentTargetRef.current = target; // Store reference to the element
+      currentTargetRef.current = target;
       updateCursorVisuals(target);
     };
 
@@ -86,8 +89,8 @@ export default function CustomCursor() {
       const target = e.target.closest("[data-cursor]");
       if (!target) return;
 
-      currentTargetRef.current = null; // Clear active reference
-      textSpan.innerText = "";
+      currentTargetRef.current = null;
+      textSpan.innerHTML = "";
       gsap.killTweensOf(cursor);
       gsap.to(cursor, {
         width: 16,
@@ -98,10 +101,9 @@ export default function CustomCursor() {
       });
     };
 
-    // NEW: Global Click Listener to update strings instantly on tap
+    // Global Click Listener to update strings instantly on tap
     const handleGlobalClick = () => {
       if (currentTargetRef.current) {
-        // Force the text update immediately using the new state values
         updateCursorVisuals(currentTargetRef.current);
       }
     };

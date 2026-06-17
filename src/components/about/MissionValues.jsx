@@ -32,7 +32,7 @@ export default function MissionValues() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="w-full py-16 sm:py-24 lg:py-32 bg-[#FDFCF7] text-[#0F1011] relative z-10 select-none">
+    <section className="w-full py-16 sm:py-24 lg:py-32 bg-[#F1F1F1] text-[#0F1011] relative z-10 select-none">
       
       {/* =====================
           MISSION BLOCK

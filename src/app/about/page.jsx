@@ -3,7 +3,7 @@ import AboutHero from "@/components/about/AboutHero"; // Adjust this path based 
 import AboutStory from "@/components/about/AboutStory";
 import Metrics from "@/components/about/Metrics";
 import MissionValues from "@/components/about/MissionValues";
-import ClientWorldMap from "@/components/ClientWorldMap";
+import ClientWorldMap from "@/components/about/ClientWorldMap";
 
 export default function AboutPage() {
   return (

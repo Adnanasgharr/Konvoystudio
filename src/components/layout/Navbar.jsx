@@ -211,7 +211,7 @@ const Navbar = () => {
         >
           {/* BRAND LOGO ELEMENT */}
           <div className="flex items-center shrink-0 z-[110]">
-            <a href="#" className="text-white text-xl sm:text-2xl font-bold tracking-tight cursor-pointer">
+            <a href="/" className="text-white text-xl sm:text-2xl font-bold tracking-tight cursor-pointer">
               Konvoy<span className="text-[#c8f135]">.</span>
             </a>
           </div>
@@ -281,7 +281,7 @@ const Navbar = () => {
               </div>
             </li>
             <NavLink label="Work" href="#work" />
-            <NavLink label="About" href="#about" />
+            <NavLink label="About" href="/about" />
             <NavLink label="Blog" href="#blog" />
             <NavLink label="Contact" href="#contact" />
           </ul>
