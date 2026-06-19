@@ -7,8 +7,8 @@ import gsap from "gsap";
 const fullServicesList = [
   {
     id: "01",
-    slug: "brand-identity",
-    title: "Brand Identity",
+    slug: "graphic-design",
+    title: "Graphic Design",
     image: "/images/brand.jpg",
     description: "Forging bulletproof creative systems that establish dominant market authority.",
     subServices: [
@@ -116,7 +116,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
         }`}
       />
 
-      <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 lg:gap-12 pt-6 pb-6 sm:pt-8 sm:pb-8 lg:py-12 items-start w-full pr-2 md:pr-8 relative">
+      <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 lg:gap-12 pt-6 pb-6 sm:pt-8 sm:pb-8 lg:py-12  w-full pr-2 md:pr-8 relative">
 
         {/* DESKTOP SIDE PANEL */}
         <div className="w-full md:col-span-4 lg:col-span-5 hidden md:block mt-2 md:mt-0">
@@ -136,8 +136,10 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
 
           <div className="flex items-center w-full justify-between">
             <div className="flex items-center flex-1 min-w-0">
+              
+              {/* HIDDEN ON MOBILE */}
               <span
-                className={`font-abc-arizona italic text-sm sm:text-base md:text-xl mr-3 sm:mr-4 md:mr-8 transition-all duration-500 transform pt-0.5 ${
+                className={`font-abc-arizona italic text-sm sm:text-base md:text-xl mr-3 sm:mr-4 md:mr-8 transition-all duration-500 transform pt-0.5 hidden md:inline-block ${
                   isExpanded ? "text-[#242021] opacity-100 translate-x-0" : "text-neutral-400/60 opacity-60 -translate-x-1"
                 }`}
               >
@@ -146,7 +148,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
 
               <div
                 ref={imgWrapRef}
-                className="relative shrink-0 h-[50px] w-[50px] sm:h-[65px] sm:w-[65px] md:h-[70px] md:w-0 md:opacity-0 overflow-hidden rounded-md mr-4 md:mr-0 transition-all duration-300"
+                className="relative shrink-0 h-[70px] w-[80px] sm:h-[65px] sm:w-[65px] md:h-[70px] md:w-0 md:opacity-0 overflow-hidden rounded-xl mr-4 md:mr-0 transition-all duration-300"
               >
                 <Image
                   src={image}
@@ -158,8 +160,8 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               </div>
 
               <h1
-                className={`text-2xl sm:text-4xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
-                  isExpanded ? "text-[#242021] translate-x-1 md:translate-x-2" : "text-[#242021]/40 group-hover:text-[#242021]"
+                className={`text-4xl sm:text-4xl md:text-4xl lg:text-7xl font-old-school tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
+                  isExpanded ? "text-[#242021] translate-x-1 md:translate-x-2" : "text-[#000000] "
                 }`}
               >
                 {title}
@@ -179,8 +181,8 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               isExpanded ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-8 sm:pl-11">
-              <p className="text-sm sm:text-base text-neutral-600 font-old-school leading-relaxed max-w-xl">
+            <div className="overflow-hidden pl-[96px] sm:pl-[81px]">
+              <p className="text-lg md:text-xl leading-tight font-old-school text-neutral-400 max-w-xl">
                 {description}
               </p>
             </div>
@@ -192,7 +194,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               isExpanded ? "grid-rows-[1fr] opacity-100 mt-5 sm:mt-6 md:mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-8 sm:pl-11 md:pl-12 w-full">
+            <div className="overflow-hidden pl-[96px] sm:pl-[81px] md:pl-12 w-full">
               <ul className="flex flex-col gap-2 pb-4 w-full">
                 {subServices.map((sub, sIdx) => (
                   <li
@@ -203,19 +205,19 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
                     <Link
                       href={sub.href}
                       data-cursor="service"
-                    
                       className="flex items-center justify-between w-full py-3 px-4 rounded-md
-                                 text-emerald-500 bg-neutral-200/80
-                                 text-base sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight
-                                 transition-all duration-300 group/link"
+                                 text-emerald-900 bg-neutral-200/80
+                                 text-base sm:text-xl md:text-xl lg:text-3xl font-old-school tracking-tight
+                                 transition-all duration-300 hover:text-[#000000] group/link"
                     >
                       <span>{sub.name}</span>
 
                       <span className="inline-block overflow-hidden h-7 w-7 shrink-0 ml-4 relative">
+                        {/* Added group-hover/link:text-[#000000] to handle the fill color change on link hover */}
                         <svg
-                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-500
+                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-800 
                                      transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] 
-                                     group-hover/link:scale-125"
+                                     group-hover/link:scale-125 group-hover/link:text-[#000000]"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 384 512"
                           fill="currentColor"
@@ -238,7 +240,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
 };
 
 function Services() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const handleToggle = (idx) => {
     setActiveIndex((prev) => (prev === idx ? null : idx));
@@ -261,11 +263,11 @@ function Services() {
           <div className="hidden lg:block lg:col-span-1" />
 
           <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-4 sm:gap-5">
-            <h3 className="text-[#242021] text-xl sm:text-2xl md:text-2xl lg:text-3xl font-old-school font-bold leading-tight tracking-tight">
-              How we take your business to the next level
+            <h3 className="text-[#242021] text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-old-school font-bold leading-tight tracking-tight">
+              How we take your <br/> business to the next level
             </h3>
-            <p className="text-neutral-700 text-base sm:text-lg font-old-school leading-relaxed">
-              We build websites, produce videos, and design brands for businesses that take their online presence seriously. Every service is handled by one team, start to finish, with no outsourcing and no shortcuts.
+            <p className="text-neutral-700 text-lg md:text-xl leading-tight font-old-school ">
+              We build websites, produce videos, and design brands. One team handles everything from start to finish, with no outsourcing and no shortcuts.
             </p>
           </div>
         </div>

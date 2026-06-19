@@ -53,6 +53,7 @@ const ClientWorldMap = () => {
       if (tooltipContent && tooltipContent.name === countryName) {
         setTooltipContent(null);
       } else {
+        // Safe tracking placement coordinates
         updateCoordinates(event);
         setTooltipContent({
           name: countryName,
@@ -65,7 +66,7 @@ const ClientWorldMap = () => {
   return (
     <div 
       ref={containerRef}
-      className="w-full bg-black border border-neutral-800/60  sm:rounded-t-4xl p-5 sm:p-6 md:p-10 relative overflow-hidden select-none"
+      className="w-full bg-black border border-neutral-800/60 sm:rounded-t-4xl p-4 sm:p-6 md:p-10 relative overflow-hidden select-none"
     >
       {/* HEADER BAR COUNTER */}
       <div className="flex flex-col gap-1 mb-4 sm:mb-6">
@@ -82,18 +83,18 @@ const ClientWorldMap = () => {
         </div>
       </div>
 
-      {/* RENDER INTERACTIVE WORLD MAP */}
+      {/* RENDER INTERACTIVE WORLD MAP (PROJECTION MATRIX FIX) */}
       <div 
-        className="relative w-full h-auto cursor-crosshair overflow-x-auto lg:overflow-x-visible scrollbar-none"
+        className="relative w-full h-auto cursor-crosshair overflow-hidden"
         onMouseMove={handleMouseMove}
       >
-        <div className="min-w-[550px] md:min-w-full w-full h-auto">
-          {/* 🎯 THE FIX: Projection scale dialed back to 105 to fit perfectly within a compact 300px height aspect matrix */}
+        {/* Removed min-w constraints to guarantee 100% bleed scale container layout */}
+        <div className="w-full h-auto overflow-hidden block">
           <ComposableMap
-            projectionConfig={{ scale: 105, center: [0, 0] }}
+            projectionConfig={{ scale: 112, center: [0, 8] }}
             width={800}
-            height={300}
-            style={{ width: "100%", height: "auto" }}
+            height={330}
+            style={{ width: "100%", height: "auto", display: "block" }}
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
@@ -148,10 +149,10 @@ const ClientWorldMap = () => {
           </ComposableMap>
         </div>
 
-        {/* FLOATING GLASS TOOLTIP */}
+        {/* DESKTOP-ONLY FLOATING GLASS TOOLTIP */}
         {tooltipContent && (
           <div
-            className="absolute z-50 pointer-events-none bg-[#17191c]/95 backdrop-blur-md border border-neutral-800 rounded-xl p-3 sm:p-4 shadow-2xl min-w-[180px] sm:min-w-[200px] max-w-xs transition-all duration-100 ease-out transform -translate-x-1/2"
+            className="hidden lg:block absolute z-50 pointer-events-none bg-[#17191c]/95 backdrop-blur-md border border-neutral-800 rounded-xl p-4 shadow-2xl min-w-[200px] max-w-xs transition-all duration-100 ease-out transform -translate-x-1/2"
             style={{ 
               left: `${tooltipPos.x}px`, 
               top: `${tooltipPos.y - 12}px`,
@@ -159,11 +160,11 @@ const ClientWorldMap = () => {
             }}
           >
             <div className="flex items-center justify-between gap-3 border-b border-neutral-800/60 pb-1.5 mb-1.5">
-              <span className="text-white font-semibold text-xs sm:text-sm tracking-wide block truncate max-w-[110px]">
+              <span className="text-white font-semibold text-sm tracking-wide block truncate max-w-[110px]">
                 {tooltipContent.name}
               </span>
               {tooltipContent.projects > 0 && (
-                <span className="bg-[#c8f135] text-black text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
+                <span className="bg-[#c8f135] text-black text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
                   {tooltipContent.projects} Projs
                 </span>
               )}
@@ -171,17 +172,17 @@ const ClientWorldMap = () => {
 
             {tooltipContent.projects > 0 ? (
               <div className="flex flex-col gap-1">
-                <span className="text-[9px] sm:text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
                   Selected Clients:
                 </span>
-                <ul className="text-[11px] sm:text-xs text-neutral-300 space-y-0.5 list-disc pl-3">
+                <ul className="text-xs text-neutral-300 space-y-0.5 list-disc pl-3">
                   {tooltipContent.clients.map((client, i) => (
                     <li key={i} className="leading-tight">{client}</li>
                   ))}
                 </ul>
               </div>
             ) : (
-              <span className="text-[10px] sm:text-[11px] text-neutral-500 italic block">
+              <span className="text-[11px] text-neutral-500 italic block">
                 No active studio ventures yet.
               </span>
             )}
@@ -189,18 +190,54 @@ const ClientWorldMap = () => {
         )}
       </div>
 
-      {/* METRICS LEGEND */}
-      <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-[10px] sm:text-xs font-mono text-neutral-500">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm bg-[#4b4e54]" />
-          <span>Active Client Region</span>
+      {/* RESPONSIVE MOBILE ACCORDION CARD DRAWER (Zero Overflow Layout System) */}
+      {tooltipContent && (
+        <div className="block lg:hidden mt-4 w-full bg-[#111214] border border-neutral-800/80 rounded-xl p-4 transition-all duration-300 animate-fadeIn">
+          <div className="flex items-center justify-between border-b border-neutral-800 pb-2 mb-2">
+            <h4 className="text-white text-sm font-bold tracking-wide">
+              {tooltipContent.name}
+            </h4>
+            {tooltipContent.projects > 0 ? (
+              <span className="bg-[#c8f135] text-black text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                {tooltipContent.projects} Projects
+              </span>
+            ) : (
+              <span className="text-[10px] font-mono text-neutral-600 uppercase">Inactive</span>
+            )}
+          </div>
+          {tooltipContent.projects > 0 ? (
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-wider">
+                Active Strategic Engagements:
+              </span>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-xs text-neutral-300 list-inside list-disc">
+                {tooltipContent.clients.map((client, i) => (
+                  <li key={i} className="truncate">{client}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p className="text-xs text-neutral-500 italic">
+              No active operations localized inside this sector yet.
+            </p>
+          )}
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-sm bg-[#232528]" />
-          <span>Untapped Potential</span>
+      )}
+
+      {/* METRICS LEGEND BAR */}
+      <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[10px] sm:text-xs font-mono text-neutral-500 border-t border-neutral-900 pt-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-sm bg-[#4b4e54]" />
+            <span>Active Client Region</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-sm bg-[#232528]" />
+            <span>Untapped Potential</span>
+          </div>
         </div>
-        <span className="block lg:hidden text-[9px] text-neutral-600 italic mt-1 sm:mt-0">
-          * Tap country boundaries to reveal client list details
+        <span className="block lg:hidden text-[9px] text-neutral-600 italic">
+          * Tap country nodes to securely access micro-metrics
         </span>
       </div>
     </div>

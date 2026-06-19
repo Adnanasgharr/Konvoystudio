@@ -247,7 +247,7 @@ const Work = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start ">
             <div className="md:col-start-5 md:col-span-3 text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-mono pt-1">
-              (PROJECTS)
+              (WORKS)
             </div>
             <p className="md:col-span-5 text-neutral-400 text-sm sm:text-base lg:text-lg font-old-school leading-relaxed max-w-[42ch]">
             A curated selection of featured projects, each meticulously crafted with passion and intention, designed to drive measurable results and create meaningful impact for the people we build for.
