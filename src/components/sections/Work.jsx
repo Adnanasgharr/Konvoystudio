@@ -240,8 +240,8 @@ const Work = () => {
             <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
               Featured 
             </h1>
-            <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
-              Work
+            <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-[0.95] md:leading-[0.9]">
+              Projects
             </h1>
           </div>
 

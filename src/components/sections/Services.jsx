@@ -23,7 +23,7 @@ const fullServicesList = [
     slug: "websites",
     title: "Websites",
     image: "/images/websites.jpeg",
-    description: "Bespoke, motion-first production platforms engineered using Next.js and Tailwind CSS.",
+    description: "We build websites for businesses that want more than just an online presence. Fast, custom, and built to turn visitors into clients.",
     subServices: [
       { name: "Corporate Websites", href: "/services/corporate-websites" },
       { name: "Business Websites", href: "/services/business-websites" },
@@ -78,8 +78,8 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
   const imgWrapRef = useRef(null);
 
   const handleRowEnter = () => {
-    onMouseEnter(); // Triggers parent accordion expansion
     if (window.matchMedia("(min-width: 768px)").matches) {
+      onMouseEnter();
       gsap.killTweensOf(imgWrapRef.current);
       gsap.to(imgWrapRef.current, {
         width: 100,
@@ -91,8 +91,8 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
   };
 
   const handleRowLeave = () => {
-    onMouseLeave(); // Triggers parent accordion collapse
     if (window.matchMedia("(min-width: 768px)").matches) {
+      onMouseLeave();
       gsap.killTweensOf(imgWrapRef.current);
       gsap.to(imgWrapRef.current, {
         width: 0,
@@ -108,7 +108,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
       onMouseEnter={handleRowEnter}
       onMouseLeave={handleRowLeave}
       onClick={onToggle}
-      className="w-full relative border-b-2 border-b-emerald-400 select-none group cursor-pointer scroll-mt-24 sm:scroll-mt-32"
+      className="w-full relative border-b-2 border-b-emerald-400 select-none group cursor-pointer scroll-mt-24 sm:scroll-mt-32 transition-colors duration-300 "
     >
       <div
         className={`w-full h-[1.5px] absolute top-0 left-0 transition-all duration-500 ease-out origin-left z-20 ${
@@ -116,26 +116,28 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
         }`}
       />
 
-      <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 lg:gap-12 pt-5 pb-5 sm:pt-8 sm:pb-8 lg:py-12 items-start w-full">
+      <div className="flex flex-col md:grid md:grid-cols-12 md:gap-8 lg:gap-12 pt-6 pb-6 sm:pt-8 sm:pb-8 lg:py-12 items-start w-full pr-2 md:pr-8 relative">
 
+        {/* DESKTOP SIDE PANEL */}
         <div className="w-full md:col-span-4 lg:col-span-5 hidden md:block mt-2 md:mt-0">
           <div
             className={`transition-all duration-500 ease-out transform ${
               isExpanded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
             }`}
           >
-            <p className="text-sm lg:text-base leading-relaxed text-neutral-600 font-old-school max-w-sm">
+            <p className="text-base lg:text-lg leading-relaxed text-neutral-600 font-old-school max-w-sm">
               {description}
             </p>
           </div>
         </div>
 
+        {/* CORE CONTENT ROW CONTAINER */}
         <div className="w-full md:col-span-8 lg:col-span-7 flex flex-col pl-0 md:pl-4">
 
-          <div className="flex items-center w-full justify-between md:justify-start">
-            <div className="flex items-center">
+          <div className="flex items-center w-full justify-between">
+            <div className="flex items-center flex-1 min-w-0">
               <span
-                className={`font-abc-arizona italic text-xs sm:text-sm md:text-lg mr-3 sm:mr-4 md:mr-8 transition-all duration-500 transform pt-0.5 ${
+                className={`font-abc-arizona italic text-sm sm:text-base md:text-xl mr-3 sm:mr-4 md:mr-8 transition-all duration-500 transform pt-0.5 ${
                   isExpanded ? "text-[#242021] opacity-100 translate-x-0" : "text-neutral-400/60 opacity-60 -translate-x-1"
                 }`}
               >
@@ -144,60 +146,82 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
 
               <div
                 ref={imgWrapRef}
-                className="relative shrink-0 h-[45px] w-[45px] sm:h-[55px] sm:w-[55px] md:h-[70px] md:w-0 md:opacity-0 overflow-hidden rounded-md mr-3 md:mr-0 transition-all duration-300"
+                className="relative shrink-0 h-[50px] w-[50px] sm:h-[65px] sm:w-[65px] md:h-[70px] md:w-0 md:opacity-0 overflow-hidden rounded-md mr-4 md:mr-0 transition-all duration-300"
               >
                 <Image
                   src={image}
                   alt={title}
                   fill
-                  sizes="(max-width: 768px) 55px, 140px"
+                  sizes="(max-width: 768px) 65px, 140px"
                   className="object-cover"
                 />
               </div>
 
               <h1
-                className={`text-xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
-                  isExpanded ? "text-[#242021] translate-x-1 md:translate-x-2" : "text-[#242021]/40 group-hover:text-[#242021]/70"
+                className={`text-2xl sm:text-4xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
+                  isExpanded ? "text-[#242021] translate-x-1 md:translate-x-2" : "text-[#242021]/40 group-hover:text-[#242021]"
                 }`}
               >
                 {title}
               </h1>
             </div>
 
-            <div className="block md:hidden text-lg text-neutral-400 transition-transform duration-300">
-              {isExpanded ? "—" : "+"}
+            <div className="flex items-center gap-4 shrink-0 ml-4 md:hidden">
+              <div className="text-xl font-bold text-neutral-500 transition-transform duration-300">
+                {isExpanded ? "—" : "+"}
+              </div>
             </div>
           </div>
 
+          {/* MOBILE DESCRIPTION ACCORDION */}
           <div
             className={`grid md:hidden transition-all duration-500 ease-out overflow-hidden w-full ${
-              isExpanded ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0 mt-0"
+              isExpanded ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-7 sm:pl-10">
-              <p className="text-xs sm:text-sm text-neutral-600 font-old-school leading-relaxed max-w-xl">
+            <div className="overflow-hidden pl-8 sm:pl-11">
+              <p className="text-sm sm:text-base text-neutral-600 font-old-school leading-relaxed max-w-xl">
                 {description}
               </p>
             </div>
           </div>
 
+          {/* SUBSERVICES DRAWER LIST */}
           <div
             className={`grid transition-all duration-500 ease-out overflow-hidden w-full ${
-              isExpanded ? "grid-rows-[1fr] opacity-100 mt-4 sm:mt-6 md:mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
+              isExpanded ? "grid-rows-[1fr] opacity-100 mt-5 sm:mt-6 md:mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-7 sm:pl-10 md:pl-12">
-              <ul className="flex flex-col gap-2.5 sm:gap-3 md:gap-4 pb-4">
+            <div className="overflow-hidden pl-8 sm:pl-11 md:pl-12 w-full">
+              <ul className="flex flex-col gap-2 pb-4 w-full">
                 {subServices.map((sub, sIdx) => (
-                  <li key={`${title}-sub-${sIdx}`} className="block" onClick={(e) => e.stopPropagation()}>
+                  <li
+                    key={`${title}-sub-${sIdx}`}
+                    className="block w-full"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <Link
                       href={sub.href}
                       data-cursor="service"
-                      className="inline-flex items-center group/link text-neutral-800 hover:text-emerald-500 text-sm sm:text-base md:text-xl lg:text-2xl font-bold tracking-tight transition-colors duration-200"
+                    
+                      className="flex items-center justify-between w-full py-3 px-4 rounded-md
+                                 text-emerald-500 bg-neutral-200/80
+                                 text-base sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight
+                                 transition-all duration-300 group/link"
                     >
                       <span>{sub.name}</span>
-                      <span className="ml-1.5 opacity-0 -translate-x-1 transition-all duration-300 ease-out group-hover/link:opacity-100 group-hover/link:translate-x-0 text-emerald-500 font-normal text-xs sm:text-sm md:text-base">
-                        ↗
+
+                      <span className="inline-block overflow-hidden h-7 w-7 shrink-0 ml-4 relative">
+                        <svg
+                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-500
+                                     transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] 
+                                     group-hover/link:scale-125"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512"
+                          fill="currentColor"
+                        >
+                          <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
+                        </svg>
                       </span>
                     </Link>
                   </li>
@@ -214,7 +238,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
 };
 
 function Services() {
-  const [activeIndex, setActiveIndex] = useState(0); 
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleToggle = (idx) => {
     setActiveIndex((prev) => (prev === idx ? null : idx));
@@ -224,25 +248,24 @@ function Services() {
     <section className="w-full bg-[#F1F1F1] py-16 sm:py-24 lg:py-36">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-8 md:px-10 lg:px-16">
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-y-12 md:gap-x-8 lg:gap-x-12 items-start mb-12 sm:mb-20 md:mb-28">
-          <div className="md:col-span-7 flex flex-col">
-           
-            <h1 className="font-abc-arizona text-[#242021] text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.85]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12 md:gap-x-8 lg:gap-x-12 items-start mb-16 sm:mb-20 md:mb-28">
+          <div className="md:col-span-6 flex flex-col">
+            <h1 className="font-abc-arizona text-[#242021] text-5xl sm:text-7xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.85]">
               Our Core
             </h1>
-            <h1 className="text-[#242021] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] md:leading-[0.85] uppercase">
+            <h1 className="text-[#242021] text-5xl sm:text-7xl md:text-7xl lg:text-8xl font-bold leading-[0.95] md:leading-[0.85] uppercase">
               SERVICES.
             </h1>
           </div>
 
           <div className="hidden lg:block lg:col-span-1" />
 
-          <div className="md:col-span-5 lg:col-span-4 md:pt-8 lg:pt-12 flex flex-col gap-3 sm:gap-5">
-            <h3 className="text-[#242021] text-lg sm:text-2xl md:text-2xl lg:text-3xl font-old-school font-bold leading-tight tracking-tight">
+          <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-4 sm:gap-5">
+            <h3 className="text-[#242021] text-xl sm:text-2xl md:text-2xl lg:text-3xl font-old-school font-bold leading-tight tracking-tight">
               How we take your business to the next level
             </h3>
-            <p className="text-neutral-700 text-sm sm:text-base font-old-school leading-relaxed">
-              We are a creative engineering platform with expertise, on a mission to map out structural growth models for your setup.
+            <p className="text-neutral-700 text-base sm:text-lg font-old-school leading-relaxed">
+              We build websites, produce videos, and design brands for businesses that take their online presence seriously. Every service is handled by one team, start to finish, with no outsourcing and no shortcuts.
             </p>
           </div>
         </div>

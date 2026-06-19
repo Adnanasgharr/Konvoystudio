@@ -128,7 +128,7 @@ const Page = () => {
       <header>
         <div 
           ref={heroRef} 
-          className="relative h-dvh w-full flex items-center bg-black px-6 md:px-10 overflow-hidden"
+          className="relative h-svh md:h-screen w-full flex items-center bg-black px-6 md:px-10 overflow-hidden"
         >
           
           {/* Main Content Container */}
