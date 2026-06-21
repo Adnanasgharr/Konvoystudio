@@ -30,7 +30,7 @@ export default function ServiceCapabilitiesGrid({
               </span>
             </div>
             
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-[1.05] max-w-xl text-stone-100">
+            <h2 className="text-3xl sm:text-3xl md:text-6xl lg:text-5xl font-old-school tracking-tight leading-[1.05] max-w-xl text-stone-100">
               {mainHeading}
             </h2>
           </div>
@@ -45,7 +45,7 @@ export default function ServiceCapabilitiesGrid({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-8 sm:gap-y-10">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-8 sm:gap-y-10">
           {items.map((item, index) => (
             <div 
               key={`capability-${index}`} 
@@ -53,12 +53,12 @@ export default function ServiceCapabilitiesGrid({
             >
               <div className="flex items-center gap-3 mb-3 w-full">
                 {item.icon ? item.icon : <DefaultBoxIcon />}
-                <h4 className="text-2xl sm:text-3xl font-bold tracking-tight text-white truncate">
+                <h4 className="text-xl sm:text-3xl font-old-school tracking-tight text-white truncate">
                   {item.title}
                 </h4>
               </div> 
 
-              <p className="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-sm font-normal">
+              <p className="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-sm font-old-school">
                 {item.description}
               </p>
             </div>

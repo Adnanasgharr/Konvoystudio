@@ -73,51 +73,56 @@ export default function ServiceHeroSplit({
 
           {/* Cutout Corner Panel */}
           <div
-            className="absolute top-0 left-0 pt-0 pl-0 pr-2 pb-2 md:pr-4 md:pb-4 flex items-center justify-center z-20 pointer-events-auto origin-top-left"
+            className="absolute  pt-0 pl-0 pr-2 pb-2 md:pr-4 md:pb-4 flex items-center justify-center z-20 pointer-events-auto origin-top-left rounded-br-[1.3rem] sm:rounded-br-[2.5rem]"
             style={{
               backgroundColor: sectionBgColor,
-              borderBottomRightRadius: "1.8rem",
+             
+              boxShadow: `-9px -9px 9px 9px ${sectionBgColor}`
             }}
           >
             {/* Right Curve */}
             <div
-              className="absolute right-[-20px] top-0 w-5 h-5 pointer-events-none"
+              className="absolute right-[-20px] top-0 w-5 h-5 pointer-events-none "
               style={{
                 borderTopLeftRadius: "30rem",
-                boxShadow: `-3px -3px 0 3px ${sectionBgColor}`,
+                boxShadow: `-5px -3px 0 3px ${sectionBgColor}`,
               }}
             />
 
             {/* Bottom Curve */}
             <div
-              className="absolute bottom-[-20px] top-auto left-0 w-5 h-5 pointer-events-none"
+              className="absolute bottom-[-20px] top-auto left-0 w-5 h-5 pointer-events-none "
               style={{
-                borderTopLeftRadius: "30rem",
-                boxShadow: `-3px -3px 0 3px ${sectionBgColor}`,
+                borderTopLeftRadius: "5rem",
+                boxShadow: `-5px -3px 0 3px ${sectionBgColor}`,
               }}
             />
 
             {/* Pill Button */}
-            <div
-              onClick={handleScrollToCapabilities}
-              className="flex items-center gap-3 bg-[#1e1e1e] hover:bg-neutral-800 transition-colors duration-300 md:px-6 md:py-3.5 px-3 py-2 rounded-full text-sm font-normal tracking-tight cursor-pointer border border-neutral-800/60 shadow-lg"
-            >
-              <span className="text-sm sm:text-base md:text-sm text-stone-300 font-normal tracking-tight">
-                Tell me more
-              </span>
-              <svg
-                className="w-3.5 h-3.5 text-neutral-400 transform transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
+           <div
+  onClick={handleScrollToCapabilities}
+  className="group/btn flex items-center md:gap-3 gap-2 bg-[#1e1e1e] hover:bg-neutral-800 transition-colors duration-300 md:px-6 md:py-3.5 px-2 py-2 rounded-full text-sm font-normal tracking-tight cursor-pointer border border-neutral-800/60 shadow-lg"
+>
+  <span className="text-xs sm:text-xs md:text-sm text-stone-300 font-normal tracking-tight">
+    Tell me more
+  </span>
+
+  <svg
+    className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-neutral-400 rotate-[90deg] transition-transform duration-300 ease-out group-hover/btn:rotate-[135deg]"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2.5}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+    />
+  </svg>
+
+
+              
             </div>
           </div>
         </div>

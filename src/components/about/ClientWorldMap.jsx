@@ -53,7 +53,6 @@ const ClientWorldMap = () => {
       if (tooltipContent && tooltipContent.name === countryName) {
         setTooltipContent(null);
       } else {
-        // Safe tracking placement coordinates
         updateCoordinates(event);
         setTooltipContent({
           name: countryName,
@@ -83,17 +82,17 @@ const ClientWorldMap = () => {
         </div>
       </div>
 
-      {/* RENDER INTERACTIVE WORLD MAP (PROJECTION MATRIX FIX) */}
+      {/* RENDER INTERACTIVE WORLD MAP */}
       <div 
-        className="relative w-full h-auto cursor-crosshair overflow-hidden"
+        className="relative w-full h-[240px] sm:h-[300px] md:h-auto cursor-crosshair overflow-hidden flex items-center justify-center bg-transparent"
         onMouseMove={handleMouseMove}
       >
-        {/* Removed min-w constraints to guarantee 100% bleed scale container layout */}
-        <div className="w-full h-auto overflow-hidden block">
+        {/* Adjusted to a minor shift (-translate-x-4) on small viewports */}
+        <div className="w-full h-auto block transform scale-[1.55] -translate-x-4 xs:scale-[1.4] xs:-translate-x-2 sm:scale-110 sm:translate-x-0 lg:scale-100 lg:translate-x-0 origin-center transition-transform duration-300">
           <ComposableMap
-            projectionConfig={{ scale: 112, center: [0, 8] }}
+            projectionConfig={{ scale: 110, center: [0, 5] }}
             width={800}
-            height={330}
+            height={340}
             style={{ width: "100%", height: "auto", display: "block" }}
           >
             <Geographies geography={geoUrl}>
@@ -190,9 +189,9 @@ const ClientWorldMap = () => {
         )}
       </div>
 
-      {/* RESPONSIVE MOBILE ACCORDION CARD DRAWER (Zero Overflow Layout System) */}
+      {/* RESPONSIVE MOBILE ACCORDION CARD DRAWER */}
       {tooltipContent && (
-        <div className="block lg:hidden mt-4 w-full bg-[#111214] border border-neutral-800/80 rounded-xl p-4 transition-all duration-300 animate-fadeIn">
+        <div className="block lg:hidden mt-5 w-full bg-[#111214] border border-neutral-800/80 rounded-xl p-4 transition-all duration-300">
           <div className="flex items-center justify-between border-b border-neutral-800 pb-2 mb-2">
             <h4 className="text-white text-sm font-bold tracking-wide">
               {tooltipContent.name}
@@ -225,7 +224,7 @@ const ClientWorldMap = () => {
       )}
 
       {/* METRICS LEGEND BAR */}
-      <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[10px] sm:text-xs font-mono text-neutral-500 border-t border-neutral-900 pt-4">
+      <div className="mt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[10px] sm:text-xs font-mono text-neutral-500 border-t border-neutral-900 pt-4">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-sm bg-[#4b4e54]" />
