@@ -297,13 +297,16 @@ const Navbar = () => {
         }
       })
       .to(navRef.current, {
-        maxWidth: window.matchMedia("(min-width: 768px)").matches ? "1160px" : "100%",
-        height: window.matchMedia("(min-width: 768px)").matches ? "70px" : "70px",
+        maxWidth: window.matchMedia("(min-width: 768px)").matches ? "1160px" : "calc(100% - 2rem)",
+        height: "70px",
         backgroundColor: "rgba(11, 12, 13, 0.9)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
         paddingLeft: window.matchMedia("(min-width: 768px)").matches ? "36px" : "20px",
         paddingRight: window.matchMedia("(min-width: 768px)").matches ? "14px" : "20px",
         marginTop: window.matchMedia("(min-width: 768px)").matches ? "20px" : "10px",
         borderColor: "rgba(39, 39, 42, 0.5)",
+        borderRadius: "9999px",
         boxShadow: "0 50px 100px -20px rgba(0, 0, 0, 0.85)",
         ease: "none"
       });
@@ -321,11 +324,11 @@ const Navbar = () => {
       >
         <nav
           ref={navRef}
-          className="relative pointer-events-auto flex items-center justify-between w-full max-w-full h-[95px] px-6 md:px-4 bg-transparent border border-transparent backdrop-blur-xl rounded-full will-change-[max-width,padding,margin,height]"
+          className="relative pointer-events-auto flex items-center justify-between w-full max-w-full h-[95px] px-6 md:px-10 bg-transparent border border-transparent will-change-[max-width,padding,margin,height,background-color,border-color,border-radius,backdrop-filter]"
         >
           {/* BRAND LOGO ELEMENT */}
           <div className="flex items-center shrink-0 z-[110]">
-            <a href="/" className="text-white text-xl tracking-tight uppercase font-old-school tracking-wider font-bold">
+            <a href="/" className="text-white text-xl uppercase font-old-school tracking-wider font-bold">
               Konvoy<span className="text-[#c8f135] inline-block">.</span>
             </a>
           </div>
@@ -455,7 +458,6 @@ const Navbar = () => {
             </span>
             
             <div className="flex flex-col w-full">
-              {/* Dynamic Service Option using the total count indicator */}
               <div className="mobile-link-container border-b border-neutral-800/60 overflow-hidden w-full">
                 <a href="/services" className="flex items-center justify-between w-full py-5 text-left text-[11vw] xs:text-4xl font-old-school tracking-tight text-neutral-400 hover:text-white transition-colors duration-300 relative group">
                   <div className="flex items-baseline gap-4">
