@@ -9,6 +9,18 @@ import BookCallButton from "../ui/BookCallButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Row 1: Focuses on core capabilities (Moves Left)
+const marqueeRow1 = [
+  "Web Development", "•", "Creative Graphic Design", "•", "Video Editing", "•",
+  "Web Development", "•", "Creative Graphic Design", "•", "Video Editing", "•"
+];
+
+// Row 2: Focuses on stack & philosophy (Moves Right)
+const marqueeRow2 = [
+  "Next.js", "•", "Figma", "•", "Motion Design", "•", "Branding", "•",
+  "Next.js", "•", "Figma", "•", "Motion Design", "•", "Branding", "•"
+];
+
 const Page = () => {
   const heroRef = useRef(null);
   const videoWrapperRef = useRef(null);
@@ -127,14 +139,36 @@ const Page = () => {
       data-hide-contact="true"
       className="bg-black text-white w-full overflow-hidden"
     >
+      {/* Dynamic Keyframes for Intersecting Counter-Movement Marquees */}
+      <style jsx global>{`
+        @keyframes marqueeLeft {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marqueeRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee-left {
+          display: flex;
+          width: max-content;
+          animation: marqueeLeft 18s linear infinite;
+        }
+        .animate-marquee-right {
+          display: flex;
+          width: max-content;
+          animation: marqueeRight 22s linear infinite;
+        }
+      `}</style>
+
       {/* Semantic Main Container Header Wrapper for SEO Crawlers */}
       <header>
         <div
           ref={heroRef}
-          className="relative h-svh md:h-screen w-full flex items-center bg-black px-6 md:px-10 overflow-hidden"
+          className="relative min-h-svh md:h-screen w-full flex flex-col justify-between bg-black px-6 md:px-10 pt-12 pb-6 md:py-0 overflow-hidden"
         >
-          {/* Main Content Container */}
-          <div className="w-full z-10 md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr]">
+          {/* Main Content Container (Centered alignment via standard layout flow) */}
+          <div className="w-full z-10 my-auto md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr]">
             <div className="w-full">
               {/* Unified Semantic H1 Element */}
               <h1 className="text-white font-old-school tracking-tight leading-[1] md:leading-tight">
@@ -209,6 +243,41 @@ const Page = () => {
                   aria-label="Browse portfolio and case studies"
                 />
               </div>
+            </div>
+          </div>
+
+          {/* HIGH-IMPACT DOUBLE OVERLAPPED CROSSED MARQUEES (Repositioned to absolute bottom edge of the home view) */}
+          <div className="w-[105vw] -ml-6 relative overflow-hidden bg-neutral-950/40 py-6 md:hidden select-none pointer-events-none flex flex-col gap-3 -rotate-2 mt-auto border-y border-neutral-900/60 z-20">
+            {/* Visual Ambient Edge Fades */}
+            <div className="absolute left-0 top-0 w-10 h-full bg-gradient-to-r from-black to-transparent z-10" />
+            <div className="absolute right-0 top-0 w-10 h-full bg-gradient-to-l from-black to-transparent z-10" />
+
+            {/* Row 1: Fast Left Movement (Core Capabilities) */}
+            <div className="animate-marquee-left flex items-center whitespace-nowrap gap-6">
+              {marqueeRow1.map((item, idx) => (
+                <span 
+                  key={idx} 
+                  className={`text-[13px] uppercase font-bold tracking-[0.15em] ${
+                    item === "•" ? "text-[#c8f135]" : "text-white"
+                  }`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* Row 2: Slower Right Movement (Muted Tone/Tech Stack) */}
+            <div className="animate-marquee-right flex items-center whitespace-nowrap gap-6 opacity-50">
+              {marqueeRow2.map((item, idx) => (
+                <span 
+                  key={idx} 
+                  className={`text-[11px] uppercase font-semibold tracking-[0.2em] ${
+                    item === "•" ? "text-[#c8f135]" : "text-neutral-300"
+                  }`}
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 
