@@ -5,7 +5,8 @@ export const servicesData = {
     category: "Web Development",
     description:
       "High-performance corporate web infrastructures built for market authority.",
-    heroImage: "/images/corporate-hero.png",
+    heroImage: "/images/services/Konvoy studio corporate websites development.webp",
+    
     heroHeading:
       "A Development Studio for Corporate Web Infrastructures That Mean Business.",
     heroParagraphs: [
@@ -61,7 +62,7 @@ export const servicesData = {
     category: "Web Development",
     description:
       "Clean, conversion-focused websites built for growing businesses.",
-    heroImage: "/images/business-hero.png",
+    heroImage: "/images/services/Konvoy studio business websites.webp",
     heroHeading:
       "A Web Studio for Business Websites That Work as Hard as You Do.",
     heroParagraphs: [
@@ -117,7 +118,7 @@ export const servicesData = {
     category: "WordPress Development",
     description:
       "Bespoke corporate infrastructures built for absolute design fidelity.",
-    heroImage: "/images/wordpress-hero.png",
+    heroImage: "/images/services/konvoy studio wordpress website development.webp",
     heroHeading: "An Engineering Studio for Custom WordPress Architectures.",
     heroParagraphs: [
       "We build clean, block-based custom WordPress frameworks designed to deliver high-end visual fidelity without the bloat of third-party builders.",
@@ -173,7 +174,7 @@ export const servicesData = {
     category: "E-Commerce Development",
     description:
       "High-converting online stores built to sell, scale, and retain customers.",
-    heroImage: "/images/ecommerce-hero.png",
+    heroImage: "/images/services/Konvoy studio ecommerce websites development.webp",
     heroHeading: "A Commerce Studio for Online Stores Built to Sell.",
     heroParagraphs: [
       "We build custom e-commerce websites engineered for conversions, speed, and seamless buying experiences — no bloated themes, no cookie-cutter storefronts.",

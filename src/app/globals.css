@@ -13,6 +13,7 @@
   --font-abc-arizona: var(--font-abc-arizona);
   --font-old-school: var(--font-old-school);
   --font-rl-madena: var(--font-rl-madena);
+  --font-montreal: var(--font-montreal);
 }
 
 @media (prefers-color-scheme: dark) {

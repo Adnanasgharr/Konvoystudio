@@ -135,11 +135,12 @@ const Testimonials = () => {
         {/* ASYMMETRIC HEADING STRUCTURE */}
         <div className="w-full flex flex-col gap-6 md:gap-10 mb-16 md:mb-24">
           <div>
-            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
-              Don't Take
+            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9] "
+            style={{mixBlendMode: "difference"}}>
+              Don't take my 
             </h1>
-            <h1 className="text-white  text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
-              My Word For It
+            <h1 className="text-white  text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] uppercase md:leading-[0.9]">
+              Word For It
             </h1>
           </div>
 

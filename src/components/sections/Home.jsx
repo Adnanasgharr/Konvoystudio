@@ -14,7 +14,7 @@ const Page = () => {
   const videoWrapperRef = useRef(null);
   const videoInnerRef = useRef(null);
   const spacerRef = useRef(null);
-  
+
   const videoElRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -31,7 +31,8 @@ const Page = () => {
 
   // Tracks intersection to slice the notch out dynamically
   useEffect(() => {
-    if (!intersectingTextRef.current || !videoContainerMobileRef.current) return;
+    if (!intersectingTextRef.current || !videoContainerMobileRef.current)
+      return;
 
     const calculateIntersectionNotch = () => {
       const vBox = videoContainerMobileRef.current.getBoundingClientRect();
@@ -42,7 +43,7 @@ const Page = () => {
 
       if (overlapWidth > 0 && overlapHeight > 0) {
         const r = 20; // Corner radius curve smoothness
-        
+
         const maskString = `
           radial-gradient(circle at calc(${overlapWidth}px + ${r}px) calc(100% - ${overlapHeight}px - ${r}px), transparent ${r}px, black calc(${r}px + 0.5px)),
           linear-gradient(black, black),
@@ -122,22 +123,21 @@ const Page = () => {
   };
 
   return (
-    <div data-hide-contact="true" className="bg-black text-white w-full overflow-hidden">
-      
+    <div
+      data-hide-contact="true"
+      className="bg-black text-white w-full overflow-hidden"
+    >
       {/* Semantic Main Container Header Wrapper for SEO Crawlers */}
       <header>
-        <div 
-          ref={heroRef} 
+        <div
+          ref={heroRef}
           className="relative h-svh md:h-screen w-full flex items-center bg-black px-6 md:px-10 overflow-hidden"
         >
-          
           {/* Main Content Container */}
           <div className="w-full z-10 md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr]">
             <div className="w-full">
-              
               {/* Unified Semantic H1 Element */}
               <h1 className="text-white font-old-school tracking-tight leading-[1] md:leading-tight">
-                
                 {/* Desktop Layout presentation view */}
                 <span className="hidden md:block text-6xl pb-4">
                   Make Your Presence Standout Online
@@ -146,14 +146,13 @@ const Page = () => {
                 {/* Mobile Screen presentation view */}
                 <span className="block md:hidden w-full pb-3">
                   <span className="relative block w-full">
-                    
                     {/* Visual Text Block Segments */}
                     <span className="text-[11vw] xs:text-5xl font-old-school flex flex-col pr-[45vw]">
                       <span>Make</span>
                       <span>Your</span>
                       <span className="pt-1">
-                        <span 
-                          ref={intersectingTextRef} 
+                        <span
+                          ref={intersectingTextRef}
                           className="z-20 w-fit inline-block relative bg-black pr-2 rounded-tr-2xl whitespace-nowrap"
                         >
                           Presence
@@ -163,7 +162,7 @@ const Page = () => {
 
                     {/* Integrated Mobile Video Mask Interaction Viewport */}
                     <span className="absolute right-0 top-0 w-[55vw] aspect-video z-10 flex justify-end pointer-events-none">
-                      <span 
+                      <span
                         ref={videoContainerMobileRef}
                         onClick={toggleMute}
                         style={mobileMaskStyles}
@@ -171,19 +170,21 @@ const Page = () => {
                         data-video-muted={isMuted.toString()}
                         className="w-full h-full bg-neutral-950 border border-neutral-900 shadow-xl overflow-hidden rounded-2xl rounded-bl-none pointer-events-auto block cursor-none"
                       >
-                        <span className="sr-only">Konvoy Studio Showreel - Digital Agency Creative Work Samples</span>
-                        <video 
+                        <span className="sr-only">
+                          Konvoy Studio Showreel - Digital Agency Creative Work
+                          Samples
+                        </span>
+                        <video
                           ref={videoElRef}
-                          src="/konvoy-studio-cover.mp4" 
-                          autoPlay 
-                          loop 
-                          muted={isMuted} 
-                          playsInline 
-                          className="h-full w-full object-cover" 
+                          src="/konvoy-studio-cover.mp4"
+                          autoPlay
+                          loop
+                          muted={isMuted}
+                          playsInline
+                          className="h-full w-full object-cover"
                         />
                       </span>
                     </span>
-
                   </span>
 
                   <span className="text-[11vw] xs:text-5xl block pt-1">
@@ -195,23 +196,54 @@ const Page = () => {
               {/* Keyword-Rich Semantic Summary Paragraph */}
               <p className="text-lg md:text-xl leading-tight font-old-school text-neutral-400 py-8 md:py-0 md:pb-4 max-w-xl md:max-w-none">
                 Konvoy Studio delivers custom websites, creative graphic design,
-                and high-quality video editing services for startups, businesses,
-                and personal brands.
+                and high-quality video editing services for startups,
+                businesses, and personal brands.
               </p>
 
               {/* Action Link Blocks */}
               <div className="flex gap-4">
                 <BookCallButton aria-label="Book a strategic discovery consultation call" />
-                <Button text="Our Work" variant="secondary" aria-label="Browse portfolio and case studies" />
+                <Button
+                  text="Our Work"
+                  variant="secondary"
+                  aria-label="Browse portfolio and case studies"
+                />
               </div>
             </div>
           </div>
 
           {/* BACKGROUND BRANDING LOGO VECTOR MARQUEE */}
-          <div className="hidden md:block absolute bottom-0 left-0 w-full pointer-events-none select-none">
-            <svg viewBox="0 0 1000 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-              <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="130" fontWeight="600" letterSpacing="-5">
+          <div className="hidden md:block absolute -bottom-5 left-0 w-full pointer-events-none select-none">
+            <svg
+              viewBox="0 0 1000 160"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-auto block"
+              preserveAspectRatio="xMinYMid meet"
+              aria-hidden="true"
+            >
+              <text
+                x="50%"
+                y="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                fill="white"
+                fontSize="115"
+                fontWeight="600"
+                letterSpacing="-2"
+                className="font-old-school "
+              >
                 KONVOY STUDIO
+                {/* dx shifts it away from the O, dy shifts it up to become a superscript */}
+                <tspan
+                  dx="10"
+                  dy="-20"
+                  fontSize="70"
+                  fontWeight="400"
+                  letterSpacing="0"
+                  className="font-montreal"
+                >
+                  ©
+                </tspan>
               </text>
             </svg>
           </div>
@@ -222,30 +254,35 @@ const Page = () => {
             className="hidden md:block md:fixed md:right-10 z-40"
             style={{ width: "220px", height: "146px", top: "16.66vh" }}
           >
-            <div 
-              ref={videoInnerRef} 
+            <div
+              ref={videoInnerRef}
               onClick={toggleMute}
               data-cursor="video"
               data-video-muted={isMuted.toString()}
               className="h-full w-full overflow-hidden rounded-2xl cursor-none"
             >
-              <span className="sr-only">Konvoy Studio Design Showreel Portfolio Video</span>
-              <video 
-                src="/konvoy-studio-cover.mp4" 
-                autoPlay 
-                loop 
-                muted={isMuted} 
-                playsInline 
-                className="h-full w-full object-cover" 
+              <span className="sr-only">
+                Konvoy Studio Design Showreel Portfolio Video
+              </span>
+              <video
+                src="/konvoy-studio-cover.mp4"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
-
         </div>
       </header>
 
       {/* GSAP TRIGGER TRACK SPACER BLOCK */}
-      <div ref={spacerRef} className="hidden md:block h-[200vh] bg-black" aria-hidden="true">
+      <div
+        ref={spacerRef}
+        className="hidden md:block h-[200vh] bg-black"
+        aria-hidden="true"
+      >
         <div className="sticky top-0 h-screen" />
       </div>
     </div>

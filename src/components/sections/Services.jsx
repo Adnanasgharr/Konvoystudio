@@ -7,19 +7,6 @@ import gsap from "gsap";
 const fullServicesList = [
   {
     id: "01",
-    slug: "graphic-design",
-    title: "Graphic Design",
-    image: "/images/brand.jpg",
-    description: "Forging bulletproof creative systems that establish dominant market authority.",
-    subServices: [
-      { name: "Visual Strategy", href: "/services/brand-strategy" },
-      { name: "Logo Marks", href: "/services/logo-design" },
-      { name: "Brand Guidelines", href: "/services/guidelines" },
-      { name: "Typography Systems", href: "/services/typography" },
-    ]
-  },
-  {
-    id: "02",
     slug: "websites",
     title: "Websites",
     image: "/images/websites.jpeg",
@@ -36,7 +23,7 @@ const fullServicesList = [
     ]
   },
   {
-    id: "03",
+    id: "02",
     slug: "video-editing",
     title: "Video Editing",
     image: "/images/video.jpg",
@@ -49,19 +36,20 @@ const fullServicesList = [
     ]
   },
   {
-    id: "04",
-    slug: "digital-strategy",
-    title: "Digital Strategy",
+    id: "03",
+    slug: "graphic-design",
+    title: "Graphic Design",
     image: "/images/brand.jpg",
-    description: "Data-driven user tracking funnels designed to scale baseline business operations to the sky.",
+    description: "Forging bulletproof creative systems that establish dominant market authority.",
     subServices: [
-      { name: "Market Mapping", href: "/services/market-research" },
-      { name: "Funnel Engineering", href: "/services/funnel-opt" },
-      { name: "Conversion Rate Optimization", href: "/services/cro" },
+      { name: "Visual Strategy", href: "/services/brand-strategy" },
+      { name: "Logo Marks", href: "/services/logo-design" },
+      { name: "Brand Guidelines", href: "/services/guidelines" },
+      { name: "Typography Systems", href: "/services/typography" },
     ]
   },
   {
-    id: "05",
+    id: "04",
     slug: "ai-integrations",
     title: "AI Integrations",
     image: "/images/websites.jpeg",
@@ -70,6 +58,18 @@ const fullServicesList = [
       { name: "RAG Systems", href: "/services/rag-pipelines" },
       { name: "Custom Voice Agents", href: "/services/voice-ai" },
       { name: "Automation Pipelines", href: "/services/ai-automation" },
+    ]
+  },
+  {
+    id: "05",
+    slug: "digital-strategy",
+    title: "Digital Strategy",
+    image: "/images/brand.jpg",
+    description: "Data-driven user tracking funnels designed to scale baseline business operations to the sky.",
+    subServices: [
+      { name: "Market Mapping", href: "/services/market-research" },
+      { name: "Funnel Engineering", href: "/services/funnel-opt" },
+      { name: "Conversion Rate Optimization", href: "/services/cro" },
     ]
   }
 ];
@@ -160,7 +160,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               </div>
 
               <h1
-                className={`text-4xl sm:text-4xl md:text-4xl lg:text-7xl font-old-school tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
+                className={`text-3xl sm:text-4xl md:text-4xl lg:text-7xl font-old-school tracking-tight leading-tight lg:leading-none transition-all duration-500 ${
                   isExpanded ? "text-[#242021] translate-x-1 md:translate-x-2" : "text-[#000000] "
                 }`}
               >
@@ -168,7 +168,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               </h1>
             </div>
 
-            <div className="flex items-center gap-4 shrink-0 ml-4 md:hidden">
+            <div className="flex items-center gap-0 shrink-0 ml-2 md:hidden">
               <div className="text-xl font-bold text-neutral-500 transition-transform duration-300">
                 {isExpanded ? "—" : "+"}
               </div>
@@ -181,7 +181,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               isExpanded ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-[96px] sm:pl-[81px]">
+            <div className="overflow-hidden pl-0 w-full">
               <p className="text-lg md:text-xl leading-tight font-old-school text-neutral-400 max-w-xl">
                 {description}
               </p>
@@ -194,7 +194,7 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
               isExpanded ? "grid-rows-[1fr] opacity-100 mt-5 sm:mt-6 md:mt-8" : "grid-rows-[0fr] opacity-0 mt-0"
             }`}
           >
-            <div className="overflow-hidden pl-[96px] sm:pl-[81px] md:pl-12 w-full">
+            <div className="overflow-hidden pl-0 md:pl-12 w-full">
               <ul className="flex flex-col gap-2 pb-4 w-full">
                 {subServices.map((sub, sIdx) => (
                   <li
@@ -207,15 +207,15 @@ const ExpandedServiceRow = ({ id, title, image, description, subServices, isExpa
                       data-cursor="service"
                       className="flex items-center justify-between w-full py-3 px-4 rounded-md
                                  text-emerald-900 bg-neutral-200/80
-                                 text-base sm:text-xl md:text-xl lg:text-3xl font-old-school tracking-tight
+                                 text-base sm:text-xl md:text-xl lg:text-2xl font-old-school tracking-tight
                                  transition-all duration-300 hover:text-[#000000] group/link"
                     >
                       <span>{sub.name}</span>
 
                       <span className="inline-block overflow-hidden h-7 w-7 shrink-0 ml-4 relative">
-                        {/* Added group-hover/link:text-[#000000] to handle the fill color change on link hover */}
+                        {/* Modified classes below: default is text-[#000000] (mobile layout) and md scales it back to text-emerald-800 */}
                         <svg
-                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-800 
+                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#000000] md:text-emerald-800
                                      transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] 
                                      group-hover/link:scale-125 group-hover/link:text-[#000000]"
                           xmlns="http://www.w3.org/2000/svg"
@@ -259,6 +259,8 @@ function Services() {
               SERVICES.
             </h1>
           </div>
+
+          
 
           <div className="hidden lg:block lg:col-span-1" />
 

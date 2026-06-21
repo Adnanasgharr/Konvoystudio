@@ -321,7 +321,7 @@ const Navbar = () => {
       >
         <nav
           ref={navRef}
-          className="relative pointer-events-auto flex items-center justify-between w-full max-w-full h-[95px] bg-transparent border border-transparent backdrop-blur-xl rounded-full px-4 md:px-10 will-change-[max-width,padding,margin,height]"
+          className="relative pointer-events-auto flex items-center justify-between w-full max-w-full h-[95px] px-6 md:px-4 bg-transparent border border-transparent backdrop-blur-xl rounded-full will-change-[max-width,padding,margin,height]"
         >
           {/* BRAND LOGO ELEMENT */}
           <div className="flex items-center shrink-0 z-[110]">

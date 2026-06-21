@@ -15,6 +15,10 @@ export default function CustomCursor() {
   const currentTargetRef = useRef(null);
 
   useEffect(() => {
+    // Check if screen is wider than mobile (tablet/desktop)
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (!isDesktop) return; // Completely bail out on mobile viewports
+
     const cursor = cursorRef.current;
     const textSpan = textRef.current;
     if (!cursor || !textSpan) return;
@@ -124,7 +128,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 bg-white flex items-center justify-center font-bold text-center select-none uppercase tracking-wider overflow-hidden"
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 bg-white hidden md:flex items-center justify-center font-bold text-center select-none uppercase tracking-wider overflow-hidden"
       style={{ width: 16, height: 16, mixBlendMode: "difference" }}
     >
       <span ref={textRef} className="flex items-center justify-center w-full h-full" />
