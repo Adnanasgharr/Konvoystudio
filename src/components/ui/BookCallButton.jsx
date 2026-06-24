@@ -3,13 +3,17 @@ import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
 import Button from "@/components/ui/Button"; // adjust path as needed
 
-export default function BookCallButton() {
+export default function BookCallButton({ 
+  text = "Book a Call", 
+  ariaLabel = "Schedule a discovery meeting with Konvoy Studio",
+  variant = "primary"
+}) {
+  
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "discovery-call" });
       
       // 🛠️ CRITICAL STEP: Explicitly initialize the embed handler instance 
-      // This forces Cal.com to bind safely to whatever origin (IP or Localhost) you are using.
       cal("init", { namespace: "discovery-call" });
 
       cal("ui", {
@@ -42,8 +46,10 @@ export default function BookCallButton() {
 
   return (
     <Button
-      text="Book a Call"
+      text={text}
+      variant={variant}
       onClick={handleBookCall}
+      aria-label={ariaLabel} // 🎯 Structural accessibility hook for crawlers/screen readers
     />
   );
 }

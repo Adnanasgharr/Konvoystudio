@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Button from "@/components/ui/Button";
+import BookCallButton from "../ui/BookCallButton";
 
 const DefaultBoxIcon = () => (
   <div className="w-7 h-7 rounded-md bg-[#CCFF00] flex items-center justify-center text-[#121212] shrink-0">
@@ -35,13 +36,14 @@ export default function ServiceCapabilitiesGrid({
             </h2>
           </div>
 
-          <div className="shrink-0">
-            <Button
-              text={ctaText}
-              variant="primary"
-              href={ctaHref}
-              aria-label="View all services offered by Konvoy Studio"
-            />
+          <div >
+          
+
+          <BookCallButton 
+  text="Get in touch today" 
+  ariaLabel="Schedule a discovery call with Konvoy Studio to discuss your project design and asset needs" 
+/>
+            
           </div>
         </div>
 

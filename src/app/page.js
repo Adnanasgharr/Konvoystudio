@@ -5,6 +5,7 @@ import Work from "@/components/sections/Work";
 import ContactButton from "@/components/ui/ContactButton";
 import Testimonials from "@/components/sections/Testimonials";
 import About from "@/components/sections/About";
+import Faq from "@/components/sections/Faq";
 
 
 const page = () => {
@@ -28,6 +29,10 @@ const page = () => {
 
       <section className="z-50">
         <Testimonials />
+      </section>
+
+      <section>
+        <Faq />
       </section>
 
       

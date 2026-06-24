@@ -11,14 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Row 1: Focuses on core capabilities (Moves Left)
 const marqueeRow1 = [
-  "Web Development", "•", "Creative Graphic Design", "•", "Video Editing", "•",
-  "Web Development", "•", "Creative Graphic Design", "•", "Video Editing", "•"
+  "Websites", "•", "Video Production", "•", "Graphic Design", "•", "AI Integrations", "•", "E-Commerce", "•", "Landing Pages", "•", "Website Redesign", "•",
+  "Websites", "•", "Video Production", "•", "Graphic Design", "•", "AI Integrations", "•", "E-Commerce", "•", "Landing Pages", "•", "Website Redesign", "•"
 ];
 
 // Row 2: Focuses on stack & philosophy (Moves Right)
 const marqueeRow2 = [
-  "Next.js", "•", "Figma", "•", "Motion Design", "•", "Branding", "•",
-  "Next.js", "•", "Figma", "•", "Motion Design", "•", "Branding", "•"
+  "Next.js", "•", "React", "•", "Tailwind CSS", "•", "GSAP", "•", "WordPress", "•", "WooCommerce", "•", "Figma", "•", "After Effects", "•", "Adobe Illustrator", "•",
+  "Next.js", "•", "React", "•", "Tailwind CSS", "•", "GSAP", "•", "WordPress", "•", "WooCommerce", "•", "Figma", "•", "After Effects", "•", "Adobe Illustrator", "•"
 ];
 
 const Page = () => {
@@ -149,15 +149,16 @@ const Page = () => {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0%); }
         }
+        /* 🎯 Durations increased here to slow down the speed */
         .animate-marquee-left {
           display: flex;
           width: max-content;
-          animation: marqueeLeft 18s linear infinite;
+          animation: marqueeLeft 45s linear infinite;
         }
         .animate-marquee-right {
           display: flex;
           width: max-content;
-          animation: marqueeRight 22s linear infinite;
+          animation: marqueeRight 55s linear infinite;
         }
       `}</style>
 
@@ -246,13 +247,13 @@ const Page = () => {
             </div>
           </div>
 
-          {/* HIGH-IMPACT DOUBLE OVERLAPPED CROSSED MARQUEES (Repositioned to absolute bottom edge of the home view) */}
+          {/* HIGH-IMPACT DOUBLE OVERLAPPED CROSSED MARQUEES */}
           <div className="w-[105vw] -ml-6 relative overflow-hidden bg-neutral-950/40 py-6 md:hidden select-none pointer-events-none flex flex-col gap-3 -rotate-2 mt-auto border-y border-neutral-900/60 z-20">
             {/* Visual Ambient Edge Fades */}
             <div className="absolute left-0 top-0 w-10 h-full bg-gradient-to-r from-black to-transparent z-10" />
             <div className="absolute right-0 top-0 w-10 h-full bg-gradient-to-l from-black to-transparent z-10" />
 
-            {/* Row 1: Fast Left Movement (Core Capabilities) */}
+            {/* Row 1: Left Movement */}
             <div className="animate-marquee-left flex items-center whitespace-nowrap gap-6">
               {marqueeRow1.map((item, idx) => (
                 <span 
@@ -266,7 +267,7 @@ const Page = () => {
               ))}
             </div>
 
-            {/* Row 2: Slower Right Movement (Muted Tone/Tech Stack) */}
+            {/* Row 2: Right Movement */}
             <div className="animate-marquee-right flex items-center whitespace-nowrap gap-6 opacity-50">
               {marqueeRow2.map((item, idx) => (
                 <span 
@@ -302,7 +303,6 @@ const Page = () => {
                 className="font-old-school "
               >
                 KONVOY STUDIO
-                {/* dx shifts it away from the O, dy shifts it up to become a superscript */}
                 <tspan
                   dx="10"
                   dy="-20"

@@ -37,7 +37,7 @@ export default function MissionValues() {
       {/* =====================
           MISSION BLOCK
          ===================== */}
-      <div className="w-full mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16 border-b border-[#E4E2D9] pb-16 sm:pb-24 lg:pb-32">
+      <div className="w-full mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16 border-b-2 border-[#dbd9d1] pb-16 sm:pb-24 lg:pb-18">
         {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-28 items-start">
           
@@ -47,7 +47,7 @@ export default function MissionValues() {
               Studio
             </h1>
             <h1 className="text-[#0F1011] text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9] uppercase">
-              Mission
+              Mission.
             </h1>
           </div>
 
@@ -76,7 +76,7 @@ export default function MissionValues() {
       {/* =====================
           VALUES BLOCK
          ===================== */}
-      <div className="w-full pt-16 sm:pt-24 lg:pt-32">
+      <div className="w-full pt-16 sm:pt-24 lg:pt-18">
         <div className="w-full mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
           
           {/* Core Title Grid Split */}
@@ -86,13 +86,13 @@ export default function MissionValues() {
                 Our
               </h1>
               <h1 className="text-[#0F1011] text-5xl sm:text-6xl md:text-7xl uppercase lg:text-8xl leading-[0.95] md:leading-[0.9]">
-                Values
+                Values.
               </h1>
             </div>
           </div>
 
           {/* Accordion List Container */}
-          <div className="w-full flex flex-col border-t border-neutral-300/60">
+          <div className="w-full flex flex-col border-t border-neutral-300/60 ">
             {valuesData.map((val, idx) => {
               const isHovered = idx === hoveredIndex;
 

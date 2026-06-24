@@ -9,30 +9,30 @@ const projects = [
     year: "2024",
     client: "Neon Labs",
     title: "Building a bold brand identity from scratch",
-    tags: ["Branding", "Website Element Creation"], 
-    image: "/images/brand.jpg", 
+    tags: ["Branding", "Website Element Creation"],
+    image: "/images/brand.jpg",
   },
   {
     year: "2024",
     client: "Vertex Studio",
     title: "Redesigning the digital experience",
-    tags: ["UI/UX"], 
-    image: "/images/video.jpg", 
+    tags: ["UI/UX"],
+    image: "/images/video.jpg",
   },
   {
     year: "2023",
     client: "Pulse Media",
     title: "Video campaign that drove 2x engagement",
     tags: ["Video Editing"],
-    video: "/cover2.mp4", 
-    image: "/images/websites.jpeg", 
+    video: "/cover2.mp4",
+    image: "/images/websites.jpeg",
   },
   {
     year: "2023",
     client: "Drift Co.",
     title: "E-commerce overhaul with conversion focus",
     tags: ["Website", "Shopify"],
-    image: "/images/video.jpg", 
+    image: "/images/video.jpg",
   },
 ];
 
@@ -114,7 +114,6 @@ const ProjectCard = ({ project, isVideoMuted, sectionBgColor }) => {
     >
       {/* CONTAINER WRAPPER */}
       <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] mb-4 bg-transparent  rounded-[1.5rem]">
-        
         {/* ISOLATED MEDIA CONTAINER */}
         <div className="absolute inset-0 w-full h-full overflow-hidden rounded-[1.5rem] z-10">
           {project.video ? (
@@ -141,33 +140,33 @@ const ProjectCard = ({ project, isVideoMuted, sectionBgColor }) => {
         <div
           ref={notchMaskRef}
           className="absolute -top-[4px] -right-[4px] pt-2 pr-1 pl-3 pb-3 flex items-center gap-2 pointer-events-none z-20 origin-top-right transition-colors duration-1000 max-w-[calc(100%-12px)]"
-          style={{ 
+          style={{
             backgroundColor: sectionBgColor,
-            borderBottomLeftRadius: "1.5rem"
+            borderBottomLeftRadius: "1.5rem",
           }}
         >
           {/* Top-Left Inverted Notch Curve */}
-          <div 
+          <div
             className="absolute left-[-16px] top-[4px] w-4 h-4 transition-colors duration-1000"
             style={{
               borderTopRightRadius: "1rem",
-              boxShadow: `4px -4px 0 4px ${sectionBgColor}`
+              boxShadow: `4px -4px 0 4px ${sectionBgColor}`,
             }}
           />
 
           {/* Bottom-Right Inverted Notch Curve */}
-          <div 
+          <div
             className="absolute bottom-[-16px] right-[4px] w-4 h-4 transition-colors duration-1000"
             style={{
               borderTopRightRadius: "1rem",
-              boxShadow: `4px -4px 0 4px ${sectionBgColor}`
+              boxShadow: `4px -4px 0 4px ${sectionBgColor}`,
             }}
           />
 
           {/* Inner Content Wrapper - Scaled down padding for seamless mobile responsiveness */}
-          <div 
-            ref={tagsRef} 
-            className="flex items-center gap-1.5 overflow-x-auto scrollbar-none" 
+          <div
+            ref={tagsRef}
+            className="flex items-center gap-1.5 overflow-x-auto scrollbar-none"
           >
             {project.tags.map((tag) => (
               <span
@@ -207,7 +206,7 @@ const Work = () => {
           setIsBlackBg(false);
         }
       },
-      { root: null, threshold: 0.1 }
+      { root: null, threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -226,56 +225,77 @@ const Work = () => {
   const currentBgColor = isBlackBg ? "#000000" : "#F1F1F1";
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="w-full min-h-screen relative overflow-hidden   transition-colors duration-1000 ease-out"
       style={{ backgroundColor: currentBgColor }}
       onClick={handleGlobalClick}
     >
       <div className="mx-auto pt-12 md:pt-20 max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-16 transition-colors duration-1000">
-        
-       {/* ASYMMETRIC HEADING STRUCTURE */}
-        <div className="w-full flex flex-col gap-6 md:gap-10 mb-16 md:mb-0">
-          <div>
-            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]">
-              Featured 
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12 md:gap-x-8 lg:gap-x-12 items-start mb-16 sm:mb-20 md:mb-28">
+          <div className="md:col-span-6 flex flex-col">
+            <h1 className="font-abc-arizona text-white text-5xl sm:text-7xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.85]">
+              Featured
             </h1>
-            <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-[0.95] md:leading-[0.9]">
-              Projects
+            <h1 className="text-white text-5xl sm:text-7xl md:text-7xl lg:text-8xl font-bold leading-[0.95] md:leading-[0.85] uppercase">
+              PROJECTS.
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start ">
-            <div className="md:col-start-5 md:col-span-3 text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-mono pt-1">
-              (WORKS)
-            </div>
-            <p className="md:col-span-5 text-neutral-400 text-sm sm:text-base lg:text-lg font-old-school leading-relaxed max-w-[42ch]">
-            A curated selection of featured projects, each meticulously crafted with passion and intention, designed to drive measurable results and create meaningful impact for the people we build for.
+          <div className="hidden lg:block lg:col-span-1" />
+
+          <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-4 sm:gap-5">
+            <h3 className="text-white text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-old-school font-bold leading-tight tracking-tight">
+              Work we're proud <br /> to put our name on
+            </h3>
+            <p className="text-neutral-400 text-lg md:text-xl leading-tight font-old-school ">
+              A curated selection of featured projects, each meticulously
+              crafted with passion and intention, designed to drive measurable
+              results and create meaningful impact for the people we build for.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-12 gap-x-0 sm:gap-x-6 md:gap-x-8 gap-y-10 sm:gap-y-12 md:gap-y-16 mb-24 md:mb-32">
           <div className="col-span-12 md:col-span-6 flex flex-col gap-10 sm:gap-12 md:gap-16">
-            <ProjectCard project={projects[0]} isVideoMuted={isVideoMuted} sectionBgColor={currentBgColor} />
-            <ProjectCard project={projects[2]} isVideoMuted={isVideoMuted} sectionBgColor={currentBgColor} />
+            <ProjectCard
+              project={projects[0]}
+              isVideoMuted={isVideoMuted}
+              sectionBgColor={currentBgColor}
+            />
+            <ProjectCard
+              project={projects[2]}
+              isVideoMuted={isVideoMuted}
+              sectionBgColor={currentBgColor}
+            />
           </div>
 
           <div className="col-span-12 md:col-span-6 flex flex-col gap-10 sm:gap-12 md:gap-16 md:mt-32">
-            <ProjectCard project={projects[1]} isVideoMuted={isVideoMuted} sectionBgColor={currentBgColor} />
-            <ProjectCard project={projects[3]} isVideoMuted={isVideoMuted} sectionBgColor={currentBgColor} />
+            <ProjectCard
+              project={projects[1]}
+              isVideoMuted={isVideoMuted}
+              sectionBgColor={currentBgColor}
+            />
+            <ProjectCard
+              project={projects[3]}
+              isVideoMuted={isVideoMuted}
+              sectionBgColor={currentBgColor}
+            />
           </div>
-          
+
           <div className="col-span-12 md:col-start-3 md:col-span-6 flex flex-col items-start gap-4 sm:gap-6 md:-mt-25 mt-4 mix-blend-difference">
             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-old-school leading-[1.1] tracking-tight">
-              Like what<br />you see?
+              Like what
+              <br />
+              you see?
             </h1>
-            <Button text="Let's Talk" 
-            variant="primary"
-            aria-label="Contact us" />  
+            <Button
+              text="Let's Talk"
+              variant="primary"
+              aria-label="Contact us"
+            />
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -3,216 +3,132 @@ export const servicesData = {
     id: "02",
     title: "Corporate Websites",
     category: "Web Development",
-    description:
-      "High-performance corporate web infrastructures built for market authority.",
+    description: "High-performance corporate web infrastructures built for market authority.",
     heroImage: "/images/services/Konvoy studio corporate websites development.webp",
-    
-    heroHeading:
-      "A Development Studio for Corporate Web Infrastructures That Mean Business.",
+    heroHeading: "A Development Studio for Corporate Web Infrastructures That Mean Business.",
     heroParagraphs: [
       "We build custom corporate websites engineered for performance, credibility, and conversion — no templates, no shortcuts, no compromises.",
       "From architecture planning to final deployment, every line of code is written to reflect your brand's authority and deliver results across every device and market.",
     ],
-    philosophyTitle:
-      "Corporate web systems engineered to command trust and drive results",
+    philosophyTitle: "Corporate web systems engineered to command trust and drive results",
     features: [
-      {
-        title: "Custom Design",
-        description:
-          "Fully bespoke layouts built around your brand identity with zero off-the-shelf templates.",
-      },
-      {
-        title: "Performance Engineering",
-        description:
-          "Aggressive optimization targeting sub-second load times across all devices and connection speeds.",
-      },
-      {
-        title: "CMS Integration",
-        description:
-          "Headless or native CMS setups that let your team manage content without touching a single line of code.",
-      },
-      {
-        title: "SEO Architecture",
-        description:
-          "Clean semantic markup and structured data foundations built to rank from day one.",
-      },
-      {
-        title: "Conversion Design",
-        description:
-          "Strategic layout and UX decisions engineered to turn visitors into leads and leads into clients.",
-      },
-      {
-        title: "Maintenance & Support",
-        description:
-          "Ongoing monitoring, security patching, and content updates so your site never falls behind.",
-      },
+      { title: "Custom Design", description: "Fully bespoke layouts built around your brand identity with zero off-the-shelf templates." },
+      { title: "Performance Engineering", description: "Aggressive optimization targeting sub-second load times across all devices and connection speeds." },
+      { title: "CMS Integration", description: "Headless or native CMS setups that let your team manage content without touching a single line of code." },
+      { title: "SEO Architecture", description: "Clean semantic markup and structured data foundations built to rank from day one." },
+      { title: "Conversion Design", description: "Strategic layout and UX decisions engineered to turn visitors into leads and leads into clients." },
+      { title: "Maintenance & Support", description: "Ongoing monitoring, security patching, and content updates so your site never falls behind." },
     ],
     partnership: {
-      heading:
-        "Why Konvoy Studio Is the Right Team to Build Your Corporate Website",
+      heading: "Why Konvoy Studio Is the Right Team to Build Your Corporate Website",
       visualLabel: "Corporate",
       p1: "Your website is the first thing a serious client looks at before picking up the phone. If it doesn't reflect the quality of your business, you're losing deals before the conversation even starts.",
       p2: "At Konvoy Studio, we don't just build websites. We build corporate assets. Every project goes through a structured process: brand analysis, architecture planning, design, development, and launch — with one team owning all of it.",
       p3: "If you're ready to have a website that actually works for your business, let's talk. We'll map out exactly what you need and build it without the back-and-forth.",
     },
+    faqs: [
+      { id: "01", question: "Do you build corporate websites from scratch or use templates?", answer: "Everything is built from scratch. No templates, no page builders. Every layout is designed and developed around your brand specifically." },
+      { id: "02", question: "What's included in a corporate website project?", answer: "Brand analysis, architecture planning, custom design, full development, CMS integration, SEO setup, and launch. One team handles all of it." },
+      { id: "03", question: "How long does a corporate website take to build?", answer: "Most corporate projects run between 6 to 10 weeks depending on scope. We map out exact milestones before any contract is signed." },
+      { id: "04", question: "Will we be able to manage content ourselves after launch?", answer: "Yes. We set up a CMS so your team can update content without touching any code." },
+      { id: "05", question: "Do you handle hosting and deployment?", answer: "We handle deployment and can advise on hosting. For most corporate builds we recommend Vercel or a managed cloud provider depending on your infrastructure needs." },
+      { id: "06", question: "How do you structure pricing for corporate websites?", answer: "Custom quotes based on scope. After a discovery call we provide a fixed-cost proposal with clear deliverables — no surprise invoices." },
+    ],
   },
+
   "business-websites": {
     id: "03",
     title: "Business Websites",
     category: "Web Development",
-    description:
-      "Clean, conversion-focused websites built for growing businesses.",
+    description: "Clean, conversion-focused websites built for growing businesses.",
     heroImage: "/images/services/Konvoy studio business websites.webp",
-    heroHeading:
-      "A Web Studio for Business Websites That Work as Hard as You Do.",
+    heroHeading: "A Web Studio for Business Websites That Work as Hard as You Do.",
     heroParagraphs: [
       "We build professional business websites that look credible, load fast, and turn visitors into customers — without the bloat of page builders or the chaos of DIY platforms.",
       "Whether you're a local service provider, a growing SME, or a startup making your first impression online, we build the digital foundation your business needs to compete.",
     ],
-    philosophyTitle:
-      "Business websites built to attract clients and generate real results",
+    philosophyTitle: "Business websites built to attract clients and generate real results",
     features: [
-      {
-        title: "Professional Design",
-        description:
-          "Clean, brand-aligned layouts that build trust with visitors from the first scroll.",
-      },
-      {
-        title: "Mobile First",
-        description:
-          "Fully responsive builds optimized for every screen size, from mobile to desktop.",
-      },
-      {
-        title: "Fast Load Times",
-        description:
-          "Lightweight, optimized code that keeps bounce rates low and user experience high.",
-      },
-      {
-        title: "Lead Generation",
-        description:
-          "Strategic contact forms, CTAs, and conversion flows built to capture and convert visitors.",
-      },
-      {
-        title: "Easy Content Management",
-        description:
-          "Simple CMS setups so you can update your own content without needing a developer every time.",
-      },
-      {
-        title: "Ongoing Support",
-        description:
-          "Post-launch maintenance and updates so your site stays secure, current, and running smoothly.",
-      },
+      { title: "Professional Design", description: "Clean, brand-aligned layouts that build trust with visitors from the first scroll." },
+      { title: "Mobile First", description: "Fully responsive builds optimized for every screen size, from mobile to desktop." },
+      { title: "Fast Load Times", description: "Lightweight, optimized code that keeps bounce rates low and user experience high." },
+      { title: "Lead Generation", description: "Strategic contact forms, CTAs, and conversion flows built to capture and convert visitors." },
+      { title: "Easy Content Management", description: "Simple CMS setups so you can update your own content without needing a developer every time." },
+      { title: "Ongoing Support", description: "Post-launch maintenance and updates so your site stays secure, current, and running smoothly." },
     ],
     partnership: {
-      heading:
-        "Why Konvoy Studio Is the Right Choice for Your Business Website",
+      heading: "Why Konvoy Studio Is the Right Choice for Your Business Website",
       visualLabel: "Business",
       p1: "A business website in 2026 isn't optional. It's where potential clients go to decide if you're worth their time. If your site looks outdated or loads slowly, they move on — simple as that.",
       p2: "At Konvoy Studio, we build business websites that do one thing well: make your business look credible and turn visitors into enquiries. Clean design, fast performance, and a clear path for your visitors to take action.",
       p3: "Whether you're launching for the first time or replacing a site that's letting you down, we'll build you something you're proud to send clients to.",
     },
+    faqs: [
+      { id: "01", question: "What kind of businesses do you build websites for?", answer: "Local service providers, SMEs, startups, retail businesses, clinics, agencies — any business that needs a professional online presence that actually converts." },
+      { id: "02", question: "Do you use WordPress or custom code for business websites?", answer: "Depends on what fits the project. For content-heavy sites that need easy management, we use WordPress. For more custom requirements, we build with Next.js and React." },
+      { id: "03", question: "How long does a business website take?", answer: "Typically 3 to 5 weeks. Simpler projects can be faster. We'll give you a clear timeline upfront." },
+      { id: "04", question: "Will my website work properly on mobile?", answer: "Yes. Every website we build is fully responsive and tested across devices before launch." },
+      { id: "05", question: "Can I update the website myself after launch?", answer: "Yes. We set up a simple CMS so you can edit content, add pages, and make updates without needing a developer." },
+      { id: "06", question: "What does a business website cost?", answer: "Pricing depends on scope. We provide a fixed-cost quote after a discovery call so you know exactly what you're paying before work starts." },
+    ],
   },
+
   "wordpress-development": {
     id: "04",
     title: "WordPress Development",
     category: "WordPress Development",
-    description:
-      "Bespoke corporate infrastructures built for absolute design fidelity.",
+    description: "Bespoke corporate infrastructures built for absolute design fidelity.",
     heroImage: "/images/services/konvoy studio wordpress website development.webp",
     heroHeading: "An Engineering Studio for Custom WordPress Architectures.",
     heroParagraphs: [
       "We build clean, block-based custom WordPress frameworks designed to deliver high-end visual fidelity without the bloat of third-party builders.",
       "From decoupled configurations feeding Next.js apps to native Gutenberg optimization, we engineer headless content setups that load instantly and scale effortlessly across global markets.",
     ],
-    philosophyTitle:
-      "WordPress frameworks engineered for elite corporate performance",
+    philosophyTitle: "WordPress frameworks engineered for elite corporate performance",
     features: [
-      {
-        title: "Custom Development",
-        description:
-          "Bespoke Gutenberg blocks and backend configurations engineered with zero page-builder bloat.",
-      },
-      {
-        title: "Theme Development",
-        description:
-          "Translating high-fidelity layouts into pixel-perfect, interactive digital experiences natively.",
-      },
-      {
-        title: "WooCommerce",
-        description:
-          "Architecting high-performance digital storefront infrastructure engineered to scale seamlessly.",
-      },
-      {
-        title: "Plugin Integration",
-        description:
-          "Connecting third-party systems and corporate APIs securely without breaking data pipelines.",
-      },
-      {
-        title: "Speed Optimization",
-        description:
-          "Aggressive optimization frameworks and structural caching targeted to hit sub-second load times.",
-      },
-      {
-        title: "Maintenance & Support",
-        description:
-          "Continuous server monitoring, automated cloud backups, and ironclad security patching operations.",
-      },
+      { title: "Custom Development", description: "Bespoke Gutenberg blocks and backend configurations engineered with zero page-builder bloat." },
+      { title: "Theme Development", description: "Translating high-fidelity layouts into pixel-perfect, interactive digital experiences natively." },
+      { title: "WooCommerce", description: "Architecting high-performance digital storefront infrastructure engineered to scale seamlessly." },
+      { title: "Plugin Integration", description: "Connecting third-party systems and corporate APIs securely without breaking data pipelines." },
+      { title: "Speed Optimization", description: "Aggressive optimization frameworks and structural caching targeted to hit sub-second load times." },
+      { title: "Maintenance & Support", description: "Continuous server monitoring, automated cloud backups, and ironclad security patching operations." },
     ],
     partnership: {
-      heading:
-        "Why Konvoy Studio Is the Right Choice for Your WordPress Website",
-      // 🎯 Added short visual handle for the graphic alignment matrix
+      heading: "Why Konvoy Studio Is the Right Choice for Your WordPress Website",
       visualLabel: "WordPress",
       p1: "WordPress isn't just popular. It's the platform behind 43% of the web because it lets businesses launch fast, update content without touching code, and scale without switching platforms.",
       p2: "But WordPress is only as good as the team building on it. At Konvoy Studio, we handle everything from strategy and design to development and post-launch support. No handoffs, no gaps, no 'that's not our department.'",
       p3: "Whether you're starting from scratch or fixing a site that isn't working for you, we'll tell you exactly what you need and build it right the first time.",
     },
+    faqs: [
+      { id: "01", question: "Do you use page builders like Elementor or Divi?", answer: "No. We build with custom Gutenberg blocks and native WordPress. No page builders means cleaner code, faster load times, and no plugin dependency issues." },
+      { id: "02", question: "Can you build a headless WordPress setup with Next.js?", answer: "Yes. We build decoupled WordPress configurations where WordPress handles content and Next.js handles the frontend — best of both worlds." },
+      { id: "03", question: "Do you build WooCommerce stores on WordPress?", answer: "Yes. We build and configure WooCommerce stores for performance, with custom product layouts and payment gateway integration." },
+      { id: "04", question: "Can you fix or improve an existing WordPress site?", answer: "Yes. Whether it's slow, broken, or just outdated, we audit what's there and fix the actual problems." },
+      { id: "05", question: "Will we be able to manage the site ourselves after launch?", answer: "Yes. That's one of the main reasons to use WordPress. We make sure the backend is clean and easy to use before handing it over." },
+      { id: "06", question: "How long does a custom WordPress build take?", answer: "Typically 4 to 8 weeks depending on complexity. We give you a fixed timeline before work begins." },
+    ],
   },
+
   "ecommerce-websites": {
     id: "05",
     title: "E-Commerce Websites",
     category: "E-Commerce Development",
-    description:
-      "High-converting online stores built to sell, scale, and retain customers.",
-    heroImage: "/images/services/Konvoy studio ecommerce websites development.webp",
+    description: "High-converting online stores built to sell, scale, and retain customers.",
+    heroImage: "/images/services/ecommerce-websites-development.webp",
     heroHeading: "A Commerce Studio for Online Stores Built to Sell.",
     heroParagraphs: [
       "We build custom e-commerce websites engineered for conversions, speed, and seamless buying experiences — no bloated themes, no cookie-cutter storefronts.",
       "From product architecture and payment integration to checkout optimization and post-launch scaling, we handle every layer of your online store so you can focus on growing your business.",
     ],
-    philosophyTitle:
-      "E-commerce systems engineered to convert browsers into buyers",
+    philosophyTitle: "E-commerce systems engineered to convert browsers into buyers",
     features: [
-      {
-        title: "Custom Storefront Design",
-        description:
-          "Fully bespoke product and category layouts built around your brand and buying journey.",
-      },
-      {
-        title: "WooCommerce Development",
-        description:
-          "Scalable WooCommerce setups configured for performance, flexibility, and growth.",
-      },
-      {
-        title: "Payment Integration",
-        description:
-          "Secure payment gateway setup supporting multiple currencies and local payment methods.",
-      },
-      {
-        title: "Checkout Optimization",
-        description:
-          "Streamlined checkout flows engineered to reduce drop-off and increase completed orders.",
-      },
-      {
-        title: "Product Management",
-        description:
-          "Clean backend systems that make managing inventory, pricing, and variants effortless.",
-      },
-      {
-        title: "Performance & Security",
-        description:
-          "Speed-optimized infrastructure with SSL, fraud protection, and automated backups in place.",
-      },
+      { title: "Custom Storefront Design", description: "Fully bespoke product and category layouts built around your brand and buying journey." },
+      { title: "WooCommerce Development", description: "Scalable WooCommerce setups configured for performance, flexibility, and growth." },
+      { title: "Payment Integration", description: "Secure payment gateway setup supporting multiple currencies and local payment methods." },
+      { title: "Checkout Optimization", description: "Streamlined checkout flows engineered to reduce drop-off and increase completed orders." },
+      { title: "Product Management", description: "Clean backend systems that make managing inventory, pricing, and variants effortless." },
+      { title: "Performance & Security", description: "Speed-optimized infrastructure with SSL, fraud protection, and automated backups in place." },
     ],
     partnership: {
       heading: "Why Konvoy Studio Is the Right Team to Build Your Online Store",
@@ -221,239 +137,384 @@ export const servicesData = {
       p2: "At Konvoy Studio, we build e-commerce websites with one goal in mind: turning traffic into revenue. Every design decision, every technical choice, and every integration is made with your conversion rate in mind.",
       p3: "Whether you're launching your first store or rebuilding one that isn't performing, we'll build you a storefront that works around the clock to grow your business.",
     },
-  },
-  "landing-pages": {
-  id: "06",
-  title: "Landing Pages",
-  category: "Landing Pages",
-  description: "High-converting landing pages built to capture leads and drive action.",
-  heroImage: "/images/landing-pages-hero.png",
-  heroHeading: "A Conversion Studio for Landing Pages That Turn Clicks into Customers.",
-  heroParagraphs: [
-    "We build focused, high-performance landing pages engineered around a single goal: getting your visitor to take action — whether that's booking a call, signing up, or making a purchase.",
-    "Every element on the page, from the headline to the CTA, is placed with intention. No distractions, no filler, just a clear path from visitor to conversion."
-  ],
-  philosophyTitle: "Landing pages engineered to convert traffic into measurable results",
-  features: [
-    { title: "Conversion-First Design", description: "Every layout decision is made to guide the visitor toward one clear action." },
-    { title: "Fast Turnaround", description: "Production-ready landing pages delivered quickly without cutting corners on quality." },
-    { title: "Mobile Optimized", description: "Pixel-perfect builds across all screen sizes with mobile conversion in mind." },
-    { title: "A/B Test Ready", description: "Clean, modular structure that makes testing headlines, CTAs, and layouts straightforward." },
-    { title: "Form & CRM Integration", description: "Lead capture forms connected to your CRM, email platform, or notification system." },
-    { title: "Performance Optimized", description: "Lightweight builds with fast load times that keep paid traffic from bouncing before it converts." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Choice for Your Landing Page",
-    visualLabel: "Landing",
-    p1: "A landing page has one job: convert. If yours isn't doing that, every click you're paying for is money down the drain. Design, copy, structure, and speed all have to work together — and most generic page builders can't deliver that.",
-    p2: "At Konvoy Studio, we build landing pages the way performance marketers think about them. One goal, one message, one action. Everything on the page earns its place or it doesn't make the cut.",
-    p3: "Whether you're running paid ads, launching a product, or promoting a service, we'll build you a landing page that makes your traffic work harder."
-  }
-},
-"website-redesign": {
-  id: "07",
-  title: "Website Redesign",
-  category: "Website Redesign",
-  description: "Transforming outdated websites into high-performing digital assets.",
-  heroImage: "/images/services/Konvoy-studio-website-redesign.jpg",
-  heroHeading: "A Redesign Studio for Websites That Need to Catch Up With Your Business.",
-  heroParagraphs: [
-    "We take underperforming, outdated websites and rebuild them from the ground up — better design, faster performance, and a structure that actually supports your business goals.",
-    "A redesign isn't just a facelift. It's a chance to fix what's broken, cut what isn't working, and build something your business can grow into."
-  ],
-  philosophyTitle: "Website redesigns engineered to close the gap between where you are and where you need to be",
-  features: [
-    { title: "Design Overhaul", description: "Full visual refresh aligned to your current brand, market position, and target audience." },
-    { title: "Performance Audit", description: "In-depth analysis of your existing site's speed, structure, and conversion bottlenecks." },
-    { title: "Content Restructuring", description: "Reorganizing your site architecture so visitors find what they need and take action faster." },
-    { title: "Mobile Optimization", description: "Rebuilding your experience for mobile-first users without compromising the desktop version." },
-    { title: "SEO Preservation", description: "Careful migration of existing rankings, redirects, and structured data so you don't lose ground." },
-    { title: "CMS Upgrade", description: "Migrating to a cleaner, faster content management system your team can actually use." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team to Redesign Your Website",
-    visualLabel: "Redesign",
-    p1: "An outdated website doesn't just look bad — it costs you. Slow load times, poor mobile experience, and confusing navigation push potential clients toward your competitors before you even get a chance to make your case.",
-    p2: "At Konvoy Studio, we approach every redesign as a rebuild with purpose. We audit what you have, identify what's holding you back, and build a new version that fixes the real problems — not just the ones you can see.",
-    p3: "If your current website no longer reflects the quality of your business, it's time to change that. Let's build something that does."
-  }
-},
-"website-maintenance": {
-  id: "08",
-  title: "Website Maintenance",
-  category: "Website Maintenance",
-  description: "Ongoing care and support that keeps your website secure, fast, and reliable.",
-  heroImage: "/images/website-maintenance-hero.png",
-  heroHeading: "A Support Studio Keeping Your Website Running When You're Not Looking.",
-  heroParagraphs: [
-    "We handle the ongoing updates, security patches, and performance checks your website needs to stay fast, safe, and functional — so you don't have to think about it.",
-    "From routine backups to fixing the unexpected, we treat your website like infrastructure that needs to keep working, not a project that ends at launch."
-  ],
-  philosophyTitle: "Website maintenance built to keep your business running without interruption",
-  features: [
-    { title: "Security Monitoring", description: "Continuous scanning and patching to keep your website protected from emerging threats." },
-    { title: "Regular Backups", description: "Automated cloud backups so your site can be restored quickly if anything goes wrong." },
-    { title: "Performance Checks", description: "Routine audits to catch slowdowns before they affect your visitors or your rankings." },
-    { title: "Plugin & Core Updates", description: "Keeping your CMS, plugins, and dependencies up to date without breaking your site." },
-    { title: "Bug Fixes", description: "Fast turnaround on fixing issues as they come up, before they become bigger problems." },
-    { title: "Priority Support", description: "Direct access to our team when something needs attention, without the long wait times." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team to Maintain Your Website",
-    visualLabel: "Maintenance",
-    p1: "A website isn't a one-time project. Without regular updates and monitoring, even the best-built site becomes slow, vulnerable, and outdated within months.",
-    p2: "At Konvoy Studio, we treat maintenance as seriously as we treat development. Security patches, backups, and performance checks happen on schedule, so your site stays in the same condition it was on launch day, or better.",
-    p3: "If you'd rather focus on running your business than worrying about your website breaking, let us handle it. We'll keep things running so you don't have to."
-  }
-},
-"corporate-video-production": {
-  id: "09",
-  title: "Corporate Video Production",
-  category: "Video Production",
-  description: "Professional corporate videos built to communicate, persuade, and represent your brand.",
-  heroImage: "/images/corporate-video-hero.png",
-  heroHeading: "A Production Studio for Corporate Videos That Represent Your Business Properly.",
-  heroParagraphs: [
-    "We produce corporate videos that communicate clearly and look like they belong to a serious business — from company profiles and product explainers to internal training content.",
-    "Every project goes through proper planning, filming, and editing, so the final output matches the standard your brand should be setting, not just whatever fits the budget."
-  ],
-  philosophyTitle: "Corporate video production engineered to inform, persuade, and build trust",
-  features: [
-    { title: "Company Profile Videos", description: "Polished brand films that introduce your business clearly to clients and partners." },
-    { title: "Product & Service Explainers", description: "Clear, concise videos that break down what you offer and why it matters." },
-    { title: "Training & Internal Videos", description: "Structured content built to onboard staff and communicate processes effectively." },
-    { title: "Scriptwriting & Storyboarding", description: "Planning every shot and message before filming begins, so nothing is wasted on set." },
-    { title: "Professional Editing", description: "Clean cuts, color grading, and sound design that give your video a finished, premium feel." },
-    { title: "Multi-Platform Delivery", description: "Final exports optimized for your website, social channels, and internal platforms." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team for Your Corporate Video",
-    visualLabel: "Corporate Video",
-    p1: "A poorly made corporate video can do more damage than no video at all. If it looks rushed or amateur, it reflects directly on how clients perceive your business.",
-    p2: "At Konvoy Studio, we handle corporate video production from concept to final cut. Scripting, filming, editing, and delivery, all managed by one team that understands what a business actually needs to communicate.",
-    p3: "If you need a video that represents your business the way it deserves, let's plan it out properly from the start."
-  }
-},
-
-"event-video-production": {
-  id: "10",
-  title: "Event Video Production",
-  category: "Video Production",
-  description: "Capturing your events with the quality and coverage they deserve.",
-  heroImage: "/images/event-video-hero.png",
-  heroHeading: "A Production Studio That Captures Your Events Without Missing the Moment.",
-  heroParagraphs: [
-    "We film and edit corporate events, conferences, launches, and ceremonies with full coverage and a quick turnaround, so the final video is ready while the event still matters.",
-    "From multi-camera setups to highlight reels and full-length recaps, we make sure your event is documented properly, not just recorded."
-  ],
-  philosophyTitle: "Event video production built to capture every moment that matters",
-  features: [
-    { title: "Multi-Camera Coverage", description: "Multiple angles covered simultaneously so no key moment is missed." },
-    { title: "Highlight Reels", description: "Short, high-energy recaps built for social media and quick sharing." },
-    { title: "Full Event Recordings", description: "Complete, well-edited recordings for internal records or wider distribution." },
-    { title: "Live Streaming Support", description: "Technical setup and support for streaming your event to a remote audience." },
-    { title: "Fast Turnaround Editing", description: "Quick delivery so your event content goes out while it's still relevant." },
-    { title: "Audio & Lighting Setup", description: "Proper on-site setup to make sure the footage is usable before editing even starts." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team to Cover Your Event",
-    visualLabel: "Event Video",
-    p1: "An event you've spent months planning deserves more than a shaky phone recording. Without proper coverage, the moments that mattered most are gone the second the event ends.",
-    p2: "At Konvoy Studio, we plan event coverage in advance, not on the fly. Camera angles, audio setup, and editing turnaround are all mapped out before your event even starts.",
-    p3: "If you have an event coming up that needs to be documented properly, let's talk before the date locks in."
-  }
-},
-"promotional-videos": {
-  id: "11",
-  title: "Promotional Videos",
-  category: "Video Production",
-  description: "Short, high-impact videos built to promote your brand, product, or offer.",
-  heroImage: "/images/promotional-video-hero.png",
-  heroHeading: "A Production Studio for Promotional Videos That Actually Get Watched.",
-  heroParagraphs: [
-    "We create promotional videos built for attention, designed to stop the scroll and communicate your offer in seconds, not minutes.",
-    "From concept to final cut, every promotional video is built around one goal: making your audience care enough to act."
-  ],
-  philosophyTitle: "Promotional videos engineered to capture attention and drive action",
-  features: [
-    { title: "Concept & Scripting", description: "Sharp, focused messaging built around what your audience actually cares about." },
-    { title: "Product Promo Videos", description: "Showcasing what you sell in a way that highlights value, not just features." },
-    { title: "Social Media Ads", description: "Short-form videos cut and formatted specifically for paid and organic social performance." },
-    { title: "Brand Promo Films", description: "Building brand recognition through consistent visual and tonal storytelling." },
-    { title: "Motion Graphics & Animation", description: "Adding visual polish and clarity where live footage alone isn't enough." },
-    { title: "Platform-Specific Editing", description: "Versions cut for the exact specs and attention span of each platform you're using." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team for Your Promotional Video",
-    visualLabel: "Promo Video",
-    p1: "Most promotional videos get skipped in the first three seconds. If your video doesn't grab attention immediately, the budget behind it doesn't matter.",
-    p2: "At Konvoy Studio, we build promotional videos around how people actually watch content today. Fast hooks, clear messaging, and edits built for the platform they'll run on.",
-    p3: "If you have a product, service, or offer that needs to convert attention into action, let's build a video that does the job."
-  }
-},
-
-"post-production-editing": {
-  id: "12",
-  title: "Post-Production Editing",
-  category: "Video Production",
-  description: "Professional editing that turns raw footage into a finished, polished video.",
-  heroImage: "/images/post-production-hero.png",
-  heroHeading: "An Editing Studio That Turns Raw Footage Into a Finished Product.",
-  heroParagraphs: [
-    "We take raw footage, however it was shot, and turn it into a clean, well-paced, professionally finished video ready for publishing.",
-    "From color correction to sound design, every edit is handled with the same level of care, whether it's a thirty-second clip or a full-length production."
-  ],
-  philosophyTitle: "Post-production editing built to turn raw footage into a finished story",
-  features: [
-    { title: "Video Editing & Cutting", description: "Clean, well-paced edits that keep the story moving without unnecessary filler." },
-    { title: "Color Grading", description: "Consistent, polished color correction that gives footage a professional finish." },
-    { title: "Sound Design & Mixing", description: "Balanced audio, clean dialogue, and music that supports the video instead of distracting from it." },
-    { title: "Motion Graphics & Titles", description: "Adding text, lower thirds, and graphics that look intentional, not bolted on." },
-    { title: "Multi-Format Exports", description: "Final files delivered in the right specs for every platform you need them on." },
-    { title: "Revisions & Feedback Rounds", description: "A clear revision process so the final cut matches what you actually had in mind." }
-  ],
-  partnership: {
-    heading: "Why Konvoy Studio Is the Right Team for Your Post-Production",
-    visualLabel: "Post-Production",
-    p1: "Raw footage doesn't sell anything on its own. Without proper editing, even great footage ends up looking unfinished, disorganized, or just unwatchable.",
-    p2: "At Konvoy Studio, post-production is treated as its own craft. Editing, color, sound, and graphics are handled with the same attention as the original shoot.",
-    p3: "If you have footage sitting around that needs to become a finished video, send it over and we'll take it from there."
-  }
-},
-  "logo-design": {
-    id: "01",
-    title: "Logo Design",
-    category: "Brand Identity",
-    description: "Forging asset marks that command massive industry presence.",
-    heroImage: "/images/logo-design-hero.jpg",
-    heroHeading: "A Brand Identity Studio mapping out timeless visual marks.",
-    heroParagraphs: [
-      "We design authoritative vector brand components that encapsulate your studio's core philosophy and immediately stand out in hyper-competitive markets.",
-      "Our design process targets functional minimalism, ensuring that every asset mark translates crisply across digital touchpoints, corporate stationary, and physical surfaces alike.",
+    faqs: [
+      { id: "01", question: "What platform do you build e-commerce stores on?", answer: "We primarily build on WooCommerce for WordPress. For more custom requirements we can work with Next.js and a headless commerce setup." },
+      { id: "02", question: "Which payment gateways do you integrate?", answer: "We integrate local and international gateways including Stripe, PayPal, and local Pakistani options like JazzCash and EasyPaisa depending on your market." },
+      { id: "03", question: "Can you migrate my existing store to a new platform?", answer: "Yes. We handle full migrations including product data, order history, and customer records without losing your existing setup." },
+      { id: "04", question: "How do you handle product management after launch?", answer: "We set up a clean backend so you can add products, manage inventory, and update pricing yourself without needing a developer." },
+      { id: "05", question: "Do you optimize the checkout for conversions?", answer: "Yes. Checkout flow, cart UX, and payment trust signals are all reviewed and optimized to reduce drop-off before launch." },
+      { id: "06", question: "How long does an e-commerce build take?", answer: "Typically 5 to 8 weeks depending on the number of products and integrations. We'll give you a fixed timeline upfront." },
     ],
-    philosophyTitle:
-      "Visual asset markers built to solidify immediate market authority",
+  },
+
+  "landing-pages": {
+    id: "06",
+    title: "Landing Pages",
+    category: "Landing Pages",
+    description: "High-converting landing pages built to capture leads and drive action.",
+    heroImage: "/images/services/landing-page-design.webp",
+    heroHeading: "A Conversion Studio for Landing Pages That Turn Clicks into Customers.",
+    heroParagraphs: [
+      "We build focused, high-performance landing pages engineered around a single goal: getting your visitor to take action — whether that's booking a call, signing up, or making a purchase.",
+      "Every element on the page, from the headline to the CTA, is placed with intention. No distractions, no filler, just a clear path from visitor to conversion.",
+    ],
+    philosophyTitle: "Landing pages engineered to convert traffic into measurable results",
     features: [
-      {
-        title: "Visual Strategy",
-        description:
-          "In-depth competitor profiling to extract unique positioning gaps.",
-      },
-      {
-        title: "Vector Scaling",
-        description:
-          "Precision geometry designed to translate across corporate physical surfaces smoothly.",
-      },
+      { title: "Conversion-First Design", description: "Every layout decision is made to guide the visitor toward one clear action." },
+      { title: "Fast Turnaround", description: "Production-ready landing pages delivered quickly without cutting corners on quality." },
+      { title: "Mobile Optimized", description: "Pixel-perfect builds across all screen sizes with mobile conversion in mind." },
+      { title: "A/B Test Ready", description: "Clean, modular structure that makes testing headlines, CTAs, and layouts straightforward." },
+      { title: "Form & CRM Integration", description: "Lead capture forms connected to your CRM, email platform, or notification system." },
+      { title: "Performance Optimized", description: "Lightweight builds with fast load times that keep paid traffic from bouncing before it converts." },
     ],
     partnership: {
-      heading:
-        "Why Identity Design and Konvoy Studio Are the Best Choice for Your Business",
-      // 🎯 Added short visual handle for the graphic alignment matrix
-      visualLabel: "Identity",
-      p1: "A brand mark in 2026 is your primary anchor. It’s the visual synthesis that commands industry space, retains instant recall, and validates your market premium.",
-      p2: "“Design is intelligence made visible.” Forging a bulletproof identity system requires structural mastery. Konvoy Studio maps your corporate ethos directly into functional geometry, ensuring your market positioning scales cleanly from digital screens to real-world applications.",
-      p3: "If you are launching a new enterprise or re-engineering an established brand layout, bypass generic assets. Collaborate with Konvoy Studio specialists to deploy a crisp visual signature that turns abstract authority into market results.",
+      heading: "Why Konvoy Studio Is the Right Choice for Your Landing Page",
+      visualLabel: "Landing",
+      p1: "A landing page has one job: convert. If yours isn't doing that, every click you're paying for is money down the drain. Design, copy, structure, and speed all have to work together — and most generic page builders can't deliver that.",
+      p2: "At Konvoy Studio, we build landing pages the way performance marketers think about them. One goal, one message, one action. Everything on the page earns its place or it doesn't make the cut.",
+      p3: "Whether you're running paid ads, launching a product, or promoting a service, we'll build you a landing page that makes your traffic work harder.",
     },
+    faqs: [
+      { id: "01", question: "How is a landing page different from a regular website?", answer: "A landing page has one goal and one action. No navigation, no distractions. Everything on the page exists to get the visitor to convert." },
+      { id: "02", question: "How fast can you deliver a landing page?", answer: "Most landing pages are delivered within 2 to 3 weeks. Rush timelines can be discussed depending on availability." },
+      { id: "03", question: "Do you write the copy or just design the page?", answer: "We can handle both. If you have copy ready we'll work with it. If not, we can write conversion-focused copy as part of the project." },
+      { id: "04", question: "Can you connect the landing page to our CRM or email platform?", answer: "Yes. We integrate lead capture forms with platforms like HubSpot, Mailchimp, or any CRM that supports webhooks." },
+      { id: "05", question: "Will the landing page be set up for A/B testing?", answer: "Yes. We build with a clean, modular structure so you can swap headlines, CTAs, and sections without rebuilding the page." },
+      { id: "06", question: "How do you price a landing page?", answer: "Fixed cost based on scope. A single conversion page is one of our faster, more straightforward projects — we'll quote you clearly after a brief call." },
+    ],
+  },
+
+  "website-redesign": {
+    id: "07",
+    title: "Website Redesign",
+    category: "Website Redesign",
+    description: "Transforming outdated websites into high-performing digital assets.",
+    heroImage: "/images/services/website-redesign-services.webp",
+    heroHeading: "A Redesign Studio for Websites That Need to Catch Up With Your Business.",
+    heroParagraphs: [
+      "We take underperforming, outdated websites and rebuild them from the ground up — better design, faster performance, and a structure that actually supports your business goals.",
+      "A redesign isn't just a facelift. It's a chance to fix what's broken, cut what isn't working, and build something your business can grow into.",
+    ],
+    philosophyTitle: "Website redesigns engineered to close the gap between where you are and where you need to be",
+    features: [
+      { title: "Design Overhaul", description: "Full visual refresh aligned to your current brand, market position, and target audience." },
+      { title: "Performance Audit", description: "In-depth analysis of your existing site's speed, structure, and conversion bottlenecks." },
+      { title: "Content Restructuring", description: "Reorganizing your site architecture so visitors find what they need and take action faster." },
+      { title: "Mobile Optimization", description: "Rebuilding your experience for mobile-first users without compromising the desktop version." },
+      { title: "SEO Preservation", description: "Careful migration of existing rankings, redirects, and structured data so you don't lose ground." },
+      { title: "CMS Upgrade", description: "Migrating to a cleaner, faster content management system your team can actually use." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team to Redesign Your Website",
+      visualLabel: "Redesign",
+      p1: "An outdated website doesn't just look bad — it costs you. Slow load times, poor mobile experience, and confusing navigation push potential clients toward your competitors before you even get a chance to make your case.",
+      p2: "At Konvoy Studio, we approach every redesign as a rebuild with purpose. We audit what you have, identify what's holding you back, and build a new version that fixes the real problems — not just the ones you can see.",
+      p3: "If your current website no longer reflects the quality of your business, it's time to change that. Let's build something that does.",
+    },
+    faqs: [
+      { id: "01", question: "Do you redesign any type of website?", answer: "Yes. Corporate sites, business sites, e-commerce stores, portfolios — if it's underperforming, we can rebuild it." },
+      { id: "02", question: "Will we lose our SEO rankings during a redesign?", answer: "Not if we handle it properly. We map all existing URLs, set up redirects, and migrate structured data so rankings are preserved through the transition." },
+      { id: "03", question: "Do you audit the existing site before starting?", answer: "Yes. We review your current site's speed, structure, content, and conversion performance before a single design decision is made." },
+      { id: "04", question: "Can we keep the same CMS after the redesign?", answer: "If it's working for you, yes. If it's part of the problem, we'll recommend something better and handle the migration." },
+      { id: "05", question: "How long does a website redesign take?", answer: "Typically 5 to 8 weeks depending on the size and complexity of the existing site. We'll give you a fixed timeline after the audit." },
+      { id: "06", question: "What if we only want a visual refresh, not a full rebuild?", answer: "We can scope it to fit. Some projects need a full rebuild, others need a focused visual and UX overhaul. We'll tell you honestly which one applies." },
+    ],
+  },
+
+  "website-maintenance": {
+    id: "08",
+    title: "Website Maintenance",
+    category: "Website Maintenance",
+    description: "Ongoing care and support that keeps your website secure, fast, and reliable.",
+    heroImage: "/images/services/website-maintenance-services.jpeg",
+    heroHeading: "A Support Studio Keeping Your Website Running When You're Not Looking.",
+    heroParagraphs: [
+      "We handle the ongoing updates, security patches, and performance checks your website needs to stay fast, safe, and functional — so you don't have to think about it.",
+      "From routine backups to fixing the unexpected, we treat your website like infrastructure that needs to keep working, not a project that ends at launch.",
+    ],
+    philosophyTitle: "Website maintenance built to keep your business running without interruption",
+    features: [
+      { title: "Security Monitoring", description: "Continuous scanning and patching to keep your website protected from emerging threats." },
+      { title: "Regular Backups", description: "Automated cloud backups so your site can be restored quickly if anything goes wrong." },
+      { title: "Performance Checks", description: "Routine audits to catch slowdowns before they affect your visitors or your rankings." },
+      { title: "Plugin & Core Updates", description: "Keeping your CMS, plugins, and dependencies up to date without breaking your site." },
+      { title: "Bug Fixes", description: "Fast turnaround on fixing issues as they come up, before they become bigger problems." },
+      { title: "Priority Support", description: "Direct access to our team when something needs attention, without the long wait times." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team to Maintain Your Website",
+      visualLabel: "Maintenance",
+      p1: "A website isn't a one-time project. Without regular updates and monitoring, even the best-built site becomes slow, vulnerable, and outdated within months.",
+      p2: "At Konvoy Studio, we treat maintenance as seriously as we treat development. Security patches, backups, and performance checks happen on schedule, so your site stays in the same condition it was on launch day, or better.",
+      p3: "If you'd rather focus on running your business than worrying about your website breaking, let us handle it. We'll keep things running so you don't have to.",
+    },
+    faqs: [
+      { id: "01", question: "What does a website maintenance plan include?", answer: "Security monitoring, automated backups, plugin and core updates, performance checks, and bug fixes. Everything your site needs to stay healthy." },
+      { id: "02", question: "Do you maintain websites you didn't build?", answer: "Yes. As long as we can audit the existing setup and it's on a platform we support, we can take it on." },
+      { id: "03", question: "How quickly do you respond to issues?", answer: "Priority issues are addressed within 24 hours. Routine tasks run on a scheduled basis so most problems are caught before you notice them." },
+      { id: "04", question: "Is maintenance billed monthly or annually?", answer: "We offer both. Monthly plans give flexibility, annual plans come at a better rate. We'll recommend what makes sense for your setup." },
+      { id: "05", question: "What happens if our site goes down?", answer: "We get notified, investigate, and get it back up. Depending on the issue, we either roll back to a recent backup or fix the root cause directly." },
+      { id: "06", question: "Do you handle content updates as part of maintenance?", answer: "Minor content updates can be included depending on the plan. For larger content work, that's scoped separately." },
+    ],
+  },
+
+  "corporate-video-production": {
+    id: "09",
+    title: "Corporate Video Production",
+    category: "Video Production",
+    description: "Professional corporate videos built to communicate, persuade, and represent your brand.",
+    heroImage: "/images/corporate-video-hero.png",
+    heroHeading: "A Production Studio for Corporate Videos That Represent Your Business Properly.",
+    heroParagraphs: [
+      "We produce corporate videos that communicate clearly and look like they belong to a serious business — from company profiles and product explainers to internal training content.",
+      "Every project goes through proper planning, filming, and editing, so the final output matches the standard your brand should be setting, not just whatever fits the budget.",
+    ],
+    philosophyTitle: "Corporate video production engineered to inform, persuade, and build trust",
+    features: [
+      { title: "Company Profile Videos", description: "Polished brand films that introduce your business clearly to clients and partners." },
+      { title: "Product & Service Explainers", description: "Clear, concise videos that break down what you offer and why it matters." },
+      { title: "Training & Internal Videos", description: "Structured content built to onboard staff and communicate processes effectively." },
+      { title: "Scriptwriting & Storyboarding", description: "Planning every shot and message before filming begins, so nothing is wasted on set." },
+      { title: "Professional Editing", description: "Clean cuts, color grading, and sound design that give your video a finished, premium feel." },
+      { title: "Multi-Platform Delivery", description: "Final exports optimized for your website, social channels, and internal platforms." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team for Your Corporate Video",
+      visualLabel: "Corporate Video",
+      p1: "A poorly made corporate video can do more damage than no video at all. If it looks rushed or amateur, it reflects directly on how clients perceive your business.",
+      p2: "At Konvoy Studio, we handle corporate video production from concept to final cut. Scripting, filming, editing, and delivery, all managed by one team that understands what a business actually needs to communicate.",
+      p3: "If you need a video that represents your business the way it deserves, let's plan it out properly from the start.",
+    },
+    faqs: [
+      { id: "01", question: "Do you handle scripting and concept, or just production?", answer: "We handle everything from concept and scripting through to final delivery. You don't need to come with a script ready." },
+      { id: "02", question: "Do you film on-location or in a studio?", answer: "Both. Most corporate videos are shot on-location at your office or site. Studio setups are available when the project calls for it." },
+      { id: "03", question: "What types of corporate videos do you produce?", answer: "Company profiles, product and service explainers, training and onboarding videos, testimonials, and investor presentations." },
+      { id: "04", question: "How long does a corporate video project take?", answer: "From brief to final delivery, most projects run 3 to 5 weeks. Larger productions with multiple shoot days take longer." },
+      { id: "05", question: "What formats do you deliver the final video in?", answer: "We deliver in all formats your platforms require — website, YouTube, LinkedIn, internal systems. You tell us where it's going and we export accordingly." },
+      { id: "06", question: "How many revision rounds are included?", answer: "Two structured revision rounds are included in every project. Additional rounds can be added if needed." },
+    ],
+  },
+
+  "event-video-production": {
+    id: "10",
+    title: "Event Video Production",
+    category: "Video Production",
+    description: "Capturing your events with the quality and coverage they deserve.",
+    heroImage: "/images/event-video-hero.png",
+    heroHeading: "A Production Studio That Captures Your Events Without Missing the Moment.",
+    heroParagraphs: [
+      "We film and edit corporate events, conferences, launches, and ceremonies with full coverage and a quick turnaround, so the final video is ready while the event still matters.",
+      "From multi-camera setups to highlight reels and full-length recaps, we make sure your event is documented properly, not just recorded.",
+    ],
+    philosophyTitle: "Event video production built to capture every moment that matters",
+    features: [
+      { title: "Multi-Camera Coverage", description: "Multiple angles covered simultaneously so no key moment is missed." },
+      { title: "Highlight Reels", description: "Short, high-energy recaps built for social media and quick sharing." },
+      { title: "Full Event Recordings", description: "Complete, well-edited recordings for internal records or wider distribution." },
+      { title: "Live Streaming Support", description: "Technical setup and support for streaming your event to a remote audience." },
+      { title: "Fast Turnaround Editing", description: "Quick delivery so your event content goes out while it's still relevant." },
+      { title: "Audio & Lighting Setup", description: "Proper on-site setup to make sure the footage is usable before editing even starts." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team to Cover Your Event",
+      visualLabel: "Event Video",
+      p1: "An event you've spent months planning deserves more than a shaky phone recording. Without proper coverage, the moments that mattered most are gone the second the event ends.",
+      p2: "At Konvoy Studio, we plan event coverage in advance, not on the fly. Camera angles, audio setup, and editing turnaround are all mapped out before your event even starts.",
+      p3: "If you have an event coming up that needs to be documented properly, let's talk before the date locks in.",
+    },
+    faqs: [
+      { id: "01", question: "What types of events do you cover?", answer: "Corporate conferences, product launches, award ceremonies, team events, seminars, and brand activations." },
+      { id: "02", question: "How many cameras do you use for event coverage?", answer: "Typically two to three cameras depending on the event size and venue. We plan the setup in advance so every key moment has an angle." },
+      { id: "03", question: "Do you handle audio and lighting setup on-site?", answer: "Yes. Proper audio and lighting are part of our on-site setup. We don't rely on ambient sound or available lighting if it isn't good enough." },
+      { id: "04", question: "How quickly can we expect the edited video after the event?", answer: "Highlight reels are typically delivered within 5 to 7 business days. Full event edits take a little longer depending on length." },
+      { id: "05", question: "Can you livestream the event as well?", answer: "Yes. We provide full livestream technical setup and support for events that need remote audience access." },
+      { id: "06", question: "How far in advance should we book?", answer: "As early as possible, especially for large events. At minimum, two weeks before the event date to plan coverage properly." },
+    ],
+  },
+
+  "promotional-videos": {
+    id: "11",
+    title: "Promotional Videos",
+    category: "Video Production",
+    description: "Short, high-impact videos built to promote your brand, product, or offer.",
+    heroImage: "/images/promotional-video-hero.png",
+    heroHeading: "A Production Studio for Promotional Videos That Actually Get Watched.",
+    heroParagraphs: [
+      "We create promotional videos built for attention, designed to stop the scroll and communicate your offer in seconds, not minutes.",
+      "From concept to final cut, every promotional video is built around one goal: making your audience care enough to act.",
+    ],
+    philosophyTitle: "Promotional videos engineered to capture attention and drive action",
+    features: [
+      { title: "Concept & Scripting", description: "Sharp, focused messaging built around what your audience actually cares about." },
+      { title: "Product Promo Videos", description: "Showcasing what you sell in a way that highlights value, not just features." },
+      { title: "Social Media Ads", description: "Short-form videos cut and formatted specifically for paid and organic social performance." },
+      { title: "Brand Promo Films", description: "Building brand recognition through consistent visual and tonal storytelling." },
+      { title: "Motion Graphics & Animation", description: "Adding visual polish and clarity where live footage alone isn't enough." },
+      { title: "Platform-Specific Editing", description: "Versions cut for the exact specs and attention span of each platform you're using." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team for Your Promotional Video",
+      visualLabel: "Promo Video",
+      p1: "Most promotional videos get skipped in the first three seconds. If your video doesn't grab attention immediately, the budget behind it doesn't matter.",
+      p2: "At Konvoy Studio, we build promotional videos around how people actually watch content today. Fast hooks, clear messaging, and edits built for the platform they'll run on.",
+      p3: "If you have a product, service, or offer that needs to convert attention into action, let's build a video that does the job.",
+    },
+    faqs: [
+      { id: "01", question: "What's the typical length for a promotional video?", answer: "Depends on the platform. Social ads run 15 to 30 seconds. Brand promo films run 60 to 90 seconds. We'll recommend what works for your goal." },
+      { id: "02", question: "Do you handle concept and scripting?", answer: "Yes. We develop the concept, write the script, and plan the visuals before anything is filmed or produced." },
+      { id: "03", question: "Can you create a promo video without a physical shoot?", answer: "Yes. Motion graphics, animation, and stock footage can all be used to produce a high-quality promo video without a shoot." },
+      { id: "04", question: "Do you deliver platform-specific versions?", answer: "Yes. We cut and export versions sized for each platform — Instagram, YouTube, LinkedIn, TikTok — with the right specs and aspect ratios." },
+      { id: "05", question: "How long does a promotional video take to produce?", answer: "Typically 2 to 4 weeks from brief to delivery depending on whether a shoot is involved." },
+      { id: "06", question: "How many revisions are included?", answer: "Two revision rounds are included. We share a rough cut first so you can give feedback before the final version is locked." },
+    ],
+  },
+
+  "post-production-editing": {
+    id: "12",
+    title: "Post-Production Editing",
+    category: "Video Production",
+    description: "Professional editing that turns raw footage into a finished, polished video.",
+    heroImage: "/images/post-production-hero.png",
+    heroHeading: "An Editing Studio That Turns Raw Footage Into a Finished Product.",
+    heroParagraphs: [
+      "We take raw footage, however it was shot, and turn it into a clean, well-paced, professionally finished video ready for publishing.",
+      "From color correction to sound design, every edit is handled with the same level of care, whether it's a thirty-second clip or a full-length production.",
+    ],
+    philosophyTitle: "Post-production editing built to turn raw footage into a finished story",
+    features: [
+      { title: "Video Editing & Cutting", description: "Clean, well-paced edits that keep the story moving without unnecessary filler." },
+      { title: "Color Grading", description: "Consistent, polished color correction that gives footage a professional finish." },
+      { title: "Sound Design & Mixing", description: "Balanced audio, clean dialogue, and music that supports the video instead of distracting from it." },
+      { title: "Motion Graphics & Titles", description: "Adding text, lower thirds, and graphics that look intentional, not bolted on." },
+      { title: "Multi-Format Exports", description: "Final files delivered in the right specs for every platform you need them on." },
+      { title: "Revisions & Feedback Rounds", description: "A clear revision process so the final cut matches what you actually had in mind." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team for Your Post-Production",
+      visualLabel: "Post-Production",
+      p1: "Raw footage doesn't sell anything on its own. Without proper editing, even great footage ends up looking unfinished, disorganized, or just unwatchable.",
+      p2: "At Konvoy Studio, post-production is treated as its own craft. Editing, color, sound, and graphics are handled with the same attention as the original shoot.",
+      p3: "If you have footage sitting around that needs to become a finished video, send it over and we'll take it from there.",
+    },
+    faqs: [
+      { id: "01", question: "Do you edit footage you didn't shoot?", answer: "Yes. Send us whatever you have and we'll work with it. We'll let you know upfront if the footage has any technical issues that might affect the final output." },
+      { id: "02", question: "What format should we send the raw footage in?", answer: "Any standard format works — MP4, MOV, MXF, R3D. We'll confirm the transfer method once the project is scoped." },
+      { id: "03", question: "Do you do color grading or just basic cuts?", answer: "Full post-production. Editing, color grading, sound design, music, motion graphics, and titles are all included depending on what the project needs." },
+      { id: "04", question: "How do you handle feedback on the edit?", answer: "We deliver a rough cut with a review link where you can leave timestamped comments. Two revision rounds are included before the final export." },
+      { id: "05", question: "How long does post-production take?", answer: "A short-form video takes about a week. Longer productions with complex editing or motion graphics take 2 to 3 weeks." },
+      { id: "06", question: "What export formats do you deliver?", answer: "Whatever the platform needs. We deliver in the exact specs for your website, social channels, broadcast, or internal use." },
+    ],
+  },
+
+  "logo-and-branding": {
+    id: "13",
+    title: "Logo & Branding",
+    category: "Brand Design",
+    description: "Logos, brand identities, and guidelines built to position your business properly.",
+    heroImage: "/images/services/logo-and-branding.webp",
+    heroHeading: "A Brand Studio for Visual Identities That Mean Something.",
+    heroParagraphs: [
+      "We design logos, build brand identities, and create the guidelines your team needs to stay consistent — from color palette and typography to stationery and business cards.",
+      "Every mark we create is built around your business, not borrowed from a trend. The goal is a brand that looks intentional today and holds up five years from now.",
+    ],
+    philosophyTitle: "Brand identities built to position your business and hold up over time",
+    features: [
+      { title: "Logo Design", description: "Custom marks designed around your business positioning, not off-the-shelf templates." },
+      { title: "Brand Identity", description: "A complete visual system covering logo variations, color usage, and typography rules." },
+      { title: "Brand Guidelines", description: "A documented rulebook so your brand stays consistent across every touchpoint." },
+      { title: "Color Palette Selection", description: "Strategic color choices that reflect your brand's personality and market position." },
+      { title: "Typography Selection", description: "Font pairings chosen for readability, character, and brand alignment." },
+      { title: "Stationery & Business Cards", description: "Business cards, letterheads, and stationery designed to match your brand properly." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team to Build Your Brand Identity",
+      visualLabel: "Branding",
+      p1: "A logo made in Canva and a brand built on vibes will only take you so far. At some point, inconsistent visuals start costing you credibility — and clients notice before you do.",
+      p2: "At Konvoy Studio, we build brand identities from the ground up. Logo, colors, typography, and guidelines all developed together so everything looks like it belongs.",
+      p3: "Whether you're launching a new business or cleaning up a brand that's grown inconsistent, we'll build you something that holds up.",
+    },
+    faqs: [
+      { id: "01", question: "What's the difference between a logo and a brand identity?", answer: "A logo is one mark. A brand identity is the full system — logo variations, colors, typography, usage rules, and supporting assets. We build both." },
+      { id: "02", question: "How many logo concepts do we get to review?", answer: "We present two to three distinct directions in the first round. You choose one to develop and refine from there." },
+      { id: "03", question: "Do we own the final logo and brand files?", answer: "Yes. Full ownership of all final files is transferred to you on project completion. Source files included." },
+      { id: "04", question: "What file formats do you deliver?", answer: "SVG, PDF, PNG, and EPS as standard. Any additional formats you need for specific use cases can be included." },
+      { id: "05", question: "Do you design brand guidelines as a separate service?", answer: "Guidelines can be included in a full brand identity project or scoped as a standalone if you already have a logo you're happy with." },
+      { id: "06", question: "How long does a brand identity project take?", answer: "Typically 3 to 5 weeks from brief to final delivery depending on the scope of assets required." },
+    ],
+  },
+
+  "marketing-materials": {
+    id: "14",
+    title: "Marketing Materials",
+    category: "Brand Design",
+    description: "Print and digital marketing assets designed to represent your brand properly.",
+    heroImage: "/images/services/marketing-materials.webp",
+    heroHeading: "A Design Studio for Marketing Materials That Get Noticed.",
+    heroParagraphs: [
+      "We design flyers, brochures, posters, banners, and print materials that look like they belong to a serious business — not something pulled from a free template site.",
+      "Every piece is designed with your brand in mind, so whether it's a billboard or a direct mail piece, it looks like it came from the same place.",
+    ],
+    philosophyTitle: "Marketing materials designed to communicate clearly and represent your brand consistently",
+    features: [
+      { title: "Flyers & Brochures", description: "Print-ready designs built to communicate your offer clearly and look worth keeping." },
+      { title: "Posters", description: "Bold, well-composed layouts designed to command attention in any environment." },
+      { title: "Banners & Billboards", description: "Large-format designs built for impact at distance, with the right file specs for print." },
+      { title: "Promotional Materials", description: "Supporting visuals for campaigns, events, and product launches." },
+      { title: "Direct Mail Designs", description: "Physical mail pieces designed to get opened and read, not binned on arrival." },
+      { title: "Brand Consistency", description: "Every piece aligned to your existing brand so nothing looks out of place." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team for Your Marketing Materials",
+      visualLabel: "Marketing",
+      p1: "Badly designed marketing materials reflect on your brand every time someone sees them. A flyer that looks rushed or a brochure that's hard to read does the opposite of what you paid for.",
+      p2: "At Konvoy Studio, we design marketing materials that look like they came from a business that takes itself seriously. Clean layouts, clear hierarchy, and files ready for print or digital use.",
+      p3: "If you have a campaign, event, or launch coming up that needs proper design support, let's get started before the deadline catches up.",
+    },
+    faqs: [
+      { id: "01", question: "Do you design for both print and digital?", answer: "Yes. We deliver print-ready files with proper bleed, resolution, and color profiles, as well as digital versions optimized for screens." },
+      { id: "02", question: "Do we need to provide our brand assets?", answer: "If you have a brand identity we'll work with it. If not, we can develop the visual direction as part of the project." },
+      { id: "03", question: "Can you design large-format materials like billboards?", answer: "Yes. We produce billboard and banner designs at the correct dimensions and resolution for your print vendor." },
+      { id: "04", question: "How many design concepts do we get?", answer: "We present two directions for each piece in the first round. You choose one and we refine from there." },
+      { id: "05", question: "Do you handle printing as well?", answer: "We deliver print-ready files. For printing, we can recommend trusted local vendors or work directly with your printer to make sure files are set up correctly." },
+      { id: "06", question: "How quickly can marketing materials be turned around?", answer: "Single pieces like a flyer or poster can be delivered within a week. Larger sets of materials take 2 to 3 weeks." },
+    ],
+  },
+
+  "social-media-graphics": {
+    id: "15",
+    title: "Social Media Graphics",
+    category: "Brand Design",
+    description: "Scroll-stopping social graphics designed to keep your brand consistent online.",
+    heroImage: "/images/services/social-media-graphics.webp",
+    heroHeading: "A Design Studio for Social Graphics That Look Like a Real Brand.",
+    heroParagraphs: [
+      "We design social media posts, ads, story templates, thumbnails, and profile graphics that look consistent, on-brand, and built for the platform they're running on.",
+      "No mismatched fonts, no off-brand colors, no recycled templates. Just clean, purposeful graphics your audience will recognize as yours.",
+    ],
+    philosophyTitle: "Social media graphics built for brand consistency and platform performance",
+    features: [
+      { title: "Social Media Posts", description: "Feed graphics designed for your brand with consistent style across every post." },
+      { title: "Social Media Ads", description: "Ad creatives built to stop the scroll and communicate your offer fast." },
+      { title: "Profile & Cover Graphics", description: "Profile images, covers, and headers designed to make a strong first impression." },
+      { title: "Story Templates", description: "Reusable story formats your team can update without breaking the design." },
+      { title: "YouTube Thumbnails", description: "High-contrast, click-worthy thumbnails designed to stand out in a crowded feed." },
+      { title: "Brand Consistency", description: "Every graphic tied back to your brand so your social presence looks intentional." },
+    ],
+    partnership: {
+      heading: "Why Konvoy Studio Is the Right Team for Your Social Media Graphics",
+      visualLabel: "Social Media",
+      p1: "Your social media feed is often the first place a potential client lands before they visit your website. If the graphics look inconsistent or amateur, the impression sticks.",
+      p2: "At Konvoy Studio, we design social graphics as part of your brand, not separate from it. Every post, ad, and thumbnail follows the same visual rules so your presence looks like it belongs to one business.",
+      p3: "If you're tired of mismatched graphics or running out of content that looks good, let's build a proper system for it.",
+    },
+    faqs: [
+      { id: "01", question: "Do you design for all social platforms?", answer: "Yes. Instagram, LinkedIn, Facebook, Twitter/X, YouTube, and TikTok. Each platform gets the right dimensions and visual treatment." },
+      { id: "02", question: "Can you create templates our team can edit ourselves?", answer: "Yes. We can build editable templates in Canva or Figma so your team can swap out copy and images without breaking the design." },
+      { id: "03", question: "Do you need our brand assets to get started?", answer: "Yes. Logo, colors, and fonts are the starting point. If you don't have a proper brand identity yet, we can sort that first." },
+      { id: "04", question: "How many graphics do you deliver per project?", answer: "Depends on the scope. We can do one-off sets for a campaign or ongoing monthly batches. We'll scope it based on what you need." },
+      { id: "05", question: "Do you design ad creatives as well as organic posts?", answer: "Yes. Ad creatives follow different rules — stronger hooks, clearer CTAs, platform-specific sizing. We design both with those differences in mind." },
+      { id: "06", question: "How long does a social media graphics project take?", answer: "A standard set of graphics for one campaign takes about a week. Larger template systems or ongoing retainers are scoped separately." },
+    ],
   },
 };
 

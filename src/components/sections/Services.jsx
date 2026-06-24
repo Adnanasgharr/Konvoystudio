@@ -42,10 +42,10 @@ const fullServicesList = [
     image: "/images/brand.jpg",
     description: "Forging bulletproof creative systems that establish dominant market authority.",
     subServices: [
-      { name: "Visual Strategy", href: "/services/brand-strategy" },
-      { name: "Logo Marks", href: "/services/logo-design" },
-      { name: "Brand Guidelines", href: "/services/guidelines" },
-      { name: "Typography Systems", href: "/services/typography" },
+      { name: "Logo & Branding", href: "/services/logo-and-branding" },
+      { name: "Marketing Materials", href: "/services/marketing-materials" },
+      { name: "Social Media Graphics", href: "/services/social-media-graphics" },
+     
     ]
   },
   {
@@ -260,7 +260,6 @@ function Services() {
             </h1>
           </div>
 
-          
 
           <div className="hidden lg:block lg:col-span-1" />
 

@@ -1,67 +1,186 @@
-import React from 'react';
+"use client";
+
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import BookCallButton from "../ui/BookCallButton";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const movingLineRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (!footerRef.current || !movingLineRef.current) return;
+
+      gsap.to(movingLineRef.current, {
+        x: "10vw",
+        ease: "none",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+    },
+    { scope: footerRef },
+  );
+
   return (
-    <footer id="contact" className="relative w-full min-h-screen bg-black text-white flex flex-col justify-between px-6 md:px-12 lg:px-16 pt-24 lg:pt-32 pb-[12vw] overflow-hidden">
-      
+    <footer
+      ref={footerRef}
+      id="contact"
+      className="relative w-full bg-[#f1f1f1] text-white flex flex-col justify-between px-4 sm:px-8 md:px-10 lg:px-16 pt-16 lg:pt-28 pb-[12vw] overflow-hidden"
+    >
       {/* 1. TOP BLOCK: Action Heading & Direct Access Channel */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full z-10">
-        <div className="lg:col-span-7 xl:col-span-8">
-          <p className="text-sm font-semibold tracking-widest text-neutral-500 uppercase mb-4 pl-1">
-            Have an idea?
+      <div className="bg-black p-3 md:py-20 py-30 w-full z-10 flex items-center justify-center flex-col">
+        <div className="lg:col-span-7 h-full xl:col-span-8 flex flex-col items-center text-center">
+          <p className="text-sm font-old-school tracking-widest text-neutral-500 mb-4">
+            (Need an unfair advantage?)
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.05] uppercase">
-            Let's build something <br />
-            <span className="font-sans italic lowercase font-light font-abc-arizona text-[#c8f135] pr-2">extraordinary</span> 
-            together.
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl tracking-tight leading-[1.05] uppercase flex flex-col items-center">
+            <span className="block">Let's build</span>
+            <span className="block">an experience</span>
+            <span className="block">That moves</span>
+
+            <span
+              ref={movingLineRef}
+              className="flex items-center gap-4 pl-5 will-change-transform"
+            >
+              {" "}
+              <svg
+                className="w-8 h-8 md:w-20 md:h-20 fill-current rotate-45"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
+              </svg>
+              People
+            </span>
           </h2>
         </div>
-
-        {/* Big Action Link Column */}
-        <div className="lg:col-span-5 xl:col-span-4 flex items-end lg:justify-end lg:pt-0 pt-6">
-          <a 
-            href="mailto:hello@konvoy.studio" 
-            className="group relative inline-flex items-center gap-4 text-xl md:text-2xl font-medium border-b border-neutral-700 pb-2 overflow-hidden w-full lg:w-auto"
-          >
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-[#c8f135]">
-              hello@konvoy.studio
-            </span>
-            <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300 text-neutral-500 group-hover:text-[#c8f135]">
-              →
-            </span>
-          </a>
-        </div>
+<div   className="mt-10">
+  <BookCallButton
+        
+          text="Tell us your story"
+          ariaLabel="Schedule a discovery call with our consulting team"
+        />
+</div>
+      
       </div>
 
       {/* 2. MIDDLE BLOCK: Categorized Directories & System Info */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-6 w-full mt-16 lg:mt-auto z-10 pb-12 border-t border-neutral-900 pt-12">
-        
         {/* Navigation Column */}
-        <div className="lg:col-span-3 flex flex-col gap-4">
-          <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase font-bold">Navigation</span>
-          <ul className="flex flex-col gap-2 text-sm text-neutral-400">
-            <li><a href="#" className="hover:text-white transition-colors duration-200">Home</a></li>
-            <li><a href="#about" className="hover:text-white transition-colors duration-200">About</a></li>
-            <li><a href="#services" className="hover:text-white transition-colors duration-200">Services</a></li>
-            <li><a href="#work" className="hover:text-white transition-colors duration-200">Our Work</a></li>
+        <div className="lg:col-span-3 flex flex-col gap-4 font-old-school">
+          <span className="text-[10px] tracking-[0.2em] text-neutral-900 uppercase ">
+            Navigation
+          </span>
+          <ul className="flex flex-col gap-2 text-sm text-neutral-900 items-start">
+            <li>
+              <a
+                href="#"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Home</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>About</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#services"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Services</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#work"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Our Work</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
           </ul>
         </div>
 
         {/* Social Framework Column */}
-        <div className="lg:col-span-3 flex flex-col gap-4">
-          <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase font-bold">Socials</span>
-          <ul className="flex flex-col gap-2 text-sm text-neutral-400">
-            <li><a href="#" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">Instagram</a></li>
-            <li><a href="#" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">LinkedIn</a></li>
-            <li><a href="#" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">X / Twitter</a></li>
-            <li><a href="#" target="_blank" rel="noreferrer" className="hover:text-white transition-colors duration-200">Dribbble</a></li>
+        <div className="lg:col-span-3 flex flex-col gap-4 font-old-school">
+          <span className="text-[10px] tracking-[0.2em] text-neutral-900 uppercase ">
+            Socials
+          </span>
+          <ul className="flex flex-col gap-2 text-sm text-neutral-900 items-start">
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Instagram</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>LinkedIn</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>X / Twitter</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Dribbble</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
           </ul>
         </div>
 
         {/* Studio Coordinates Column */}
-        <div className="lg:col-span-3 flex flex-col gap-4">
-          <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase font-bold">Location</span>
-          <p className="text-sm text-neutral-400 leading-relaxed">
+        <div className="lg:col-span-3 flex flex-col gap-4 font-old-school">
+          <span className="text-[10px] tracking-[0.2em] text-neutral-900 uppercase">
+            Location
+          </span>
+          <p className="text-sm text-neutral-900 leading-relaxed font-old-school">
             Digital Agency <br />
             Operating Globally <br />
             <span className="text-neutral-600">Based in PK</span>
@@ -69,41 +188,40 @@ const Footer = () => {
         </div>
 
         {/* System Time / Rights Column */}
-        <div className="lg:col-span-3 flex flex-col gap-4 md:items-start lg:items-end lg:text-right">
-          <span className="text-[10px] tracking-[0.2em] text-neutral-600 uppercase font-bold">Copyright</span>
-          <p className="text-sm text-neutral-500 leading-relaxed mt-auto">
+        <div className="lg:col-span-3 flex flex-col gap-4 md:items-start lg:items-end lg:text-right font-old-school">
+          <span className="text-[10px] tracking-[0.2em] text-neutral-900 uppercase ">
+            Copyright
+          </span>
+          <p className="text-sm text-neutral-900 leading-relaxed mt-auto">
             &copy; {new Date().getFullYear()} Konvoy Studio. <br />
             All rights reserved.
           </p>
         </div>
-
       </div>
 
-      {/* 3. BASE BACKGROUND LAYER: Massive Scaled Brand Typography */}
-      {/* Reduced the translate-y slightly to compensate for the taller viewbox architecture */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0 overflow-hidden select-none translate-y-[8%]">
-        {/* 👈 FIXED: Expanded height boundary component scale from 160 to 270 to allow font-size 260 to fit perfectly */}
-        <svg 
-          viewBox="0 0 1000 270" 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-full h-auto block" 
+      {/* BACKGROUND BRANDING LOGO VECTOR MARQUEE */}
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0 overflow-hidden select-none -translate-x-[1%]">
+        <svg
+          viewBox="0 0 1000 160"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto block"
           preserveAspectRatio="xMinYMax meet"
         >
-          <text 
-            x="50%" 
-            y="300" /* 👈 FIXED: Moved rendering line slightly up from the baseline edge to block crop issues */
-            dominantBaseline="auto" 
-            textAnchor="middle" 
-            fill="#121212" 
-            fontSize="260" 
-            fontWeight="900" 
+          <text
+            x="50%"
+            y="200"
+            dominantBaseline="auto"
+            textAnchor="middle"
+            fill="#121212"
+            fontSize="234"
+            fontWeight="900"
             letterSpacing="-8"
+            className="font-old-school "
           >
             KONVOY
           </text>
         </svg>
       </div>
-
     </footer>
   );
 };

@@ -8,50 +8,50 @@ const testimonialData = [
     name: "Jo Edwards",
     role: "Developer",
     company: "Shape",
-    avatar: "/images/avatar1.jpg", 
-    mediaType: "image",
-    mediaUrl: "/images/avatar1.jpg", 
-    quote: "Everyone works at Shape work hard and produce excellent work and are super friendly and make you feel really welcome and valued.",
+    avatar: "/images/testimonials/konvoy-studio-client-reviews.jpg", 
+    mediaType: "video",
+    mediaUrl: "/images/testimonials/testimonial-clip.mp4", 
+    quote: "Working with Konvoy was smooth start to finish. They listened, understood what I wanted, and delivered better than I imagined.",
   },
   {
     id: 2,
-    name: "Sarah Jenkins",
-    role: "Product Manager",
+    name: "Jeremy Bennett ",
+    role: "Podcaster",
     company: "Studio-X",
-    avatar: "/images/avatar2.jpg",
+    avatar: "/images/testimonials/konvoy studio client review of video editing.jpeg",
     mediaType: "image",
-    mediaUrl: "/images/avatar2.jpg",
-    quote: "Working with this team has completely transformed our workflow. Their attention to detail and fast delivery exceeded our expectations.",
+    mediaUrl: "/images/testimonials/konvoy studio client review of video editing.jpeg",
+    quote: "Working with Konvoy Studio was an absolute pleasure. Their creativity, attention to detail, and high quality work exceeded every expectation.",
   },
   {
     id: 3,
-    name: "Alex Rivera",
+    name: "Mark Zicha",
     role: "Founder",
-    company: "Apex Digital",
-    avatar: "/images/avatar3.jpg",
-    mediaType: "video",
-    mediaUrl: "/videos/testimonial-clip.mp4", 
-    quote: "Working with Konvoy Studio was smooth from start to finish. They listened, understood what I wanted, and delivered. Maybe even better than I imagined.",
+    company: "Wacky Puppies",
+    avatar: "/images/testimonials/konvoy-studio-client-review (1).jpeg",
+    mediaType: "image",
+    mediaUrl: "/images/testimonials/konvoy-studio-client-review (1).jpeg", 
+    quote: "Working with Konvoy was smooth start to finish. They listened, understood what I wanted, and delivered better than I imagined.",
   },
   {
     id: 4,
-    name: "Marcus Chen",
-    role: "Design Director",
-    company: "Vanguard UI",
-    avatar: "/images/avatar1.jpg",
-     mediaType: "video",
-    mediaUrl: "/videos/testimonial-clip.mp4",
-    quote: "The creative autonomy and technical execution matched seamlessly. It is rare to find partners who understand both aesthetic precision and clean performance optimization.",
+    name: "Milan Patel",
+    role: "Career & Life Design Coach",
+    company: "",
+    avatar: "/images/testimonials/konvoy-studio-client-review.jpeg",
+      mediaType: "image",
+    mediaUrl: "/images/testimonials/konvoy-studio-client-review.jpeg",
+    quote: "Konvoy Studio delivered outstanding work with clear communication. The final product exceeded every expectation.",
   },
   {
     id: 5,
-    name: "Elena Rostova",
-    role: "Technical Lead",
-    company: "Aether Engine",
-    avatar: "/images/avatar2.jpg",
-     mediaType: "video",
-    mediaUrl: "/videos/testimonial-clip.mp4",
-    quote: "Architectural integrity was maintained through every phase of implementation. Complex requirements were simplified into elegant modules without bloat.",
+    name: "Mary Camacho",
+    role: "Executive Director",
+    company: "CEO at Holo",
+    avatar: "/images/testimonials/konvoy studio client review (2).jpeg",
+     mediaType: "image",
+    mediaUrl: "/images/testimonials/konvoy studio client review (2).jpeg",
+    quote: "Architectural integrity was maintained through every phase of implementation. into elegant modules without bloat.",
   }
 ];
 
@@ -92,13 +92,16 @@ const Testimonials = () => {
     };
   }, [activeIndex, isPlaying, progress]);
 
-  // Clean state resets when changing slides
+  // Clean state resets and video autoplay logic when changing slides
   useEffect(() => {
     setIsPlaying(false);
     setProgress(0);
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
+      videoRef.current.muted = true;
+      videoRef.current.play()
+        .catch((error) => console.log("Muted autoplay initiated:", error));
     }
   }, [activeIndex]);
 
@@ -115,7 +118,8 @@ const Testimonials = () => {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.muted = false;
+      videoRef.current.currentTime = 0; // Restart from the beginning as requested
+      videoRef.current.muted = false;   // Unmute audio on user interaction
       videoRef.current.play()
         .then(() => setIsPlaying(true))
         .catch((error) => console.log("Video playback interrupted:", error));
@@ -126,43 +130,42 @@ const Testimonials = () => {
   const strokeDashoffset = 100 - progress;
 
   return (
+    // 🎯 Outermost section updated with bottom rounding and overflow cutoff
     <section 
-      className="w-full bg-[#000000] text-white py-16 sm:py-24 lg:py-32"
+      className="w-full rounded-b-3xl overflow-hidden bg-[#000000] text-white py-16 sm:py-24 lg:py-22"
       aria-labelledby="testimonial-heading"
     >
-      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-16">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-16 ">
         
         {/* ASYMMETRIC HEADING STRUCTURE */}
-        <div className="w-full flex flex-col gap-6 md:gap-10 mb-16 md:mb-24">
-          <div>
-            <h1 className="font-abc-arizona text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9] "
-            style={{mixBlendMode: "difference"}}>
-              Don't take my 
+         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-y-12 md:gap-x-8 lg:gap-x-12 items-start mb-16 sm:mb-20 md:mb-28">
+          <div className="md:col-span-6 flex flex-col">
+            <h1 className="font-abc-arizona text-white text-5xl sm:text-7xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.85]">
+              Trusted by
             </h1>
-            <h1 className="text-white  text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] uppercase md:leading-[0.9]">
-              Word For It
+            <h1 className="text-white text-5xl sm:text-7xl md:text-7xl lg:text-8xl font-bold leading-[0.95] md:leading-[0.85] uppercase">
+              founders.
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start mt-5">
-            <div className="md:col-start-5 md:col-span-3 text-xs sm:text-sm text-neutral-400 uppercase tracking-wider font-mono pt-1">
-              (TESTIMONIALS)
-            </div>
-            <p className="md:col-span-5 text-neutral-400 text-sm sm:text-base lg:text-lg font-old-school leading-relaxed max-w-[42ch]">
-              Here’s what my clients say about our collaboration. Their satisfaction and 
-              meeting expectations are my top priorities, ensuring the best experience possible.
+          <div className="hidden lg:block lg:col-span-1" />
+
+          <div className="md:col-span-6 lg:col-span-5 flex flex-col gap-4 sm:gap-5">
+            <p className="text-neutral-400 text-lg md:text-xl leading-tight font-old-school ">
+              Here’s what our clients say about our collaboration. Their satisfaction and 
+              meeting expectations are our top priorities, ensuring the best experience possible.
             </p>
           </div>
         </div>
 
         {/* Main Card Container */}
-        <div className="w-full bg-[#F1F1F1] text-[#242021] rounded-[28px] p-6 sm:p-10 md:p-14 flex flex-col-reverse md:flex-row justify-between gap-10 items-center min-h-[460px] relative overflow-hidden">
+        <div className="w-full bg-[#0F1011] text-[#ffffff] rounded-xl p-6 sm:p-10 md:p-10 flex flex-col-reverse md:flex-row justify-between gap-10 items-center min-h-[460px] relative overflow-hidden">
           
           {/* Left Layout Column */}
           <div className="flex flex-col justify-between self-stretch flex-1 md:max-w-[70%] lg:max-w-[74%] w-full">
             
             {/* Interactive Avatars Bar - Responsive size & strict single line layout */}
-            <div className="flex flex-nowrap gap-0 sm:gap-3 mb-8 items-center w-full overflow-visible" role="tablist" aria-label="Client Testimonials">
+            <div className="flex flex-nowrap   mb-8 items-center w-full overflow-visible" role="tablist" aria-label="Client Testimonials">
               {testimonialData.map((item, index) => {
                 const isActive = index === activeIndex;
                 return (
@@ -195,8 +198,8 @@ const Testimonials = () => {
                           height="54"
                           rx="12"
                           fill="transparent"
-                          stroke="#242021"
-                          strokeWidth="2.5"
+                          stroke="#ffffff"
+                          strokeWidth="1.2"
                           pathLength="100"
                           strokeDasharray="100"
                           strokeDashoffset={strokeDashoffset}
@@ -207,7 +210,7 @@ const Testimonials = () => {
                     </svg>
 
                     {/* Inner Avatar Frame - Clean Scalable Squircle */}
-                    <div className={`relative w-[72%] h-[72%] rounded-[22%] overflow-hidden transition-all duration-300 ${
+                    <div className={`relative w-[72%] h-[72%] rounded-md overflow-hidden transition-all duration-300 ${
                       isActive ? "scale-100" : "scale-95 opacity-50 group-hover:opacity-100"
                     }`}>
                       <Image
@@ -245,9 +248,9 @@ const Testimonials = () => {
 
                     <div className="flex flex-col w-full">
                       <blockquote className="mb-6">
-                        <p itemProp="reviewBody" className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-old-school text-[#242021] ">
+                        <p itemProp="reviewBody" className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-old-school text-[#ffffff] ">
                           <svg 
-                            className="inline-block w-5 h-5 md:w-8 md:h-8 text-[#242021] fill-current mr-6 md:mr-10 -translate-y-[4px] md:-translate-y-[10px]" 
+                            className="inline-block w-5 h-5 md:w-8 md:h-8 text-[#ffffff] fill-current mr-6 md:mr-10 -translate-y-[4px] md:-translate-y-[10px]" 
                             xmlns="http://www.w3.org/2000/svg" 
                             viewBox="0 0 17 11" 
                             fill="none"
@@ -263,7 +266,7 @@ const Testimonials = () => {
                         <h3 itemProp="name" className="text-sm sm:text-base font-bold leading-none mb-1">
                           {item.name}
                         </h3>
-                        <p className="text-xs sm:text-sm text-neutral-700 font-medium">
+                        <p className="text-xs sm:text-sm text-neutral-400 font-medium">
                           {item.role} <span className="text-neutral-500 mx-1">—</span> {item.company}
                         </p>
                       </div>
@@ -293,13 +296,15 @@ const Testimonials = () => {
                           ref={videoRef}
                           src={item.mediaUrl}
                           loop
+                          autoPlay
+                          muted
                           playsInline
                           className="w-full h-full object-cover"
                         />
                         <button
                           onClick={handlePlayToggle}
                           aria-label={isPlaying ? "Pause video testimonial" : "Play video testimonial"}
-                          className="absolute bottom-5 left-5 w-11 h-11 bg-white/95 text-[#242021] hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 rounded-full flex items-center justify-center shadow-md z-20 cursor-pointer"
+                          className="absolute bottom-5 left-5 w-11 h-11 bg-[#c8f135] text-[#000000] hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 rounded-full flex items-center justify-center shadow-md z-20 cursor-pointer"
                         >
                           {isPlaying ? (
                             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 // Raw SVG markup string formatted with responsive sizing utility classes
 const arrowSVG = `
-  <svg class="w-7 h-7 fill-current transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <svg class="w-10 h-10 fill-current transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
     <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
   </svg>
 `;

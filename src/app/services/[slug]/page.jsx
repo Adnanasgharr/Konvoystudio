@@ -6,14 +6,15 @@ import ServiceCapabilitiesGrid from "@/components/services/ServiceCapabilitiesGr
 import ServicePartnershipCore from "@/components/services/ServicePartnershipCore";
 import ClientWorldMap from "@/components/about/ClientWorldMap";
 import Testimonials from "@/components/sections/Testimonials";
+import Faq from "@/components/sections/Faq";
 
 export async function generateMetadata(props) {
   const params = await props.params;
   const slug = params.slug;
   const service = getServiceBySlug(slug);
-  
+
   if (!service) return { title: "Service Not Found | Konvoy Studio" };
-  
+
   return {
     title: `${service.title} | Premium Studio Solutions`,
     description: service.description,
@@ -31,20 +32,20 @@ export default async function DynamicServicePage(props) {
 
   return (
     <main className="w-full bg-[#121212] min-h-screen selection:bg-[#CCFF00] selection:text-black">
-      
-      <ServiceHeroSplit 
+
+      <ServiceHeroSplit
         eyebrow={serviceData.category}
         heading={serviceData.heroHeading}
         paragraphs={serviceData.heroParagraphs}
-        heroImage={serviceData.heroImage} 
+        heroImage={serviceData.heroImage}
       />
 
-      <ServiceCapabilitiesGrid 
+      <ServiceCapabilitiesGrid
         eyebrow="What we bring to the table"
         mainHeading={serviceData.philosophyTitle || `Elite ${serviceData.title} Executions`}
         ctaText="Let's build together"
         ctaHref={`/contact?service=${slug}`}
-        items={serviceData.features || []} 
+        items={serviceData.features || []}
       />
 
       {serviceData.partnership && (
@@ -59,9 +60,10 @@ export default async function DynamicServicePage(props) {
         />
       )}
 
-      <ClientWorldMap/>
-      <Testimonials/>
-
+      
+      <ClientWorldMap />
+      <Testimonials />
+<Faq faqs={serviceData.faqs} />
     </main>
   );
 }
