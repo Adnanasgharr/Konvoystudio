@@ -44,47 +44,96 @@ export default function AboutHero() {
     const container = containerRef.current;
     const line1 = line1Ref.current;
     const line2 = line2Ref.current;
-    const starElement = starRef.current;
+    const starWrapper = starRef.current;
     const mobileItems = mobileImageRefs.current;
     const desktopItems = desktopImageRefs.current;
     const mobileTrack = mobileTrackRef.current;
 
-    if (!container || !line1 || !line2 || !starElement) return;
+    if (!container || !line1 || !line2 || !starWrapper) return;
+
+    const actualSvg = starWrapper.querySelector("svg");
+    if (!actualSvg) return;
 
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
     
     let ctx = gsap.context(() => {
-      // 🎯 THE FIX: Force the overall SVG wrapper container to pivot exactly from its true center point
-      gsap.set(starElement, { transformOrigin: "50% 50%" });
+      gsap.set(actualSvg, { transformOrigin: "50% 50%" });
 
       // ==========================================
-      // 📱 MOBILE NATURAL DRIVEN SCROLL
+      // 📱 MOBILE SCROLL SUITE
       // ==========================================
-      if (!isDesktop && mobileItems.length > 0) {
-        mobileItems.forEach((item, index) => {
-          gsap.set(item, { 
-            opacity: index === 0 ? 1 : 0, 
-            scale: index === 0 ? 1 : 0.95,
-            zIndex: mobileItems.length - index 
+      if (!isDesktop) {
+        // 1. Image Slider Reveal Control
+        if (mobileItems.length > 0) {
+          mobileItems.forEach((item, index) => {
+            const innerImg = item.querySelector("img");
+            gsap.set(item, {
+              opacity: index === 0 ? 1 : 0,
+              clipPath: index === 0 ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              zIndex: mobileItems.length - index
+            });
+            if (innerImg) {
+              gsap.set(innerImg, { scale: index === 0 ? 1 : 1.25, yPercent: index === 0 ? 0 : -10 });
+            }
           });
-        });
 
-        const mobileTimeline = gsap.timeline({
+          const sliderTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: mobileTrack,
+              start: "top 55%",
+              end: "bottom 60%",
+              scrub: 1, 
+            }
+          });
+
+          mobileItems.forEach((currentItem, index) => {
+            if (index === mobileItems.length - 1) return;
+
+            const nextItem = mobileItems[index + 1];
+            const currentImg = currentItem.querySelector("img");
+            const nextImg = nextItem.querySelector("img");
+            const stepLabel = `step-${index}`;
+
+            sliderTimeline
+              .to(currentItem, {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                opacity: 0.7,
+                duration: 1,
+                ease: "power1.inOut"
+              }, stepLabel)
+              .to(currentImg, {
+                scale: 1.1,
+                yPercent: 8,
+                duration: 1,
+                ease: "power1.inOut"
+              }, stepLabel)
+              
+              .to(nextItem, {
+                opacity: 1,
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                duration: 1,
+                ease: "power1.inOut"
+              }, stepLabel)
+              .to(nextImg, {
+                scale: 1,
+                yPercent: 0,
+                duration: 1,
+                ease: "power1.inOut"
+              }, stepLabel);
+          });
+        }
+
+        // 2. 🔄 INDEPENDENT ROTATION SCROLL TRACK
+        // This spins the star perfectly mapped from the moment the element peeks into view until it exits
+        gsap.to(actualSvg, {
+          rotation: 360,
+          ease: "none",
           scrollTrigger: {
-            trigger: mobileTrack,
-            start: "top 70%",
-            end: "top 10%",
-            scrub: true,
+            trigger: container,
+            start: "top bottom", 
+            end: "bottom top",   
+            scrub: true,         
           }
-        });
-
-        mobileItems.forEach((currentItem, index) => {
-          if (index === mobileItems.length - 1) return;
-          const nextItem = mobileItems[index + 1];
-
-          mobileTimeline
-            .to(currentItem, { opacity: 0, scale: 1.05, duration: 1, ease: "power1.out" })
-            .to(nextItem, { opacity: 1, scale: 1, duration: 1, ease: "power1.out" }, "<+=0.1");
         });
 
         return;
@@ -104,9 +153,7 @@ export default function AboutHero() {
 
         const line1QuickX = gsap.quickTo(line1, "xPercent", { duration: 1.2, ease: "power3.out" });
         const line2QuickX = gsap.quickTo(line2, "xPercent", { duration: 2.2, ease: "power4.out" });
-        
-        // 🔄 Fast-performance interpolator targeting the overall SVG star container element
-        const svgOverallRotate = gsap.quickTo(starElement, "rotation", { duration: 0.8, ease: "power2.out" });
+        const svgOverallRotate = gsap.quickTo(actualSvg, "rotation", { duration: 0.8, ease: "power2.out" });
 
         let containerWidth = container.offsetWidth;
         const resizeObserver = new ResizeObserver(() => {
@@ -129,7 +176,6 @@ export default function AboutHero() {
             line2QuickX((actualTargetX / line2W) * 100);
           }
 
-          // 🔄 Calculate total rotation value mapped directly from cursor coordinates
           const targetRotation = (e.clientX + e.clientY) * 0.15;
           svgOverallRotate(targetRotation);
 
@@ -168,8 +214,6 @@ export default function AboutHero() {
         const handleMouseLeave = () => {
           line1QuickX(0);
           line2QuickX(0);
-          
-          // 🛑 Smoothly reset the entire SVG alignment back to 0 when mouse leaves
           svgOverallRotate(0);
 
           desktopItems.forEach((item, idx) => {
@@ -207,43 +251,46 @@ export default function AboutHero() {
       {/* TYPOGRAPHY AREA */}
       <div className="w-full max-w-9xl mx-auto text-center my-auto md:my-0 md:mb-12">
         <div className="flex flex-col items-center justify-center text-center overflow-visible">
+          
           <h1
             ref={line1Ref}
-            className="text-[8.5vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1.05] md:leading-[0.85] flex flex-wrap items-center justify-center gap-x-[3vw] md:gap-x-[2.2vw] will-change-transform"
+            className="text-[12vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1] md:leading-[0.85] flex flex-col md:flex-row items-center justify-center will-change-transform"
           >
-            <span>A motion-first</span>
+            {/* LINE 1: SVG Star */}
             <span
               ref={starRef}
-              className="inline-block w-[7.5vw] h-[7.5vw] md:w-[6vw] md:h-[6vw] min-w-[36px] max-w-[90px] text-[#0F1011] shrink-0 fill-current will-change-transform translate-y-[0.6vw] md:translate-y-[0.4vw]"
+              className="order-1 md:order-2 inline-flex items-center justify-center w-[19vw] h-[19vw] md:w-[6vw] md:h-[6vw] min-w-[45px] max-w-[90px] text-[#0F1011] shrink-0 mb-6 md:mb-0 md:mx-[2.2vw] will-change-transform translate-y-0 md:translate-y-[0.4vw]"
             >
-              <svg viewBox="0 0 480 480" className="w-full h-full overflow-visible">
-                
-                {/* 1st Blade Assembly */}
-                <g>
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(0.7744 -1.844 1.1363 0.4772 176.4 213.3)" />
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(0.6699 1.8845 -1.8993 0.6752 346.3 202.2)" />
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(-1.6919 1.0665 -0.5418 -0.8595 270.3 288.1)" />
-                </g>
-                
-                {/* 2nd Blade Assembly */}
-                <g>
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(1.823 -0.8227 0.6359 1.4092 204.4 161.1)" />
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(1.7251 1.012 -0.4942 0.8424 267.7 192.8)" />
-                  <path d="M-20.4 56C-20.4 56 20.4 56 20.4 56C20.4 56 8.1-56 8.1-56C8.1-56 -8.2-56 -8.2-56C-8.2-56 -20.4 56 -20.4 56z" transform="matrix(-1.7289 -1.0054 0.9496 -1.6329 186.8 331.4)" />
-                </g>
-
-                {/* Central Motor Node */}
-                <path d="M40 0C40 0 40 0 40 0C40 22.1 22.1 40 0 40C0 40 0 40 0 40C-22.1 40 -40 22.1 -40 0C-40 0 -40 0 -40 0C-40 -22.1 -22.1 -40 0 -40C0 -40 0 -40 0 -40C22.1 -40 40 -22.1 40 0z" transform="matrix(1 0 0 1 240 240)" />
+              <svg 
+                version="1.1" 
+                id="Layer_1" 
+                xmlns="http://www.w3.org/2000/svg" 
+                x="0px" 
+                y="0px"
+                viewBox="0 0 378.56 359.64" 
+                className="w-full h-full fill-current will-change-transform"
+                style={{ enableBackground: "new 0 0 378.56 359.64" }} 
+                xmlSpace="preserve"
+              >
+                <polygon points="237.64,172.59 315.2,137.36 291.08,95.58 191.55,161.2 207.2,134.33 215.47,49.54 167.22,49.54 174.29,168.54 158.84,141.55 89.55,92 65.43,133.78 172.02,187.16 140.92,187.05 63.36,222.28 87.48,264.06 187.01,198.44 171.36,225.31 163.09,310.1 211.34,310.1 204.27,191.1 219.72,218.09 289.01,267.64 313.13,225.86 206.54,172.48 "/>
               </svg>
             </span>
-            <span className="font-serif">digital studio</span>
+
+            {/* LINE 2: "A motion-first" */}
+            <span className="order-2 md:order-1 block w-full md:w-auto">A motion-first</span>
+            
+            {/* LINE 3: "digital studio" */}
+            <span className="order-3 md:order-3 block w-full md:w-auto font-serif mt-2 md:mt-0">&nbsp;digital studio</span>
           </h1>
 
           <h2
             ref={line2Ref}
-            className="text-[8.5vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1.05] md:leading-[0.85] mt-1 md:mt-0 will-change-transform"
+            className="text-[12vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1] md:leading-[0.85] mt-2 md:mt-0 will-change-transform"
           >
-            that moves you forward.
+            {/* LINE 4: "that moves you" */}
+            <span className="block md:inline">that moves you</span>
+            {/* LINE 5: "forward." */}
+            <span className="block md:inline mt-2 md:mt-0">&nbsp;forward.</span>
           </h2>
         </div>
       </div>
@@ -252,15 +299,19 @@ export default function AboutHero() {
       <div className="w-full relative flex items-center justify-center">
         {/* MOBILE SLIDER RUNWAY */}
         <div className="md:hidden w-[85vw] sm:w-[70vw] h-[34vh] relative overflow-visible">
-          <div ref={mobileTrackRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-0" />
-          <div className="w-full h-full relative overflow-hidden bg-[#E4E2D9] z-10">
+          <div ref={mobileTrackRef} className="absolute top-0 left-0 w-full h-[160%] pointer-events-none z-0" />
+          <div className="w-full h-full relative overflow-hidden bg-[#E4E2D9] z-10 rounded-xl">
             {galleryImages.map((img) => (
               <div
                 key={`mobile-${img.id}`}
                 ref={addToMobileRefs}
-                className="absolute inset-0 w-full h-full will-change-[opacity,transform]"
+                className="absolute inset-0 w-full h-full overflow-hidden will-change-[opacity,clip-path]"
               >
-                <img src={img.url} alt="Responsive active track item" className="w-full h-full object-cover" />
+                <img 
+                  src={img.url} 
+                  alt="Responsive active track item" 
+                  className="w-full h-full object-cover will-change-transform" 
+                />
               </div>
             ))}
           </div>

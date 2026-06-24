@@ -17,7 +17,6 @@ const fullServicesList = [
       { name: "E-commerce Websites", href: "/services/ecommerce-websites" },
       { name: "Landing Pages", href: "/services/landing-pages" },
       { name: "WordPress Development", href: "/services/wordpress-development" },
-      { name: "Web Applications", href: "/services/web-applications" },
       { name: "Website Redesign", href: "/services/website-redesign" },
       { name: "Website Maintenance", href: "/services/website-maintenance" },
     ]
