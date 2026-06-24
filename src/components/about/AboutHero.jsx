@@ -8,11 +8,11 @@ if (typeof window !== "undefined") {
 }
 
 const galleryImages = [
-  { id: 1, url: "/images/gallery/hero-1.jpg" },
-  { id: 2, url: "/images/gallery/hero-2.jpg" },
-  { id: 3, url: "/images/gallery/hero-4.jpg" },
-  { id: 4, url: "/images/gallery/hero-3.jpg" },
-  { id: 5, url: "/images/gallery/hero-5.jpg" },
+  { id: 1, url: "/images/gallery/Hero-1.jpg" },
+  { id: 2, url: "/images/gallery/Hero-2.jpg" },
+  { id: 3, url: "/images/gallery/Hero-4.jpg" },
+  { id: 4, url: "/images/gallery/Hero-3.jpg" },
+  { id: 5, url: "/images/gallery/Hero-5.jpg" },
 ];
 
 export default function AboutHero() {
@@ -123,15 +123,14 @@ export default function AboutHero() {
           });
         }
 
-        // 2. 🔄 INDEPENDENT ROTATION SCROLL TRACK
-        // This spins the star perfectly mapped from the moment the element peeks into view until it exits
+        // 2. ⚡ HIGH-SPEED WINDOW SCROLL ROTATION
         gsap.to(actualSvg, {
-          rotation: 360,
+          rotation: 1440, // Increased to 4 full rotations for aggressive speed
           ease: "none",
           scrollTrigger: {
-            trigger: container,
-            start: "top bottom", 
-            end: "bottom top",   
+            trigger: typeof document !== "undefined" ? document.documentElement : "body",
+            start: "top top", 
+            end: "bottom center", // Pinched end point closer so the speed matches immediate action
             scrub: true,         
           }
         });
@@ -244,7 +243,7 @@ export default function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="w-full h-screen bg-[#F1F1F1] text-[#0F1011] flex flex-col justify-between md:justify-end p-4 sm:p-6 md:p-10 pb-12 sm:pb-16 overflow-hidden select-none"
+      className="w-full min-h-svh md:h-screen bg-[#F1F1F1] text-[#0F1011] flex flex-col justify-between md:justify-end p-4 sm:p-6 md:p-10 pb-12 sm:pb-16 overflow-hidden select-none"
     >
       <div className="hidden max-md:block h-12" />
 
