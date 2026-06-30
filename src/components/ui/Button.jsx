@@ -35,7 +35,7 @@ const Button = ({
       
       tlRef.current = gsap.timeline({ 
         paused: true,
-        defaults: { duration: 0.5, ease: "power2.inOut" }
+        defaults: { duration: 0.35, ease: "power3.inOut" } 
       });
 
       tlRef.current
@@ -49,23 +49,25 @@ const Button = ({
           y: "-100%",
         }, 0)
 
-        // 3. Symmetrical Diagonal Loop Track
+        // 3. ⚡ INSTANT MECHANICAL ARROW LOOP (Zero-delay frame-perfect timing)
         .to(arrowRef.current, {
-          x: 20,
-          y: -20,
+          x: 24,
+          y: -24,
           opacity: 0,
-          duration: 0.22,
+          duration: 0.08, // Ultra-fast escape velocity
+          ease: "power2.in"
         }, 0)
         .set(arrowRef.current, {
-          x: -20,
-          y: 20,
-        })
+          x: -24,
+          y: 24,
+        }) // Teleports to the bottom-left position instantly on the exact same frame
         .to(arrowRef.current, {
           x: 0,
           y: 0,
           opacity: 1,
-          duration: 0.28,
-        }, ">");
+          duration: 0.12, // Snaps into home position immediately
+          ease: "power2.out"
+        }, "<+=0.01"); // Forced to overlap with the exit frame for zero dead-air delay
 
     }, containerRef);
 
@@ -83,7 +85,7 @@ const Button = ({
   const renderInnerContent = () => (
     <>
       {/* Text Split Container */}
-      <div className="relative z-10 h-5 overflow-hidden pointer-events-none flex flex-col justify-start flex-1 pr-10 whitespace-nowrap">
+      <div className="relative z-10 h-5 overflow-hidden pointer-events-none flex flex-col justify-start flex-1 pr-12 whitespace-nowrap">
         {/* Track 1: Base State Text */}
         <span
           ref={textTrack1Ref}
@@ -107,15 +109,15 @@ const Button = ({
         style={{ transformOrigin: "center center" }}
       />
 
-      {/* The Flying Arrow Mask Window */}
+      {/* 🏹 Enlarged Arrow Frame Mask Window */}
       <div className="absolute right-2 z-10 w-[30px] h-[30px] flex items-center justify-center pointer-events-none overflow-hidden">
         <svg
           ref={arrowRef}
-          className={`w-3 h-3 will-change-transform transition-colors duration-300 ${arrowColorStyles}`}
+          className={`w-[17px] h-[17px] will-change-transform transition-colors duration-300 ${arrowColorStyles}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="3.5"
+          strokeWidth="4" 
           strokeLinecap="round"
           strokeLinejoin="round"
         >
@@ -126,7 +128,7 @@ const Button = ({
     </>
   );
 
-  const sharedStyles = `relative z-0 inline-flex items-center justify-between h-[46px] pl-5 pr-2 border rounded-full cursor-pointer overflow-hidden select-none decoration-transparent transition-all duration-300 ${bgStyles} ${className}`;
+  const sharedStyles = `relative z-0 inline-flex items-center justify-between h-[46px] pl-6 pr-2 border rounded-full cursor-pointer overflow-hidden select-none decoration-transparent transition-all duration-300 ${bgStyles} ${className}`;
 
   if (href) {
     return (

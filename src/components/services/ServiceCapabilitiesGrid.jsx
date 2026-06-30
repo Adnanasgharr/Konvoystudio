@@ -36,25 +36,22 @@ export default function ServiceCapabilitiesGrid({
             </h2>
           </div>
 
-          <div >
-          
-
-          <BookCallButton 
-  text="Get in touch today" 
-  ariaLabel="Schedule a discovery call with Konvoy Studio to discuss your project design and asset needs" 
-/>
-            
+          <div>
+            <BookCallButton 
+              text="Get in touch today" 
+              ariaLabel="Schedule a discovery call with Konvoy Studio to discuss your project design and asset needs" 
+            />
           </div>
         </div>
 
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-8 sm:gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-16 gap-y-8 sm:gap-y-10">
           {items.map((item, index) => (
             <div 
               key={`capability-${index}`} 
               className="flex flex-col items-start w-full border-b border-neutral-800 pb-6 sm:pb-8"
             >
               <div className="flex items-center gap-3 mb-3 w-full">
-                {item.icon ? item.icon : <DefaultBoxIcon />}
+                <DefaultBoxIcon />
                 <h4 className="text-xl sm:text-3xl font-old-school tracking-tight text-white truncate">
                   {item.title}
                 </h4>

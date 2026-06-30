@@ -2,9 +2,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-// Raw SVG markup string formatted with responsive sizing utility classes
 const arrowSVG = `
-  <svg class="w-10 h-10 fill-current transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <svg class="w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
     <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z"></path>
   </svg>
 `;
@@ -15,15 +14,13 @@ export default function CustomCursor() {
   const currentTargetRef = useRef(null);
 
   useEffect(() => {
-    // Check if screen is wider than mobile (tablet/desktop)
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (!isDesktop) return; // Completely bail out on mobile viewports
+    if (!isDesktop) return;
 
     const cursor = cursorRef.current;
     const textSpan = textRef.current;
     if (!cursor || !textSpan) return;
 
-    // 1. Single Global Position Engine
     const moveCursor = (e) => {
       gsap.to(cursor, {
         x: e.clientX,
@@ -33,18 +30,18 @@ export default function CustomCursor() {
       });
     };
 
-    // Helper to render layout states accurately based on data attributes
     const updateCursorVisuals = (target) => {
       if (!target) return;
       const type = target.getAttribute("data-cursor");
       
       gsap.killTweensOf(cursor);
       
-      if (type === "service") {
+      if (type === "service" || type === "website") {
+        // Shared arrow presentation for Websites & AI Integration systems
         textSpan.innerHTML = arrowSVG;
         gsap.to(cursor, {
-          width: 100,
-          height: 100,
+          width: 96,
+          height: 96,
           backgroundColor: "#ffffff",
           mixBlendMode: "difference",
           color: "#000000",
@@ -66,20 +63,22 @@ export default function CustomCursor() {
           duration: 0.3,
         });
       } 
-      else if (type === "website") {
-        textSpan.innerHTML = arrowSVG;
+      else if (type === "brand") {
+        // High-end look specifically tailored for Graphic Design/Brand Lightboxes
+        textSpan.innerHTML = "VIEW";
         gsap.to(cursor, {
           width: 96,
           height: 96,
           backgroundColor: "#ffffff",
           mixBlendMode: "difference",
           color: "#000000",
+          fontSize: "12px",
+          letterSpacing: "0.08em",
           duration: 0.3,
         });
       }
     };
 
-    // 2. Global Hover Detector
     const handleMouseOver = (e) => {
       const target = e.target.closest("[data-cursor]");
       if (!target) return;
@@ -88,7 +87,6 @@ export default function CustomCursor() {
       updateCursorVisuals(target);
     };
 
-    // 3. Global Mouse Leave Reset
     const handleMouseOut = (e) => {
       const target = e.target.closest("[data-cursor]");
       if (!target) return;
@@ -105,11 +103,13 @@ export default function CustomCursor() {
       });
     };
 
-    // Global Click Listener to update strings instantly on tap
     const handleGlobalClick = () => {
-      if (currentTargetRef.current) {
-        updateCursorVisuals(currentTargetRef.current);
-      }
+      // Small timeout lets state synchronization clear downstream before shifting text maps
+      setTimeout(() => {
+        if (currentTargetRef.current) {
+          updateCursorVisuals(currentTargetRef.current);
+        }
+      }, 10);
     };
 
     window.addEventListener("mousemove", moveCursor);

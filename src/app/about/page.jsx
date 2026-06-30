@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <main className="w-full relative bg-[#FDFCF7]">
       {/* Dynamic Image Track Hero Section */}
-      <AboutHero />
+      < AboutHero  />
       
       
       

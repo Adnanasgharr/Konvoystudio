@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,11 +9,11 @@ if (typeof window !== "undefined") {
 }
 
 const galleryImages = [
-  { id: 1, url: "/images/gallery/Hero-1.jpg" },
-  { id: 2, url: "/images/gallery/Hero-2.jpg" },
-  { id: 3, url: "/images/gallery/Hero-4.jpg" },
-  { id: 4, url: "/images/gallery/Hero-3.jpg" },
-  { id: 5, url: "/images/gallery/Hero-5.jpg" },
+  { id: 1, url: "/images/gallery/about konvoy (1).jpg" },
+  { id: 2, url: "/images/gallery/about konvoy (2).jpg" },
+  { id: 3, url: "/images/gallery/about konvoy (7).jpg" },
+  { id: 4, url: "/images/gallery/about konvoy (4).jpg" },
+  { id: 5, url: "/images/gallery/about konvoy (5).jpg" },
 ];
 
 export default function AboutHero() {
@@ -20,7 +21,6 @@ export default function AboutHero() {
   const line1Ref = useRef(null);
   const line2Ref = useRef(null);
   const starRef = useRef(null);
-  const mobileTrackRef = useRef(null);
   
   const mobileImageRefs = useRef([]);
   const desktopImageRefs = useRef([]);
@@ -47,111 +47,111 @@ export default function AboutHero() {
     const starWrapper = starRef.current;
     const mobileItems = mobileImageRefs.current;
     const desktopItems = desktopImageRefs.current;
-    const mobileTrack = mobileTrackRef.current;
 
     if (!container || !line1 || !line2 || !starWrapper) return;
 
     const actualSvg = starWrapper.querySelector("svg");
     if (!actualSvg) return;
 
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add({
+      isMobileAndTablet: "(max-width: 1279px)",
+      isDesktop: "(min-width: 1280px)"
+    }, (context) => {
+      const { isMobileAndTablet, isDesktop } = context.conditions;
       gsap.set(actualSvg, { transformOrigin: "50% 50%" });
 
       // ==========================================
-      // 📱 MOBILE SCROLL SUITE
+      // 📱 MOBILE & TABLET RUN ENGINE
       // ==========================================
-      if (!isDesktop) {
-        // 1. Image Slider Reveal Control
-        if (mobileItems.length > 0) {
-          mobileItems.forEach((item, index) => {
-            const innerImg = item.querySelector("img");
-            gsap.set(item, {
-              opacity: index === 0 ? 1 : 0,
-              clipPath: index === 0 ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-              zIndex: mobileItems.length - index
-            });
-            if (innerImg) {
-              gsap.set(innerImg, { scale: index === 0 ? 1 : 1.25, yPercent: index === 0 ? 0 : -10 });
-            }
+      if (isMobileAndTablet && mobileItems.length > 0) {
+        mobileItems.forEach((item, index) => {
+          const innerImg = item.querySelector("img");
+          gsap.set(item, {
+            opacity: index === 0 ? 1 : 0,
+            clipPath: index === 0 ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" : "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+            zIndex: mobileItems.length - index
           });
-
-          const sliderTimeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: mobileTrack,
-              start: "top 55%",
-              end: "bottom 60%",
-              scrub: 1, 
-            }
-          });
-
-          mobileItems.forEach((currentItem, index) => {
-            if (index === mobileItems.length - 1) return;
-
-            const nextItem = mobileItems[index + 1];
-            const currentImg = currentItem.querySelector("img");
-            const nextImg = nextItem.querySelector("img");
-            const stepLabel = `step-${index}`;
-
-            sliderTimeline
-              .to(currentItem, {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-                opacity: 0.7,
-                duration: 1,
-                ease: "power1.inOut"
-              }, stepLabel)
-              .to(currentImg, {
-                scale: 1.1,
-                yPercent: 8,
-                duration: 1,
-                ease: "power1.inOut"
-              }, stepLabel)
-              
-              .to(nextItem, {
-                opacity: 1,
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 1,
-                ease: "power1.inOut"
-              }, stepLabel)
-              .to(nextImg, {
-                scale: 1,
-                yPercent: 0,
-                duration: 1,
-                ease: "power1.inOut"
-              }, stepLabel);
-          });
-        }
-
-        // 2. ⚡ HIGH-SPEED WINDOW SCROLL ROTATION
-        gsap.to(actualSvg, {
-          rotation: 1440, // Increased to 4 full rotations for aggressive speed
-          ease: "none",
-          scrollTrigger: {
-            trigger: typeof document !== "undefined" ? document.documentElement : "body",
-            start: "top top", 
-            end: "bottom center", // Pinched end point closer so the speed matches immediate action
-            scrub: true,         
+          if (innerImg) {
+            gsap.set(innerImg, { scale: index === 0 ? 1 : 1.2, yPercent: index === 0 ? 0 : -10 });
           }
         });
 
-        return;
+        // ⚡ SPEED CONTROL FOR MOBILE SCROLL:
+        // By changing `end` from "bottom top" to "center top", all images switch twice as fast.
+        // If you want it even faster, try "top+=300px top" or "top+=40% top"
+        const sliderTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: "center top", 
+            scrub: 0.5, // Reduced from 1.2 for snappier, more instantaneous finger tracking
+            invalidateOnRefresh: true,
+          }
+        });
+
+        mobileItems.forEach((currentItem, index) => {
+          if (index === mobileItems.length - 1) return;
+
+          const nextItem = mobileItems[index + 1];
+          const currentImg = currentItem.querySelector("img");
+          const nextImg = nextItem.querySelector("img");
+          const stepLabel = `step-${index}`;
+
+          sliderTimeline
+            .to(currentItem, {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+              opacity: 0,
+              duration: 1,
+              ease: "power2.inOut"
+            }, stepLabel)
+            .to(currentImg, {
+              yPercent: 10,
+              duration: 1,
+              ease: "power2.inOut"
+            }, stepLabel)
+            .to(nextItem, {
+              opacity: 1,
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 1,
+              ease: "power2.inOut"
+            }, stepLabel)
+            .to(nextImg, {
+              scale: 1,
+              yPercent: 0,
+              duration: 1,
+              ease: "power2.inOut"
+            }, stepLabel);
+        });
+
+        gsap.to(actualSvg, {
+          rotation: 720,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top", 
+            end: "center top", // Matched with slider timeline end
+            scrub: true,         
+          }
+        });
       }
 
       // ==========================================
-      // 🖥️ DESKTOP HOVER MATRIX ENGINE
+      // 🖥️ DESKTOP INTERACTIVE MATRIX ENGINE
       // ==========================================
       if (isDesktop && desktopItems.length > 0) {
         const BASE_FLEX = 0.5;
         const BASE_HEIGHT = 60;
         const MAX_FLEX = 4.8;
         const MAX_HEIGHT = 100;
+        const SENSITIVITY = 2.5; 
 
         gsap.set(desktopItems, { flexGrow: BASE_FLEX, height: `${BASE_HEIGHT}%` });
         gsap.set(desktopItems[0], { flexGrow: MAX_FLEX, height: `${MAX_HEIGHT}%` });
 
-        const line1QuickX = gsap.quickTo(line1, "xPercent", { duration: 1.2, ease: "power3.out" });
-        const line2QuickX = gsap.quickTo(line2, "xPercent", { duration: 2.2, ease: "power4.out" });
+        const line1QuickX = gsap.quickTo(line1, "x", { duration: 0.8, ease: "power2.out" });
+        const line2QuickX = gsap.quickTo(line2, "x", { duration: 1.4, ease: "power3.out" });
         const svgOverallRotate = gsap.quickTo(actualSvg, "rotation", { duration: 0.8, ease: "power2.out" });
 
         let containerWidth = container.offsetWidth;
@@ -163,17 +163,23 @@ export default function AboutHero() {
         const handleMouseMove = (e) => {
           const containerRect = container.getBoundingClientRect();
           const relativeX = e.clientX - containerRect.left;
-          const progress = relativeX / containerWidth;
+          const progress = relativeX / containerWidth; 
+          const normalizedProgress = (progress - 0.5) * 2; 
 
-          const line1W = line1.offsetWidth || 1;
-          const line2W = line2.offsetWidth || 1;
-          const maxDeltaX = (containerWidth - Math.max(line1W, line2W)) / 2;
+          const line1W = line1.getBoundingClientRect().width || 1;
+          const line2W = line2.getBoundingClientRect().width || 1;
 
-          if (maxDeltaX > 0) {
-            const actualTargetX = (progress - 0.5) * (maxDeltaX * 2);
-            line1QuickX((actualTargetX / line1W) * 100);
-            line2QuickX((actualTargetX / line2W) * 100);
-          }
+          const maxLeftRight1 = Math.max(0, (window.innerWidth - line1W) / 2);
+          const maxLeftRight2 = Math.max(0, (window.innerWidth - line2W) / 2);
+
+          let targetX1 = normalizedProgress * maxLeftRight1 * SENSITIVITY;
+          let targetX2 = normalizedProgress * maxLeftRight2 * SENSITIVITY;
+
+          targetX1 = Math.max(-maxLeftRight1, Math.min(maxLeftRight1, targetX1));
+          targetX2 = Math.max(-maxLeftRight2, Math.min(maxLeftRight2, targetX2));
+
+          line1QuickX(targetX1);
+          line2QuickX(targetX2);
 
           const targetRotation = (e.clientX + e.clientY) * 0.15;
           svgOverallRotate(targetRotation);
@@ -235,96 +241,95 @@ export default function AboutHero() {
           container.removeEventListener("mouseleave", handleMouseLeave);
         };
       }
-    }, container);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
     <section
       ref={containerRef}
-      className="w-full min-h-svh md:h-screen bg-[#F1F1F1] text-[#0F1011] flex flex-col justify-between md:justify-end p-4 sm:p-6 md:p-10 pb-12 sm:pb-16 overflow-hidden select-none"
+      className="w-full min-h-svh xl:h-screen bg-[#F1F1F1] text-[#0F1011] flex flex-col justify-between xl:justify-end p-4 sm:p-6 md:p-8 xl:p-10 overflow-hidden select-none"
     >
-      <div className="hidden max-md:block h-12" />
+      <h1 className="sr-only">A motion-first digital studio that moves you forward.</h1>
+
+      <div className="hidden max-xl:block h-6 sm:h-8" />
 
       {/* TYPOGRAPHY AREA */}
-      <div className="w-full max-w-9xl mx-auto text-center my-auto md:my-0 md:mb-12">
-        <div className="flex flex-col items-center justify-center text-center overflow-visible">
+      <div className="w-full text-center my-auto xl:my-0 xl:mb-12 xl:mx-auto" aria-hidden="true">
+        <div className="relative flex flex-col items-center justify-center text-center overflow-visible w-full">
           
-          <h1
+          <div
             ref={line1Ref}
-            className="text-[12vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1] md:leading-[0.85] flex flex-col md:flex-row items-center justify-center will-change-transform"
+            className="text-[11vw] sm:text-[9vw] md:text-[8vw] xl:text-[5vw] font-serif font-light tracking-tight leading-[1.05] xl:leading-[0.85] flex flex-col xl:flex-row items-center justify-center will-change-transform whitespace-nowrap"
           >
-            {/* LINE 1: SVG Star */}
             <span
               ref={starRef}
-              className="order-1 md:order-2 inline-flex items-center justify-center w-[19vw] h-[19vw] md:w-[6vw] md:h-[6vw] min-w-[45px] max-w-[90px] text-[#0F1011] shrink-0 mb-6 md:mb-0 md:mx-[2.2vw] will-change-transform translate-y-0 md:translate-y-[0.4vw]"
+              className="order-1 xl:order-2 inline-flex items-center justify-center w-[15vw] h-[15vw] sm:w-[11vw] sm:h-[11vw] md:w-[9vw] md:h-[9vw] xl:w-[6vw] xl:h-[6vw] min-w-[36px] max-w-[90px] text-[#0F1011] shrink-0 mb-4 xl:mb-0 xl:mx-[2.2vw] will-change-transform translate-y-0 xl:translate-y-[0.4vw]"
             >
               <svg 
                 version="1.1" 
                 id="Layer_1" 
                 xmlns="http://www.w3.org/2000/svg" 
-                x="0px" 
-                y="0px"
                 viewBox="0 0 378.56 359.64" 
                 className="w-full h-full fill-current will-change-transform"
-                style={{ enableBackground: "new 0 0 378.56 359.64" }} 
-                xmlSpace="preserve"
               >
                 <polygon points="237.64,172.59 315.2,137.36 291.08,95.58 191.55,161.2 207.2,134.33 215.47,49.54 167.22,49.54 174.29,168.54 158.84,141.55 89.55,92 65.43,133.78 172.02,187.16 140.92,187.05 63.36,222.28 87.48,264.06 187.01,198.44 171.36,225.31 163.09,310.1 211.34,310.1 204.27,191.1 219.72,218.09 289.01,267.64 313.13,225.86 206.54,172.48 "/>
               </svg>
             </span>
 
-            {/* LINE 2: "A motion-first" */}
-            <span className="order-2 md:order-1 block w-full md:w-auto">A motion-first</span>
-            
-            {/* LINE 3: "digital studio" */}
-            <span className="order-3 md:order-3 block w-full md:w-auto font-serif mt-2 md:mt-0">&nbsp;digital studio</span>
-          </h1>
+            <span className="order-2 xl:order-1 block">A motion-first</span>
+            <span className="order-3 xl:order-3 block font-serif mt-1 xl:mt-0">&nbsp;digital studio</span>
+          </div>
 
-          <h2
+          <div
             ref={line2Ref}
-            className="text-[12vw] md:text-[5vw] font-serif font-light tracking-tight leading-[1] md:leading-[0.85] mt-2 md:mt-0 will-change-transform"
+            className="text-[11vw] sm:text-[9vw] md:text-[8vw] xl:text-[5vw] font-serif font-light tracking-tight leading-[1.05] xl:leading-[0.85] mt-1 xl:mt-0 will-change-transform whitespace-nowrap"
           >
-            {/* LINE 4: "that moves you" */}
-            <span className="block md:inline">that moves you</span>
-            {/* LINE 5: "forward." */}
-            <span className="block md:inline mt-2 md:mt-0">&nbsp;forward.</span>
-          </h2>
+            <span className="block xl:inline">that moves you</span>
+            <span className="block xl:inline mt-1 xl:mt-0">&nbsp;forward.</span>
+          </div>
         </div>
       </div>
 
       {/* GALLERY INTERFACE REGION */}
       <div className="w-full relative flex items-center justify-center">
-        {/* MOBILE SLIDER RUNWAY */}
-        <div className="md:hidden w-[85vw] sm:w-[70vw] h-[34vh] relative overflow-visible">
-          <div ref={mobileTrackRef} className="absolute top-0 left-0 w-full h-[160%] pointer-events-none z-0" />
-          <div className="w-full h-full relative overflow-hidden bg-[#E4E2D9] z-10 rounded-xl">
-            {galleryImages.map((img) => (
-              <div
-                key={`mobile-${img.id}`}
-                ref={addToMobileRefs}
-                className="absolute inset-0 w-full h-full overflow-hidden will-change-[opacity,clip-path]"
-              >
-                <img 
-                  src={img.url} 
-                  alt="Responsive active track item" 
-                  className="w-full h-full object-cover will-change-transform" 
-                />
-              </div>
-            ))}
-          </div>
+        {/* MOBILE SLIDER */}
+        <div className="xl:hidden w-full h-[36vh] sm:h-[40vh] md:h-[46vh] relative overflow-hidden rounded-md sm:rounded-lg bg-[#E4E2D9]">
+          {galleryImages.map((img, i) => (
+            <div
+              key={`mobile-${img.id}`}
+              ref={addToMobileRefs}
+              className="absolute inset-0 w-full h-full overflow-hidden will-change-[opacity,clip-path]"
+            >
+              <Image 
+                src={img.url} 
+                alt="Responsive active track item" 
+                width={1200}
+                height={1600}
+                priority={i === 0}
+                className="w-full h-full object-cover will-change-transform" 
+              />
+            </div>
+          ))}
         </div>
 
-        {/* DESKTOP GRID HOVER ASSY */}
-        <div className="hidden md:flex items-end gap-5 w-full h-[36vh] max-h-[420px] justify-center">
-          {galleryImages.map((img) => (
+        {/* DESKTOP HOVER ASSY */}
+        <div className="hidden xl:flex items-end gap-5 w-full h-[36vh] max-h-[420px] justify-center">
+          {galleryImages.map((img, i) => (
             <div
               key={`desktop-${img.id}`}
               ref={addToDesktopRefs}
               className="h-full relative bg-[#E4E2D9] transform origin-bottom overflow-hidden rounded-none min-w-[60px] will-change-[flex-grow,height]"
             >
-              <img src={img.url} alt="Multi-column grid element" className="w-full h-full object-cover select-none pointer-events-none" />
+              <Image 
+                src={img.url} 
+                alt="Multi-column grid element" 
+                width={500}
+                height={700}
+                priority={i === 0}
+                className="w-full h-full object-cover select-none pointer-events-none" 
+              />
             </div>
           ))}
         </div>

@@ -33,12 +33,13 @@ export default async function DynamicServicePage(props) {
   return (
     <main className="w-full bg-[#121212] min-h-screen selection:bg-[#CCFF00] selection:text-black">
 
-      <ServiceHeroSplit
-        eyebrow={serviceData.category}
-        heading={serviceData.heroHeading}
-        paragraphs={serviceData.heroParagraphs}
-        heroImage={serviceData.heroImage}
-      />
+ <ServiceHeroSplit
+  eyebrow={serviceData.category}
+  heading={serviceData.heroHeading}
+  paragraphs={serviceData.heroParagraphs}
+  heroImage={serviceData.heroImage}
+  heroType={serviceData.heroType || "standard"} // Defaults gracefully to standard image/gif handling
+/>
 
       <ServiceCapabilitiesGrid
         eyebrow="What we bring to the table"

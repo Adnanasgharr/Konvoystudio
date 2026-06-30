@@ -76,7 +76,7 @@ const ClientWorldMap = () => {
           <span className="text-white font-old-school text-xl sm:text-2xl md:text-3xl font-bold">
             World Domination
           </span>
-          <span className="text-[#c8f135] font-old-school text-xl sm:text-2xl md:text-3xl font-bold">
+          <span className="text-[#CCFF00] font-old-school text-xl sm:text-2xl md:text-3xl font-bold">
             {dominationPercentage}%
           </span>
         </div>
@@ -87,7 +87,6 @@ const ClientWorldMap = () => {
         className="relative w-full h-[240px] sm:h-[300px] md:h-auto cursor-crosshair overflow-hidden flex items-center justify-center bg-transparent"
         onMouseMove={handleMouseMove}
       >
-        {/* Adjusted to a minor shift (-translate-x-4) on small viewports */}
         <div className="w-full h-auto block transform scale-[1.55] -translate-x-4 xs:scale-[1.4] xs:-translate-x-2 sm:scale-110 sm:translate-x-0 lg:scale-100 lg:translate-x-0 origin-center transition-transform duration-300">
           <ComposableMap
             projectionConfig={{ scale: 110, center: [0, 5] }}
@@ -125,21 +124,19 @@ const ClientWorldMap = () => {
                           default: {
                             fill: hasWorked ? "#4b4e54" : "#232528",
                             outline: "none",
-                            transition: "fill 300ms ease",
                             pointerEvents: "auto"
                           },
                           hover: {
-                            fill: hasWorked ? "#c8f135" : "#32353a",
+                            fill: hasWorked ? "#CCFF00" : "#32353a",
                             outline: "none",
-                            transition: "fill 150ms ease",
                             pointerEvents: "auto"
                           },
                           pressed: {
-                            fill: "#c8f135",
+                            fill: "#CCFF00",
                             outline: "none",
                           },
                         }}
-                        className="stroke-[#0f1011] stroke-[0.6px] transition-colors duration-200"
+                        className="stroke-[#0f1011] stroke-[0.6px] transition-all duration-200 ease-out will-change-[fill]"
                       />
                     );
                   })
@@ -151,7 +148,7 @@ const ClientWorldMap = () => {
         {/* DESKTOP-ONLY FLOATING GLASS TOOLTIP */}
         {tooltipContent && (
           <div
-            className="hidden lg:block absolute z-50 pointer-events-none bg-[#17191c]/95 backdrop-blur-md border border-neutral-800 rounded-xl p-4 shadow-2xl min-w-[200px] max-w-xs transition-all duration-100 ease-out transform -translate-x-1/2"
+            className="hidden lg:block absolute z-50 pointer-events-none bg-[#17191c]/95 backdrop-blur-md border border-neutral-800 rounded-xl p-4 shadow-2xl min-w-[200px] max-w-xs transition-all duration-75 ease-out"
             style={{ 
               left: `${tooltipPos.x}px`, 
               top: `${tooltipPos.y - 12}px`,
@@ -163,7 +160,7 @@ const ClientWorldMap = () => {
                 {tooltipContent.name}
               </span>
               {tooltipContent.projects > 0 && (
-                <span className="bg-[#c8f135] text-black text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
+                <span className="bg-[#CCFF00] text-black text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0">
                   {tooltipContent.projects} Projs
                 </span>
               )}
@@ -197,7 +194,7 @@ const ClientWorldMap = () => {
               {tooltipContent.name}
             </h4>
             {tooltipContent.projects > 0 ? (
-              <span className="bg-[#c8f135] text-black text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+              <span className="bg-[#CCFF00] text-black text-[10px] font-bold px-2.5 py-0.5 rounded-full">
                 {tooltipContent.projects} Projects
               </span>
             ) : (

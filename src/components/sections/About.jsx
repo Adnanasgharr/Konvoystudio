@@ -4,35 +4,35 @@ import Button from "../ui/Button";
 
 const AboutSection = () => {
   return (
-    <section className="w-full bg-[#000000] py-16 sm:py-24 lg:py-32 relative overflow-hidden ">
+    <section className="w-full bg-[#000000] py-16 sm:py-24 md:py-20 lg:pt-46 xl:py-24 relative overflow-hidden">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-16">
         
-        <div className="grid grid-cols-12 gap-y-6 md:gap-y-0 md:gap-x-8 items-start">
+        {/* Responsive Flex layout for mobile, swapping to strict CSS Grid on desktop */}
+        <div className="flex flex-col md:grid md:grid-cols-12 gap-y-6 md:gap-x-8 lg:gap-x-12 items-start">
           
-          {/* Left Column */}
-          <div className="col-span-12 md:col-span-4 flex items-center md:items-start gap-2 md:pt-3">
-            
-
-            <h3 className="text-white text-xs sm:text-sm font-bold
-             uppercase tracking-[0.2em] whitespace-nowrap">
-              (Who are we?) 
+          {/* Left Column: Label Badge */}
+          <div className="col-span-12 md:col-span-4 flex items-center md:items-start md:pt-2 lg:pt-4">
+            <h3 className="text-neutral-400 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] whitespace-nowrap">
+              (Who are we?)
             </h3>
           </div>
 
-          {/* Right Column */}
-          <div className="col-span-12 md:col-span-8 flex flex-col items-start gap-8 sm:gap-10 lg:gap-12">
+          {/* Right Column: Statement Manifesto & CTA */}
+          <div className="col-span-12 md:col-span-8 flex flex-col items-start gap-8 sm:gap-10 lg:gap-14 w-full">
             
-            <h1 className="text-white text-2xl sm:text-4xl lg:text-4xl font-old-school leading-[1.15] md:leading-[1.1] tracking-tight">
-          An independent web development and creative studio built by developers and designers who care about craft, move fast, and deliver work that actually performs.
+            <h1 className="text-white text-xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-old-school leading-snug md:leading-[1.1] lg:leading-[1.12] tracking-tight max-w-5xl">
+              An independent web development and creative studio built by developers and designers who care about craft, move fast, and deliver work that actually performs.
             </h1>
 
-            {/* CTA */}
-            <Button
-              text="About Konvoy"
-              variant="primary"
-              aria-label="Learn more about Konvoy Studio"
-              href="/about"
-            />
+            {/* CTA Trigger */}
+            <div className="pt-2">
+              <Button
+                text="About Konvoy"
+                variant="primary"
+                aria-label="Learn more about Konvoy Studio"
+                href="/about"
+              />
+            </div>
 
           </div>
         </div>

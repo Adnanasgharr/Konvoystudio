@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Button from "../ui/Button";
 import BookCallButton from "../ui/BookCallButton";
 
 const DEFAULT_FAQS = [
@@ -43,17 +42,21 @@ const DEFAULT_FAQS = [
   },
 ];
 
-const FaqSection = ({ faqs }) => {
+export function FaqSection({ faqs }) {
   const faqData = faqs && faqs.length > 0 ? faqs : DEFAULT_FAQS;
   const [openId, setOpenId] = useState(null);
+  
+  // Isolate scoping container for GSAP
+  const containerRef = useRef(null);
 
   const toggleAccordion = (id) => {
     setOpenId(openId === id ? null : id);
   };
 
+  // Safe isolated scoping framework block execution
   useGSAP(() => {
     faqData.forEach((item) => {
-      const contentEl = document.getElementById(`faq-content-${item.id}`);
+      const contentEl = containerRef.current?.querySelector(`[data-faq-content="${item.id}"]`);
       if (!contentEl) return;
 
       if (openId === item.id) {
@@ -62,70 +65,79 @@ const FaqSection = ({ faqs }) => {
         gsap.to(contentEl, { height: 0, opacity: 0, duration: 0.35, ease: "power3.inOut" });
       }
     });
-  }, [openId, faqData]);
+  }, { dependencies: [openId, faqData], scope: containerRef });
 
   return (
-    <section className="w-full bg-[#F1F1F1] text-white px-4 sm:px-8 md:px-10 lg:px-16 py-16 md:py-32 font-sans">
+    <section 
+      ref={containerRef}
+      className="w-full bg-[#F1F1F1] text-black px-4 sm:px-8 md:px-10 lg:px-16 py-12 md:py-32 font-sans"
+      aria-labelledby="faq-section-title"
+    >
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_2fr] gap-6 md:gap-16">
 
-        {/* LEFT SIDEBAR */}
+        {/* LEFT SIDEBAR CONTAINER */}
         <div className="flex flex-col justify-between md:h-full md:sticky md:top-32 order-1 md:order-none">
           <div>
-            <h1
-              className="font-abc-arizona text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9]"
+            <h2
+              id="faq-section-title"
+              className="font-abc-arizona text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] md:leading-[0.9] select-none"
               style={{ mixBlendMode: "difference" }}
             >
-              FAQs?
-            </h1>
+              FAQs
+            </h2>
           </div>
 
-          <div className="flex flex-col items-start gap-5 max-w-xs mt-auto">
-            <div className="w-34 h-34 rounded-xl overflow-hidden">
+          <div className="flex flex-col items-start gap-5 max-w-xs mt-8 md:mt-auto">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-neutral-200">
               <img
                 src="/typing.gif"
-                alt="Studio Representative"
+                alt="Konvoy Studio Creative Representative animation"
                 className="w-full h-full object-cover grayscale brightness-95"
+                loading="lazy"
               />
             </div>
-            <h4 className="text-xl text-neutral-800 tracking-tight font-old-school">
+            <h3 className="text-lg md:text-xl text-neutral-800 tracking-tight font-old-school leading-[1.2]">
               Got more questions?<br />
               Chat with our team.
-            </h4>
+            </h3>
          
-       
-             <BookCallButton
-                    
-                      text="Book a call with us"
-                      ariaLabel="Schedule a discovery call with our consulting team"
-                    />
+            <BookCallButton 
+              text="Book a call with us"
+              ariaLabel="Schedule a strategic product definition call with our consulting team"
+            />
           </div>
         </div>
 
-        {/* RIGHT ACCORDIONS */}
+        {/* RIGHT ACCORDIONS LIST */}
         <div className="flex flex-col order-none md:order-none">
-          <h2 className="text-3xl sm:text-4xl md:text-[3.2rem] tracking-tight leading-[1.15] md:leading-[1] text-black mb-10 md:mb-16 max-w-xl font-old-school">
+          <p className="text-3xl sm:text-4xl md:text-[3.2rem] tracking-tight leading-[1.15] md:leading-[1] text-black mb-10 md:mb-16 max-w-xl font-old-school ">
             Questions we get asked the most.
-          </h2>
+          </p>
 
-          <div className="flex flex-col border-t border-neutral-800/40">
+          <div className="flex flex-col border-t border-black/20">
             {faqData.map((item) => {
               const isOpen = openId === item.id;
               return (
-                <div key={item.id} className="w-full border-b border-neutral-800/40">
+                <div key={item.id} className="w-full border-b border-black/20">
                   <button
                     onClick={() => toggleAccordion(item.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${item.id}`}
+                    id={`faq-trigger-${item.id}`}
                     className={`w-full flex items-center justify-between text-left py-5 md:py-6 px-3 md:px-5 rounded-xl group cursor-pointer transition-all duration-400 ease-out hover:bg-black ${
                       isOpen ? "bg-black" : ""
                     }`}
                   >
                     <span
-                      className={`text-base sm:text-lg md:text-[1.15rem] tracking-tight font-old-school transition-colors duration-400 pr-4 ${
+                      className={`text-base sm:text-lg md:text-[1.15rem] tracking-tight font-old-school transition-colors duration-400 pr-4  ${
                         isOpen ? "text-white" : "text-black group-hover:text-white"
                       }`}
                     >
                       {item.question}
                     </span>
-                    <div className="relative w-5 h-5 flex items-center justify-center shrink-0">
+                    
+                    {/* SVG Accordion Status Icon Toggle */}
+                    <div className="relative w-5 h-5 flex items-center justify-center shrink-0" aria-hidden="true">
                       <span
                         className={`absolute w-3.5 h-[1.5px] transition-transform duration-300 ${
                           isOpen ? "bg-white rotate-0" : "bg-black group-hover:bg-white"
@@ -139,10 +151,18 @@ const FaqSection = ({ faqs }) => {
                     </div>
                   </button>
 
-                  <div id={`faq-content-${item.id}`} className="h-0 opacity-0 overflow-hidden">
-                    <div className="px-3 md:px-5 pb-6 pt-2 text-sm sm:text-base font-old-school leading-relaxed max-w-2xl text-neutral-700">
-                      {item.answer}
-                    </div>
+                  {/* Accessibility Linked Content Wrapper Area */}
+                  <div 
+                    id={`faq-panel-${item.id}`}
+                    data-faq-content={item.id}
+                    role="region"
+                    aria-labelledby={`faq-trigger-${item.id}`}
+                    className="h-0 opacity-0 overflow-hidden transition-colors duration-400"
+                    
+                  >
+                    <div className="px-3 md:px-5 pb-6 pt-2 text-sm sm:text-base font-old-school leading-relaxed max-w-2xl text-neutral-500">
+  {item.answer}
+</div>
                   </div>
                 </div>
               );
@@ -153,6 +173,6 @@ const FaqSection = ({ faqs }) => {
       </div>
     </section>
   );
-};
+}
 
 export default FaqSection;

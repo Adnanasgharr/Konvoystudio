@@ -169,13 +169,13 @@ const Page = () => {
           className="relative min-h-svh md:h-screen w-full flex flex-col justify-between bg-black px-6 md:px-10 pt-12 pb-6 md:py-0 overflow-hidden"
         >
           {/* Main Content Container (Centered alignment via standard layout flow) */}
-          <div className="w-full z-10 my-auto md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr]">
+          <div className="w-full z-10 my-auto md:grid md:h-2/3 md:grid-cols-[4fr_2fr_2fr] lg:md:grid-cols-[4fr_2fr]">
             <div className="w-full">
               {/* Unified Semantic H1 Element */}
               <h1 className="text-white font-old-school tracking-tight leading-[1] md:leading-tight">
                 {/* Desktop Layout presentation view */}
-                <span className="hidden md:block text-6xl pb-4">
-                  Make Your Presence Standout Online
+                <span className="hidden md:block text-6xl lg:text-8xl xl:text-[clamp(4.5rem,6.1vw,8rem)] 2xl:text-9xl  pb-4">
+                  Make Your Presence <br/> Standout Online
                 </span>
 
                 {/* Mobile Screen presentation view */}
@@ -229,7 +229,7 @@ const Page = () => {
               </h1>
 
               {/* Keyword-Rich Semantic Summary Paragraph */}
-              <p className="text-lg md:text-xl leading-tight font-old-school text-neutral-400 py-8 md:py-0 md:pb-4 max-w-xl md:max-w-none">
+              <p className="text-lg md:text-xl 2xl:text-3xl leading-tight font-old-school text-neutral-400 py-8 md:py-0 md:pb-4 max-w-xl md:max-w-xl 2xl:max-w-3xl">
                 Konvoy Studio delivers custom websites, creative graphic design,
                 and high-quality video editing services for startups,
                 businesses, and personal brands.
@@ -239,6 +239,7 @@ const Page = () => {
               <div className="flex gap-4">
                 <BookCallButton aria-label="Book a strategic discovery consultation call" />
                 <Button
+                  href="/work"
                   text="Our Work"
                   variant="secondary"
                   aria-label="Browse portfolio and case studies"
@@ -320,8 +321,8 @@ const Page = () => {
           {/* DESKTOP ZOOMING EXPANSION REVEAL RECTANGLE */}
           <div
             ref={videoWrapperRef}
-            className="hidden md:block md:fixed md:right-10 z-40"
-            style={{ width: "220px", height: "146px", top: "16.66vh" }}
+            className="hidden md:block md:fixed md:right-10 z-40 md:w-[220px] md:h-[146px]  lg:w-[320px] xl:h-[213px]"
+            style={{ top: "16.66vh" }}
           >
             <div
               ref={videoInnerRef}

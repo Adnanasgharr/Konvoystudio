@@ -10,14 +10,14 @@ if (typeof window !== "undefined") {
 const metricData = [
   {
     id: 1,
-    label: "Clients",
+    label: "Clients worldwide",
     value: 250,
     suffix: "+",
     description: "With over a decade of experience, our studio is an energetic, fresh and vibrant team offering creative talent and industry knowledge.",
   },
   {
     id: 2,
-    label: "Referrals",
+    label: "Referrals rate",
     value: 55,
     suffix: "%",
     description: "Over 55% of our projects are referrals from clients already with us. Our clients love to spread the love far and wide.",
@@ -66,7 +66,7 @@ export default function AboutValues() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 90%", // Trigger slightly earlier for better mobile viewing flow
+            start: "top 92%", // Trigger slightly lower for mobile screens
             toggleActions: "play none none none",
           },
           onUpdate: () => {
@@ -82,40 +82,41 @@ export default function AboutValues() {
   return (
     <section 
       ref={sectionRef}
-      className="w-full bg-[#0F1011] text-[#FDFCF7] py-20 sm:py-24 lg:py-32 relative z-10 select-none"
+      className="w-full bg-[#0F1011] text-[#FDFCF7] py-16 sm:py-24 lg:py-32 relative z-10"
+      aria-label="Studio Performance Metrics"
     >
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-8 md:px-12 lg:px-16 w-full">
         
-        {/* Core Layout Split — Optimized from 1 column up to a clean 4 column row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-12 gap-y-12 sm:gap-y-16 items-start">
+        {/* 💻 Responsive grid hierarchy from 1 column up to a 4 column horizontal grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 md:gap-x-10 lg:gap-x-12 xl:gap-x-16 gap-y-12 sm:gap-y-16 items-start w-full">
           {metricData.map((item) => (
-            <div key={item.id} className="w-full flex flex-col">
+            <article key={item.id} className="w-full flex flex-col">
               
-              {/* Metric Label Header */}
-              <span className="block font-sans text-sm sm:text-base md:text-lg uppercase tracking-tight text-[#FDFCF7]/90 mb-3 sm:mb-4">
+              {/* Metric Label Header — Validated semantic markup */}
+              <h2 className="block font-sans text-sm sm:text-base md:text-lg uppercase tracking-tight text-[#FDFCF7]/90 mb-3 sm:mb-4">
                 {item.label}
-              </span>
+              </h2>
               
               {/* Divider line */}
               <div className="w-full h-[1px] bg-[#E4E2D9]/10 mb-6 sm:mb-8" />
               
               {/* Massive Metric Display Typography */}
-              <h3 className="text-4xl sm:text-6xl md:text-[7vw] lg:text-[5.5vw] font-old-school tracking-tight leading-none mb-4 sm:mb-6 text-[#FDFCF7]">
+              <p className="text-4xl sm:text-6xl md:text-[7vw] lg:text-[5.5vw] font-old-school tracking-tight leading-none mb-4 sm:mb-6 text-[#FDFCF7]">
                 <span 
                   ref={addToRefs} 
                   data-target={item.value}
                 >
                   0
                 </span>
-                <span >{item.suffix}</span>
-              </h3>
+                <span>{item.suffix}</span>
+              </p>
               
               {/* Informational description copy */}
               <p className="text-xs sm:text-sm md:text-base font-old-school leading-relaxed text-neutral-400 max-w-full">
                 {item.description}
               </p>
               
-            </div>
+            </article>
           ))}
         </div>
 
