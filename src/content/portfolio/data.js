@@ -7,7 +7,7 @@ export const studioProjects = [
     title: "Building a seamless coffee shop experience for a multi-location restaurant brand",
     tags: ["Website", "Next.js"], 
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-bar.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-bar.webp", 
     featured: true,
     projectUrl: "https://caravanandco.com/"
   },
@@ -29,7 +29,7 @@ export const studioProjects = [
     title: "A corporate website built to match the scale of national construction projects",
     tags: ["Website", "Next.js"], 
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-construction.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-construction.webp", 
     projectUrl: "https://www.mccarthy.com/"
   },
   {
@@ -50,7 +50,7 @@ export const studioProjects = [
     title: "A booking-ready website for one of NYC's top-rated hair salons",
     tags: ["Website", "WordPress"],
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-salon-2.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-salon-2.webp", 
     featured: true,
     projectUrl: "https://shearblissnyc.com/" 
   },
@@ -76,7 +76,7 @@ export const studioProjects = [
     title: "Bringing community-first fitness culture to the web",
     tags: ["Website", "Next.js"],
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-gym-2.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-gym-2.webp", 
     projectUrl: "https://heatbootcamp.com/" 
   },
   {
@@ -86,7 +86,7 @@ export const studioProjects = [
     title: "A booking experience built to match the calm of the spa itself",
     tags: ["Website", "WordPress"],
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-spa.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-spa.webp", 
     projectUrl: "https://handandstone.com/" 
   },
   {
@@ -96,7 +96,7 @@ export const studioProjects = [
     title: "Building a beauty experience as polished as the blowouts themselves",
     tags: ["Website", "WordPress"],
     serviceSlug: "websites",
-    image: "/images/projects/konvoy-studio-project-salon.webp", 
+    image: "/images/projects/websites/konvoy-studio-project-salon.webp", 
     projectUrl: "https://blomedry.com/" 
   }
 ];
