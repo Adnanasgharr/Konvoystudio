@@ -155,7 +155,7 @@ export function Footer() {
           <ul className="flex flex-col gap-2 text-sm text-neutral-900 items-start">
             <li>
               <a
-                href="#"
+                href="https://www.instagram.com/konvoystudio"
                 target="_blank"
                 rel="noreferrer"
                 className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
