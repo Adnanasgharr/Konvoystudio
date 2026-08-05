@@ -232,17 +232,10 @@ export function Testimonials() {
                         ? "opacity-100 z-10 pointer-events-auto translate-y-0 filter blur-0" 
                         : "opacity-0 z-0 pointer-events-none translate-y-6 filter blur-sm absolute"
                     }`}
-                    itemScope
-                    itemType="https://schema.org/Review"
                   >
-                    <meta itemProp="itemReviewed" content="Organization" />
-                    <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                      <meta itemProp="ratingValue" content="5" />
-                    </div>
-
                     <div className="flex flex-col w-full pb-4">
                       <blockquote className="mb-3 sm:mb-5 md:mb-6">
-                        <p itemProp="reviewBody" className="text-[1.4rem] sm:text-lg md:text-xl lg:text-4xl font-old-school text-white leading-tight">
+                        <p className="text-[1.4rem] sm:text-lg md:text-xl lg:text-4xl font-old-school text-white leading-tight">
                           <svg 
                             className="inline-block w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8  fill-current mr-2 sm:mr-4 lg:mr-10 -translate-y-[2px] sm:-translate-y-[3px] md:-translate-y-[10px]" 
                             xmlns="http://www.w3.org/2000/svg" 
@@ -255,8 +248,8 @@ export function Testimonials() {
                         </p>
                       </blockquote>
 
-                      <div itemProp="author" itemScope itemType="https://schema.org/Person" className="mt-1 sm:mt-3 flex flex-col">
-                        <h3 itemProp="name" className="text-xs sm:text-sm md:text-base font-bold leading-none mb-1">
+                      <div className="mt-1 sm:mt-3 flex flex-col">
+                        <h3 className="text-xs sm:text-sm md:text-base font-bold leading-none mb-1">
                           {item.name}
                         </h3>
                         <p className="text-[11px] sm:text-xs md:text-sm text-neutral-400 font-medium">
