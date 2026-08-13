@@ -37,8 +37,8 @@ const DEFAULT_FAQS = [
   },
   {
     id: "07",
-    question: "Do you work with clients outside Pakistan?",
-    answer: "Yes. We work with clients remotely across the world. Time zone and location have never been a blocker.",
+    question: "Do you work with clients internationally?",
+    answer: "Absolutely. We work with clients around the world, delivering projects remotely without geographical limitations.",
   },
 ];
 

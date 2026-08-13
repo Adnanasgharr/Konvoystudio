@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import BookCallButton from "../ui/BookCallButton";
-
+navigation
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -30,10 +30,10 @@ const SERVICE_DATA = {
   video: {
     title: "Video Production",
     links: [
-      { title: "Corporate Video Production", slug: "corporate-video-production", desc: "High-fidelity brand journalism, corporate keynotes, and structural culture profiles.", img: "/assets/services/corporate-video.jpg" },
-      { title: "Event Video Production", slug: "event-video-production", desc: "Multi-camera high-profile event coverage paired with rapid post-production workflows.", img: "/assets/services/event-video.jpg" },
-      { title: "Promotional Videos", slug: "promotional-videos", desc: "High-impact visual advertising engineered to capture market attention on digital campaigns.", img: "/assets/services/promo-videos.jpg" },
-      { title: "Post-Production Editing", slug: "post-production-editing", desc: "Precision digital color grading, directional sound design, and premium motion graphics workflows.", img: "/assets/services/post-production.jpg" },
+      { title: "Social Media Videos", slug: "social-media-videos", desc: "Short-form videos built to stop the scroll and grow your brand on social.", img: "/images/services/social-media-videos.gif" },
+      { title: "Promotional Ads", slug: "promotional-ads", desc: "High-impact visual advertising engineered to capture market attention on digital campaigns.", img: "/images/services/promotional-ads.gif" },
+      { title: "AI Filmmaking", slug: "ai-filmmaking", desc: "AI-assisted production workflows built to accelerate video output without cutting quality.", img: "/images/services/ai-filmmaking.gif" },
+      { title: "Post-Production Editing", slug: "post-production-editing", desc: "Precision digital color grading, directional sound design, and premium motion graphics workflows.", img: "/images/services/post-production.gif" },
     ],
   },
   brand: {
@@ -112,8 +112,8 @@ const Navbar = () => {
     const ctx = gsap.context(() => {
       if (isMobileMenuOpen) {
         document.body.style.overflow = "hidden";
-        gsap.to(burgerLine1Ref.current, { y: 2, rotate: 45, duration: 0.35, ease: "power4.out" });
-        gsap.to(burgerLine2Ref.current, { y: -2, rotate: -45, duration: 0.35, ease: "power4.out" });
+        gsap.to(burgerLine1Ref.current, { y: 2.75, rotate: 45, duration: 0.35, ease: "power4.out" });
+        gsap.to(burgerLine2Ref.current, { y: -2.75, rotate: -45, duration: 0.35, ease: "power4.out" });
 
         gsap.timeline()
           .to(mobileMenuRef.current, { pointerEvents: "auto", duration: 0 })
@@ -320,7 +320,7 @@ const Navbar = () => {
           style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)", willChange: "clip-path" }}
         >
           <div className="flex flex-col w-full max-w-lg mx-auto">
-            <span className="text-[11px] font-mono tracking-widest text-neutral-600 uppercase mb-4 block">Navigation Menu</span>
+           
             <div className="flex flex-col w-full">
               <div className="mobile-link-container border-b border-neutral-800/60 overflow-hidden w-full">
                 <a href="/services" className="flex items-center justify-between w-full py-5 text-left text-[11vw] xs:text-4xl tracking-tight text-neutral-400 hover:text-white transition-colors duration-300 relative group">
@@ -336,8 +336,8 @@ const Navbar = () => {
               {[
                 { label: "Our Work", href: "/work", number: "02" },
                 { label: "About Studio", href: "/about", number: "03" },
-                { label: "Insights", href: "/blog", number: "04" },
-                { label: "Get in Touch", href: "/contact", number: "05" },
+                { label: "Blog", href: "/blog", number: "04" },
+                { label: "Contact", href: "/contact", number: "05" },
               ].map((item, idx) => (
                 <div key={idx} className="mobile-link-container border-b border-neutral-800/60 overflow-hidden w-full">
                   <a href={item.href} className="flex items-center justify-between w-full py-5 text-left text-[11vw] xs:text-4xl tracking-tight text-neutral-400 hover:text-white transition-colors duration-300 relative group">
@@ -357,12 +357,16 @@ const Navbar = () => {
           <div className="mobile-menu-footer w-full max-w-lg mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-neutral-900 opacity-0 will-change-transform">
             <div className="flex flex-col gap-1.5">
               <span className="text-[10px] font-mono uppercase text-neutral-600 tracking-wider">Project Inquiry</span>
-              <a href="mailto:hello@konvoy.studio" className="text-sm font-medium text-neutral-300 hover:text-[#c8f135] transition-colors">hello@konvoy.studio</a>
+              <a href="mailto:hello@konvoy.studio" className="text-sm font-medium text-neutral-300 hover:text-[#c8f135] transition-colors">hello@konvoystudio.com</a>
             </div>
             <div className="block xs:hidden w-full"><BookCallButton /></div>
             <div className="flex gap-4 items-center">
-              {["TW", "IG", "LN"].map((social) => (
-                <a key={social} href="#" className="w-8 h-8 rounded-full border border-neutral-800 flex items-center justify-center text-xs text-neutral-500 hover:border-neutral-600 hover:text-white transition-all duration-300">{social}</a>
+              {[
+                { label: "IG", href: "https://www.instagram.com/konvoystudio" },
+                { label: "X", href: "#" }, // TODO: replace with actual X/Twitter profile URL
+                { label: "FB", href: "#" }, // TODO: replace with actual Facebook page URL
+              ].map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full border border-neutral-800 flex items-center justify-center text-xs text-neutral-500 hover:border-neutral-600 hover:text-white transition-all duration-300">{social.label}</a>
               ))}
             </div>
           </div>
@@ -373,4 +377,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

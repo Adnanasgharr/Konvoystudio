@@ -98,6 +98,16 @@ export const studioProjects = [
     serviceSlug: "websites",
     image: "/images/projects/websites/konvoy-studio-project-salon.webp", 
     projectUrl: "https://blomedry.com/" 
+  },
+  {
+    id: "10",
+    year: "2026",
+    client: "La Malavita",
+    title: "Building a beauty experience as polished as the blowouts themselves",
+    tags: ["Website", "WordPress"],
+    serviceSlug: "websites",
+    image: "/images/projects/websites/konvoy-studio-project-salon.webp", 
+    projectUrl: "https://blomedry.com/" 
   }
 ];
 

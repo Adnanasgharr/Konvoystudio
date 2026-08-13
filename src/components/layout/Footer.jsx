@@ -164,9 +164,21 @@ export function Footer() {
                 <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
               </a>
             </li>
-            <li>
+              <li>
               <a
-                href="#"
+                href="https://www.facebook.com/konvoystudio"
+                target="_blank"
+                rel="noreferrer"
+                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
+              >
+                <span>Facebook</span>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
+              </a>
+            </li>
+            <li>
+            
+               <a
+                href="https://www.linkedin.com/in/konvoy-studio"
                 target="_blank"
                 rel="noreferrer"
                 className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
@@ -186,17 +198,7 @@ export function Footer() {
                 <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
               </a>
             </li>
-            <li>
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                className="relative inline-flex items-center py-0.5 group cursor-pointer text-neutral-700 hover:text-neutral-950 transition-colors duration-300"
-              >
-                <span>Dribbble</span>
-                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#c8f135] scale-x-0 origin-right transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:origin-left" />
-              </a>
-            </li>
+          
           </ul>
         </div>
 
@@ -208,7 +210,7 @@ export function Footer() {
           <p className="text-sm text-neutral-900 leading-relaxed font-old-school">
             Digital Agency <br />
             Operating Globally <br />
-            <span className="text-neutral-600">Based in PK</span>
+            
           </p>
         </div>
 

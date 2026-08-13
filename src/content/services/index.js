@@ -81,6 +81,7 @@ export const servicesData = {
     category: "WordPress Development",
     description: "Bespoke corporate infrastructures built for absolute design fidelity.",
     heroImage: "/images/services/konvoy studio wordpress website development.webp",
+    heroType: "longshot",
     heroHeading: "An Engineering Studio for Custom WordPress Architectures.",
     heroParagraphs: [
       "We build clean, block-based custom WordPress frameworks designed to deliver high-end visual fidelity without the bloat of third-party builders.",
@@ -118,6 +119,7 @@ export const servicesData = {
     category: "E-Commerce Development",
     description: "High-converting online stores built to sell, scale, and retain customers.",
     heroImage: "/images/services/ecommerce-websites-development.webp",
+    heroType: "longshot",
     heroHeading: "A Commerce Studio for Online Stores Built to Sell.",
     heroParagraphs: [
       "We build custom e-commerce websites engineered for conversions, speed, and seamless buying experiences — no bloated themes, no cookie-cutter storefronts.",
@@ -155,6 +157,7 @@ export const servicesData = {
     category: "Landing Pages",
     description: "High-converting landing pages built to capture leads and drive action.",
     heroImage: "/images/services/landing-page-design.webp",
+    heroType: "longshot",
     heroHeading: "A Conversion Studio for Landing Pages That Turn Clicks into Customers.",
     heroParagraphs: [
       "We build focused, high-performance landing pages engineered around a single goal: getting your visitor to take action — whether that's booking a call, signing up, or making a purchase.",
@@ -192,6 +195,7 @@ export const servicesData = {
     category: "Website Redesign",
     description: "Transforming outdated websites into high-performing digital assets.",
     heroImage: "/images/services/website-redesign-services.webp",
+    heroType: "longshot",
     heroHeading: "A Redesign Studio for Websites That Need to Catch Up With Your Business.",
     heroParagraphs: [
       "We take underperforming, outdated websites and rebuild them from the ground up — better design, faster performance, and a structure that actually supports your business goals.",
@@ -417,7 +421,7 @@ export const servicesData = {
     title: "Logo & Branding",
     category: "Brand Design",
     description: "Logos, brand identities, and guidelines built to position your business properly.",
-    heroImage: "/images/services/logo-and-branding.webp",
+    heroImage: "/images/services/konvoy-studio-logo-branding.gif",
     heroHeading: "A Brand Studio for Visual Identities That Mean Something.",
     heroParagraphs: [
       "We design logos, build brand identities, and create the guidelines your team needs to stay consistent — from color palette and typography to stationery and business cards.",
@@ -454,7 +458,7 @@ export const servicesData = {
     title: "Marketing Materials",
     category: "Brand Design",
     description: "Print and digital marketing assets designed to represent your brand properly.",
-    heroImage: "/images/services/marketing-materials.webp",
+    heroImage: "/images/services/konvoy-studio-marketing-materials.gif",
     heroHeading: "A Design Studio for Marketing Materials That Get Noticed.",
     heroParagraphs: [
       "We design flyers, brochures, posters, banners, and print materials that look like they belong to a serious business — not something pulled from a free template site.",
@@ -491,7 +495,7 @@ export const servicesData = {
     title: "Social Media Graphics",
     category: "Brand Design",
     description: "Scroll-stopping social graphics designed to keep your brand consistent online.",
-    heroImage: "/images/services/social-media-graphics.webp",
+    heroImage: "/images/services/konvoy-studio-social-media-graphics.mp4",
     heroHeading: "A Design Studio for Social Graphics That Look Like a Real Brand.",
     heroParagraphs: [
       "We design social media posts, ads, story templates, thumbnails, and profile graphics that look consistent, on-brand, and built for the platform they're running on.",

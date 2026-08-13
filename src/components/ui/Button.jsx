@@ -9,7 +9,8 @@ const Button = ({
   onClick,
   target,
   variant = "primary", // Accepts 'primary' or 'secondary'
-  className = "" 
+  className = "",
+  ...rest // Forwards aria-label and any other native attributes to the rendered element
 }) => {
   const containerRef = useRef(null);
   const circleRef = useRef(null);
@@ -139,6 +140,7 @@ const Button = ({
         onMouseLeave={handleMouseLeave}
         target={target}
         className={sharedStyles}
+        {...rest}
       >
         {renderInnerContent()}
       </Link>
@@ -153,6 +155,7 @@ const Button = ({
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       className={sharedStyles}
+      {...rest}
     >
       {renderInnerContent()}
     </button>

@@ -162,8 +162,11 @@ const Page = () => {
         }
       `}</style>
 
-      {/* Semantic Main Container Header Wrapper for SEO Crawlers */}
-      <header>
+      {/* Hero section. NOTE: intentionally a <section>, not <header> —
+          Navbar already renders the page's single <header>/banner landmark.
+          A second top-level <header> here would create a duplicate "banner"
+          landmark, which is invalid for screen reader navigation. */}
+      <section aria-label="Hero">
         <div
           ref={heroRef}
           className="relative min-h-svh md:h-screen w-full flex flex-col justify-between bg-black px-6 md:px-10 pt-12 pb-6 md:py-0 overflow-hidden"
@@ -200,6 +203,14 @@ const Page = () => {
                       <span
                         ref={videoContainerMobileRef}
                         onClick={toggleMute}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            toggleMute();
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
                         style={mobileMaskStyles}
                         data-cursor="video"
                         data-video-muted={isMuted.toString()}
@@ -237,7 +248,7 @@ const Page = () => {
 
               {/* Action Link Blocks */}
               <div className="flex gap-4">
-                <BookCallButton aria-label="Book a strategic discovery consultation call" />
+                <BookCallButton ariaLabel="Book a strategic discovery consultation call" />
                 <Button
                   href="/work"
                   text="Our Work"
@@ -327,6 +338,14 @@ const Page = () => {
             <div
               ref={videoInnerRef}
               onClick={toggleMute}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleMute();
+                }
+              }}
+              role="button"
+              tabIndex={0}
               data-cursor="video"
               data-video-muted={isMuted.toString()}
               className="h-full w-full overflow-hidden rounded-2xl cursor-none"
@@ -345,7 +364,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* GSAP TRIGGER TRACK SPACER BLOCK */}
       <div
